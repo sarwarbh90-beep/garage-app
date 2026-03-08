@@ -416,21 +416,20 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto | Service & Oil Search</title>
+    <title>Black Gold Auto | Oil Search</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .gold-border { border: 2px solid #d4af37; box-shadow: 0 0 20px rgba(212,175,55,0.3); }
         .glass-card { background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.2); }
         .gold-text { color: #d4af37; }
-        .search-btn { background: linear-gradient(135deg, #1a1a1a, #000); border: 1px solid #d4af37; border-left: 5px solid #d4af37; transition: 0.3s; }
-        .search-btn:active { transform: scale(0.98); }
+        .oil-link-btn { background: linear-gradient(135deg, #111, #000); border: 1.5px solid #d4af37; transition: 0.3s; }
+        .oil-link-btn:active { transform: scale(0.96); border-color: #fff; }
     </style>
 </head>
 <body class="bg-[#050505] text-white font-sans selection:bg-[#d4af37] pb-10">
@@ -439,102 +438,52 @@
         
         <div class="w-full flex justify-center mt-2 text-center">
             <div class="space-y-3">
-                <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" alt="Black Gold Logo" class="w-full h-auto rounded-[2.5rem] gold-border max-w-[320px] mx-auto">
+                <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" alt="Black Gold Logo" class="w-full h-auto rounded-[2.5rem] gold-border max-w-[300px] mx-auto">
                 <h1 class="text-3xl font-black gold-text tracking-tighter uppercase italic leading-none">Black Gold Auto</h1>
                 <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em] font-bold">Salmabad, Bahrain</p>
             </div>
         </div>
 
         <section class="w-full">
-            <a href="https://oilincar.com/_capha.php?/" target="_blank" class="search-btn w-full p-5 rounded-2xl flex items-center justify-between shadow-xl">
+            <a href="https://oilincar.com/_capha.php?/" target="_blank" class="oil-link-btn w-full p-5 rounded-[2rem] flex items-center justify-between shadow-2xl">
                 <div class="flex items-center gap-4">
-                    <i class="fa-solid fa-magnifying-glass-chart gold-text text-2xl"></i>
+                    <div class="bg-[#d4af37] p-3 rounded-full">
+                        <i class="fa-solid fa-magnifying-glass text-black text-xl"></i>
+                    </div>
                     <div class="text-left">
-                        <p class="text-[12px] font-black uppercase text-white tracking-widest leading-tight">Search Oil Capacity</p>
-                        <p class="text-[9px] text-slate-400 font-bold italic uppercase">Check Engine & Gear Oil Specs</p>
+                        <p class="text-[12px] font-black uppercase text-white tracking-[0.1em]">Check Oil Capacity</p>
+                        <p class="text-[9px] text-[#d4af37] font-bold italic uppercase">Official Database Link</p>
                     </div>
                 </div>
-                <i class="fa-solid fa-chevron-right text-[10px] gold-text"></i>
+                <i class="fa-solid fa-circle-arrow-right text-xl gold-text"></i>
             </a>
         </section>
 
-        <section class="glass-card p-6 rounded-[2.5rem] w-full relative overflow-hidden shadow-2xl">
-            <div class="absolute top-0 right-0 bg-red-600 text-white text-[9px] font-black px-4 py-1 rounded-bl-xl uppercase italic">10% OFF OFFER</div>
-            <h3 class="gold-text text-xs font-black mb-6 uppercase tracking-widest italic flex items-center gap-2">
-                <i class="fa-solid fa-screwdriver-wrench text-red-600"></i> Estimate Your Service
+        <section class="glass-card p-6 rounded-[2.5rem] w-full text-left">
+            <h3 class="gold-text text-xs font-black mb-4 uppercase tracking-widest italic flex items-center gap-2">
+                <i class="fa-solid fa-star text-red-600"></i> Best Services
             </h3>
-            
-            <div class="space-y-4">
-                <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-[#d4af37]/20 cursor-pointer hover:border-[#d4af37] transition-all">
-                    <div class="flex items-center gap-4">
-                        <input type="checkbox" value="9.000" class="w-6 h-6 accent-[#d4af37]" onchange="updateBill()" checked>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-oil-can gold-text text-2xl"></i>
-                            <div>
-                                <span class="text-[13px] font-black block leading-tight">Oil 20W-50 + Filter</span>
-                                <span class="text-[9px] text-slate-500 font-bold uppercase">BHD 9.000</span>
-                            </div>
-                        </div>
-                    </div>
-                </label>
-
-                <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 cursor-pointer hover:border-[#d4af37] transition-all">
-                    <div class="flex items-center gap-4">
-                        <input type="checkbox" value="3.500" class="w-6 h-6 accent-[#d4af37]" onchange="updateBill()">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-laptop-code gold-text text-2xl"></i>
-                            <div>
-                                <span class="text-[13px] font-black block leading-tight">Computer Diagnostic</span>
-                                <span class="text-[9px] text-slate-500 font-bold uppercase">BHD 3.500</span>
-                            </div>
-                        </div>
-                    </div>
-                </label>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-[#d4af37]/20 flex justify-between items-end">
-                <div class="text-left">
-                    <p class="text-[10px] text-slate-400 uppercase font-black">Your Savings:</p>
-                    <p id="savings" class="text-xs text-red-500 font-black italic tracking-widest">BHD 0.900</p>
-                </div>
-                <div class="text-right">
-                    <p class="text-[10px] text-white uppercase font-black">Special Price:</p>
-                    <h2 class="text-4xl font-black gold-text leading-none">BHD <span id="bill">8.100</span></h2>
-                </div>
-            </div>
+            <ul class="space-y-3 text-[11px] font-bold text-slate-300">
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check gold-text"></i> Engine & Gear Oil Changes</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check gold-text"></i> Computerized Diagnostic</li>
+                <li class="flex items-center gap-3"><i class="fa-solid fa-check gold-text"></i> 10% Discount for New Customers</li>
+            </ul>
         </section>
 
-        <div class="w-full space-y-3 pt-2">
-            <a id="wa" href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-[2rem] font-black text-center shadow-lg block uppercase text-[11px] tracking-[0.2em] active:scale-95 transition-all">
-                <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> WhatsApp Order
+        <div class="w-full space-y-3">
+            <a href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-[2rem] font-black text-center block uppercase text-[11px] tracking-widest">
+                <i class="fa-brands fa-whatsapp text-2xl mr-2"></i> WhatsApp Booking
             </a>
-            
             <a href="tel:+97333598781" class="w-full border-2 border-[#d4af37] gold-text py-5 rounded-[2rem] font-black text-center block uppercase text-[11px] tracking-widest">
                 <i class="fa-solid fa-phone-flip text-lg mr-2"></i> Call Now
             </a>
         </div>
 
-        <footer class="text-center pt-8 opacity-40">
-            <p class="text-[#d4af37] text-[9px] font-black uppercase tracking-widest">Salmabad Shop 1517A | Road 427</p>
-            <p class="text-white text-[8px] font-bold uppercase mt-1">© 2026 Black Gold Auto Services</p>
+        <footer class="text-center pt-6 opacity-40">
+            <p class="text-[#d4af37] text-[9px] font-black uppercase tracking-widest italic leading-relaxed">Shop 1517A, Road 427, Block 704<br>Salmabad, Bahrain</p>
         </footer>
 
     </main>
-
-    <script>
-        function updateBill() {
-            let sub = 0;
-            const checks = document.querySelectorAll('input[type="checkbox"]:checked');
-            checks.forEach((c) => { sub += parseFloat(c.value); });
-            let discount = sub * 0.10;
-            let final = sub - discount;
-            document.getElementById('savings').innerText = "BHD " + discount.toFixed(3);
-            document.getElementById('bill').innerText = final.toFixed(3);
-            let msg = encodeURIComponent("Hello Sarwar! I want to book a service. My estimate is BHD " + final.toFixed(3));
-            document.getElementById('wa').href = "https://wa.me/97333598781?text=" + msg;
-        }
-        updateBill();
-    </script>
 
 </body>
 </html>
