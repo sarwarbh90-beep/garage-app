@@ -466,6 +466,61 @@
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif;">
+    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase;">🛠️ Service Card Generator</h3>
+    <p style="text-align: center; font-size: 13px; color: #ccc;">Enter details to create a digital service history card.</p>
+
+    <div style="max-width: 400px; margin: 0 auto; display: grid; gap: 10px;">
+        <input type="text" id="custName" placeholder="Customer Name" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="carModel" placeholder="Vehicle Model (e.g. Toyota Hilux)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="serviceType" placeholder="Service Done (e.g. Engine Overhaul)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="currKm" placeholder="Current Mileage (KM)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="nextKm" placeholder="Next Service (KM)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        
+        <button onclick="generateCard()" style="background: #FFD700; color: #000; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px;">Generate Digital Card</button>
+    </div>
+
+    <div id="cardPreview" style="margin-top: 30px; display: none;">
+        <div id="finalCard" style="background: #000; color: #fff; padding: 20px; border: 2px solid #B8860B; border-radius: 15px; max-width: 350px; margin: 0 auto; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
+            <div style="text-align: center; border-bottom: 1px solid #B8860B; padding-bottom: 10px; margin-bottom: 15px;">
+                <h2 style="color: #FFD700; margin: 0; font-size: 20px;">BLACK GOLD AUTO</h2>
+                <p style="font-size: 10px; margin: 0; color: #888;">Salmabad, Bahrain | +973 33598781</p>
+            </div>
+            <p style="font-size: 14px; margin: 5px 0;"><strong>Name:</strong> <span id="pName" style="color:#FFD700"></span></p>
+            <p style="font-size: 14px; margin: 5px 0;"><strong>Car:</strong> <span id="pCar" style="color:#FFD700"></span></p>
+            <p style="font-size: 14px; margin: 5px 0;"><strong>Service:</strong> <span id="pService" style="color:#FFD700"></span></p>
+            <hr style="border: 0.5px solid #333;">
+            <p style="font-size: 14px; margin: 5px 0;"><strong>KM Now:</strong> <span id="pCurrKm"></span></p>
+            <p style="font-size: 16px; margin: 5px 0; color: #FF4444;"><strong>Next Service:</strong> <span id="pNextKm"></span></p>
+            <p style="text-align: center; font-size: 11px; margin-top: 15px; color: #FFD700;">Thank you for your trust! ⭐⭐⭐⭐⭐</p>
+        </div>
+        <p style="text-align: center; font-size: 12px; color: #888; margin-top: 10px;">(Take a screenshot to share with customer)</p>
+    </div>
+</div>
+
+<script>
+function generateCard() {
+    document.getElementById('pName').innerText = document.getElementById('custName').value;
+    document.getElementById('pCar').innerText = document.getElementById('carModel').value;
+    document.getElementById('pService').innerText = document.getElementById('serviceType').value;
+    document.getElementById('pCurrKm').innerText = document.getElementById('currKm').value + " KM";
+    document.getElementById('pNextKm').innerText = document.getElementById('nextKm').value + " KM";
+    
+    document.getElementById('cardPreview').style.display = 'block';
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background: #000; color: #fff; padding: 25px; border: 3px solid #B8860B; border-radius: 20px; max-width: 450px; margin: 30px auto; font-family: 'Arial', sans-serif; box-shadow: 0px 10px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden;">
     
     <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(184, 134, 11, 0.1); border-radius: 50%;"></div>
