@@ -244,3 +244,165 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Gold | Customer Reviews</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gold-border { border: 2px solid #d4af37; box-shadow: 0 0 20px rgba(212,175,55,0.3); }
+        .glass-card { background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(12px); border: 1px solid rgba(212,175,55,0.2); }
+        .gold-text { color: #d4af37; }
+        .review-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.2); color: white; }
+        .review-input:focus { border-color: #d4af37; outline: none; }
+        .star-active { color: #fbbf24; } /* Yellow Star */
+    </style>
+</head>
+<body class="bg-[#050505] text-white font-sans pb-10">
+
+    <main class="min-h-screen flex flex-col items-center p-6 max-w-lg mx-auto space-y-8">
+        
+        <div class="w-full flex justify-center mt-4 text-center">
+            <div class="space-y-2">
+                <h1 class="text-3xl font-black gold-text uppercase italic tracking-tighter">Black Gold Auto</h1>
+                <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em] font-bold">Salmabad, Bahrain</p>
+            </div>
+        </div>
+
+        <section class="glass-card p-6 rounded-[2.5rem] w-full text-left">
+            <h3 class="gold-text text-xs font-black mb-6 uppercase tracking-widest italic flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square text-red-600"></i> Write a Review
+            </h3>
+
+            <div class="space-y-4">
+                <input type="text" id="reviewerName" placeholder="আপনার নাম (Your Name)" class="w-full p-4 rounded-2xl review-input text-[13px] font-bold">
+                
+                <div class="flex gap-2 justify-center py-2 text-xl">
+                    <i class="fa-solid fa-star cursor-pointer star-active" onclick="setRating(1)"></i>
+                    <i class="fa-solid fa-star cursor-pointer star-active" onclick="setRating(2)"></i>
+                    <i class="fa-solid fa-star cursor-pointer star-active" onclick="setRating(3)"></i>
+                    <i class="fa-solid fa-star cursor-pointer star-active" onclick="setRating(4)"></i>
+                    <i class="fa-solid fa-star cursor-pointer star-active" onclick="setRating(5)"></i>
+                </div>
+
+                <textarea id="reviewerText" placeholder="আপনার মতামত লিখুন (How was our service?)" class="w-full p-4 rounded-2xl review-input text-[13px] font-bold h-24"></textarea>
+                
+                <button onclick="submitReview()" class="w-full bg-[#d4af37] text-black font-black py-4 rounded-[1.5rem] uppercase text-xs tracking-widest active:scale-95 transition-all">
+                    Submit Review
+                </button>
+            </div>
+        </section>
+
+        <section class="w-full space-y-4">
+            <h3 class="gold-text text-xs font-black uppercase tracking-widest italic px-2">What Customers Say</h3>
+            
+            <div id="reviewDisplayArea" class="space-y-4">
+                <div class="glass-card p-5 rounded-[2rem] border-l-4 border-[#d4af37] animate-fade-in">
+                    <div class="flex justify-between items-start mb-2">
+                        <p class="gold-text font-black text-xs uppercase">Jasim Uddin</p>
+                        <div class="flex text-[10px] text-yellow-500 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-300 italic font-bold leading-relaxed">"Salmabad-এ সবথেকে ভালো সার্ভিস। ২০ডব্লিউ-৫০ তেলের মান খুব ভালো।"</p>
+                </div>
+
+                <div class="glass-card p-5 rounded-[2rem] border-l-4 border-red-600">
+                    <div class="flex justify-between items-start mb-2">
+                        <p class="gold-text font-black text-xs uppercase">Ali Ahmed</p>
+                        <div class="flex text-[10px] text-yellow-500 gap-1">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-slate-300 italic font-bold leading-relaxed">"Very fast computer diagnostic. Highly recommended for any car repair."</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full space-y-3 pt-4 border-t border-white/10">
+            <a href="https://wa.me/97333598781" class="w-full bg-[#25D366] text-white py-5 rounded-[2rem] font-black text-center block uppercase text-[11px] tracking-widest">
+                <i class="fa-brands fa-whatsapp text-xl mr-2"></i> WhatsApp Booking
+            </a>
+            <a href="tel:+97333598781" class="w-full border-2 border-[#d4af37] gold-text py-5 rounded-[2rem] font-black text-center block uppercase text-[11px] tracking-widest">
+                <i class="fa-solid fa-phone-flip text-lg mr-2"></i> Call: +973 33598781
+            </a>
+        </div>
+
+        <footer class="opacity-40 text-center">
+            <p class="text-[9px] uppercase font-bold text-[#d4af37]">Proprietor: Mohammed Sarwar | Salmabad, Bahrain</p>
+        </footer>
+
+    </main>
+
+    <script>
+        let currentRating = 5;
+
+        function setRating(n) {
+            currentRating = n;
+            const stars = document.querySelectorAll('.fa-star.cursor-pointer');
+            stars.forEach((star, index) => {
+                if (index < n) {
+                    star.classList.add('star-active');
+                    star.classList.remove('fa-regular');
+                    star.classList.add('fa-solid');
+                } else {
+                    star.classList.remove('star-active');
+                    star.classList.remove('fa-solid');
+                    star.classList.add('fa-regular');
+                }
+            });
+        }
+
+        function submitReview() {
+            const name = document.getElementById('reviewerName').value;
+            const text = document.getElementById('reviewerText').value;
+
+            if (name === "" || text === "") {
+                alert("Please enter your name and review.");
+                return;
+            }
+
+            const area = document.getElementById('reviewDisplayArea');
+            let starsHtml = '';
+            for(let i=0; i<5; i++) {
+                starsHtml += i < currentRating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+            }
+
+            const newReview = `
+                <div class="glass-card p-5 rounded-[2rem] border-l-4 border-[#d4af37] border-t border-t-white/20">
+                    <div class="flex justify-between items-start mb-2">
+                        <p class="gold-text font-black text-xs uppercase">${name}</p>
+                        <div class="flex text-[10px] text-yellow-500 gap-1">${starsHtml}</div>
+                    </div>
+                    <p class="text-[11px] text-slate-300 italic font-bold leading-relaxed">"${text}"</p>
+                </div>
+            `;
+
+            area.insertAdjacentHTML('afterbegin', newReview);
+            
+            // Clear inputs
+            document.getElementById('reviewerName').value = "";
+            document.getElementById('reviewerText').value = "";
+            setRating(5);
+            alert("Thank you for your review!");
+        }
+    </script>
+
+</body>
+</html>
