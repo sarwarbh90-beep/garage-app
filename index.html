@@ -14,13 +14,9 @@
         .glass-card { background: rgba(20, 20, 20, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.15); }
         .orbitron { font-family: 'Orbitron', sans-serif; }
         
-        /* Sliding offer style */
-        .slider-container { overflow: hidden; position: relative; width: 100%; height: 50px; background: rgba(212,175,55,0.1); border-radius: 15px; border: 1px dashed #d4af37; }
+        .slider-container { overflow: hidden; position: relative; width: 100%; height: 40px; background: rgba(212,175,55,0.05); border-radius: 12px; border: 1px solid rgba(212,175,55,0.2); }
         .slider-content { display: flex; animation: slide 15s linear infinite; white-space: nowrap; align-items: center; height: 100%; }
-        @keyframes slide {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+        @keyframes slide { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
 <body class="pb-10">
@@ -34,88 +30,78 @@
     <main class="max-w-md mx-auto p-5 space-y-6">
         
         <header class="text-center space-y-4">
-            <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" alt="Logo" class="w-full h-auto rounded-[2.5rem] gold-border max-w-[280px] mx-auto shadow-[0_0_30px_rgba(212,175,55,0.2)]">
+            <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" alt="Logo" class="w-full h-auto rounded-[2.5rem] gold-border max-w-[280px] mx-auto shadow-[0_0_30px_rgba(212,175,55,0.1)]">
             <h1 class="orbitron text-3xl font-black gold-text italic tracking-tighter uppercase">BLACK GOLD</h1>
+            <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em] font-bold">Auto Services • Salmabad</p>
         </header>
 
         <div class="slider-container">
-            <div class="slider-content font-black text-[11px] uppercase tracking-widest italic text-[#d4af37]">
-                ✨ 10% Discount for First-Time Customers ✨ ⏳ Free Consultation & Estimate ✨ ⚙️ 24/7 Emergency Service ✨ 🛠️ Professional Engine & Gear Repair ✨
+            <div class="slider-content font-black text-[10px] uppercase tracking-widest italic text-[#d4af37]">
+                ✨ 10% Discount for First-Time Customers ✨ ⏳ Free Consultation & Estimate ✨ ⚙️ 24/7 Emergency Service ✨
             </div>
         </div>
 
-        <section>
-            <a href="https://oilincar.com/_capha.php?/" target="_blank" class="w-full bg-neutral-900 border-l-4 border-[#d4af37] p-5 rounded-2xl flex items-center justify-between group">
-                <div class="flex items-center gap-4">
-                    <i class="fa-solid fa-magnifying-glass-chart gold-text text-2xl"></i>
-                    <div class="text-left">
-                        <p class="orbitron text-[12px] font-black text-white tracking-widest uppercase italic">Oil Capacity Guide</p>
-                        <p class="text-[9px] text-slate-500 font-bold uppercase mt-1">Official Database Search</p>
+        <section class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden shadow-2xl">
+            <h3 class="gold-text text-xs font-black mb-6 uppercase tracking-widest italic border-b border-[#d4af37]/20 pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-star text-red-600"></i> Our Premium Services
+            </h3>
+            
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 transition-all hover:border-[#d4af37]/40">
+                    <div class="flex items-center gap-4">
+                        <i class="fa-solid fa-oil-can-drip gold-text text-xl"></i>
+                        <span class="text-[13px] font-bold uppercase tracking-wide">Oil 20W-50 + Filter</span>
                     </div>
+                    <span class="gold-text font-black text-[13px] orbitron italic">9.000</span>
                 </div>
-                <i class="fa-solid fa-circle-chevron-right gold-text text-xl"></i>
-            </a>
-        </section>
 
-        <section class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden">
-            <h3 class="gold-text text-xs font-black mb-6 uppercase tracking-widest italic border-b border-[#d4af37]/20 pb-2">Our Premium Services</h3>
-            <div class="space-y-3">
-                <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5">
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 transition-all hover:border-[#d4af37]/40">
                     <div class="flex items-center gap-4">
-                        <input type="checkbox" value="9.000" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()" checked>
-                        <div class="text-[13px] font-bold">Oil 20W-50 + Filter <br><span class="gold-text">BHD 9.000</span></div>
+                        <i class="fa-solid fa-laptop-medical gold-text text-xl"></i>
+                        <span class="text-[13px] font-bold uppercase tracking-wide">Computer Diagnostic</span>
                     </div>
-                </label>
-                <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5">
+                    <span class="gold-text font-black text-[13px] orbitron italic">3.500</span>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 transition-all hover:border-[#d4af37]/40">
                     <div class="flex items-center gap-4">
-                        <input type="checkbox" value="3.500" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()">
-                        <div class="text-[13px] font-bold">Computer Diagnostic <br><span class="gold-text">BHD 3.500</span></div>
+                        <i class="fa-solid fa-circle-notch gold-text text-xl"></i>
+                        <span class="text-[13px] font-bold uppercase tracking-wide">Brake Pad (Front Side)</span>
                     </div>
-                </label>
-                <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5">
-                    <div class="flex items-center gap-4">
-                        <input type="checkbox" value="4.000" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()">
-                        <div class="text-[13px] font-bold">Brake Pad (Front Side) <br><span class="gold-text">BHD 4.000</span></div>
-                    </div>
-                </label>
+                    <span class="gold-text font-black text-[13px] orbitron italic">4.000</span>
+                </div>
             </div>
+
             <div class="mt-8 pt-6 border-t border-[#d4af37]/20 flex justify-between items-end">
-                <div class="text-left"><p class="text-[9px] text-slate-400 font-black uppercase">Savings (10%):</p><p id="savings" class="text-xs text-red-500 font-black italic">BHD 0.900</p></div>
-                <div class="text-right"><p class="text-[10px] text-white font-black uppercase">Total:</p><h2 class="text-4xl font-black gold-text italic">BHD <span id="bill">8.100</span></h2></div>
+                <div class="text-left">
+                    <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Savings (10%):</p>
+                    <p class="text-[12px] text-red-500 font-black italic">BHD 0.900</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-white font-black uppercase tracking-[0.2em]">Package Total:</p>
+                    <h2 class="text-4xl font-black gold-text italic tracking-tighter">BHD 8.100</h2>
+                </div>
             </div>
         </section>
 
         <div class="space-y-3">
-            <a href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-[2.5rem] font-black text-center flex items-center justify-center gap-3 uppercase text-xs tracking-[0.2em] shadow-lg active:scale-95 transition-all">
+            <a href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-[2.5rem] font-black text-center flex items-center justify-center gap-3 uppercase text-[11px] tracking-widest shadow-xl active:scale-95 transition-all">
                 <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp Booking
             </a>
-            <a href="https://maps.app.goo.gl/UKzfkiZKRVASa6Js5?g_st=ic" target="_blank" class="w-full bg-white text-black py-5 rounded-[2.5rem] font-black text-center flex items-center justify-center gap-3 uppercase text-xs tracking-widest active:scale-95 transition-all">
-                <i class="fa-solid fa-location-dot text-red-600 text-xl"></i> Google Maps
+            <a href="https://oilincar.com/_capha.php?/" target="_blank" class="w-full border-2 border-[#d4af37] gold-text py-5 rounded-[2.5rem] font-black text-center flex items-center justify-center gap-3 uppercase text-[11px] tracking-widest active:scale-95 transition-all">
+                <i class="fa-solid fa-magnifying-glass-chart text-xl"></i> Oil Capacity Guide
             </a>
         </div>
 
         <footer class="text-center pt-6 opacity-60">
-            <p class="text-[10px] gold-text font-black uppercase tracking-widest italic leading-relaxed">Shop 1517A, Road 427, Salmabad</p>
-            <p class="orbitron text-[11px] font-black text-white mt-4 tracking-tighter">WWW.BLACKGOLDAUTO.COM.BH</p>
+            <p class="text-[10px] gold-text font-black uppercase tracking-widest italic">Shop 1517A, Road 427, Salmabad</p>
+            <p class="orbitron text-[11px] font-black text-white mt-4">WWW.BLACKGOLDAUTO.COM/BH</p>
         </footer>
 
     </main>
 
-    <script>
-        function updateBill() {
-            let sub = 0;
-            const checks = document.querySelectorAll('input[type="checkbox"]:checked');
-            checks.forEach((c) => { sub += parseFloat(c.value); });
-            let discount = sub * 0.10;
-            let final = sub - discount;
-            document.getElementById('savings').innerText = "BHD " + discount.toFixed(3);
-            document.getElementById('bill').innerText = final.toFixed(3);
-        }
-        updateBill();
-    </script>
 </body>
 </html>
-
 
 
 
