@@ -1,10 +1,109 @@
-<div class="w-full max-w-lg mb-8">
-    <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" 
-         alt="Black Gold Poster" 
-         class="w-full h-auto rounded-[3rem] poster-frame">
-</div>
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Gold Auto Services | Middle Logo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .poster-frame { border: 3px solid #d4af37; box-shadow: 0 0 30px rgba(212,175,55,0.4); }
+        .glass-card { background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.2); }
+        .gold-text { color: #d4af37; }
+    </style>
+</head>
+<body class="bg-black text-white font-sans selection:bg-[#d4af37]">
 
+    <main class="min-h-screen flex flex-col items-center justify-center p-6 max-w-lg mx-auto space-y-8 text-center">
+        
+        <div class="w-full flex justify-center mb-4">
+            <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" 
+                 alt="Black Gold Poster" 
+                 class="w-full h-auto rounded-[2.5rem] poster-frame max-w-[320px]">
+        </div>
 
+        <div class="space-y-2">
+            <h1 class="text-3xl font-black gold-text tracking-tighter uppercase italic leading-none">Black Gold Special</h1>
+            <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em]">Salmabad, Bahrain</p>
+        </div>
+
+        <section class="glass-card p-6 rounded-[2.5rem] shadow-2xl relative overflow-hidden w-full text-left">
+            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase">10% OFF</div>
+            
+            <h3 class="gold-text text-sm font-bold mb-6 flex items-center gap-2 uppercase">
+                <i class="fa-solid fa-calculator text-red-600"></i> Select Service
+            </h3>
+            
+            <div class="space-y-4">
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="9" class="w-6 h-6 accent-[#d4af37]" onchange="calculate()">
+                        <div>
+                            <span class="text-xs font-bold block">Engine Oil & Filter</span>
+                            <span class="text-[9px] text-slate-500">BHD 9.000</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-oil-can text-[#d4af37]"></i>
+                </label>
+
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="3.5" class="w-6 h-6 accent-[#d4af37]" onchange="calculate()">
+                        <div>
+                            <span class="text-xs font-bold block">Computer Diagnostic</span>
+                            <span class="text-[9px] text-slate-500">BHD 3.500</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-laptop-code text-[#d4af37]"></i>
+                </label>
+
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="4" class="w-6 h-6 accent-[#d4af37]" onchange="calculate()">
+                        <div>
+                            <span class="text-xs font-bold block">Brake Pad (Front)</span>
+                            <span class="text-[9px] text-slate-500">BHD 4.000</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-drum-steelpan text-[#d4af37]"></i>
+                </label>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-[#d4af37]/20">
+                <div class="flex justify-between items-end">
+                    <p class="text-[10px] text-white uppercase font-black tracking-widest leading-none">Total Bill:</p>
+                    <h2 class="text-4xl font-black gold-text">BHD <span id="total">0.000</span></h2>
+                </div>
+                <p class="text-[9px] text-red-500 mt-1 uppercase font-bold text-right italic">* 10% discount included</p>
+            </div>
+        </section>
+
+        <a id="wa" href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-2xl font-black text-center shadow-lg active:scale-95 transition-all uppercase text-xs tracking-widest">
+            <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Book Now
+        </a>
+
+        <footer class="pt-6 pb-10 opacity-30">
+            <p class="text-[9px] uppercase tracking-widest font-bold gold-text">Mohammed Sarwar | Salmabad, Bahrain</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function calculate() {
+            let sub = 0;
+            const checks = document.querySelectorAll('input[type="checkbox"]:checked');
+            checks.forEach((c) => { sub += parseFloat(c.value); });
+            
+            let final = sub - (sub * 0.10);
+            document.getElementById('total').innerText = final.toFixed(3);
+
+            let msg = encodeURIComponent("Hello Black Gold! I want to book services. Total Estimate: BHD " + final.toFixed(3));
+            document.getElementById('wa').href = "https://wa.me/97333598781?text=" + msg;
+        }
+    </script>
+
+</body>
+</html>
 
 
 
