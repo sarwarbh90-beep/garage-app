@@ -1090,6 +1090,79 @@ function sendBooking() {
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 20px; border-radius: 20px; margin: 25px 10px; border: 2px solid #B8860B; font-family: 'Segoe UI', sans-serif; box-shadow: 0px 10px 30px rgba(0,0,0,0.5);">
+    
+    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">💰 Service Cost Estimator</h3>
+    <p style="text-align: center; font-size: 13px; color: #ccc; margin-bottom: 25px;">Select a service to see a rough price estimate:</p>
+
+    <div style="max-width: 450px; margin: 0 auto; display: grid; gap: 15px;">
+        
+        <select id="serviceSelect" onchange="calculateCost()" style="padding: 14px; border-radius: 8px; border: 1px solid #333; background: #262626; color: #fff; outline: none; font-size: 15px; cursor: pointer; border-left: 4px solid #B8860B;">
+            <option value="0" disabled selected>Choose a Service...</option>
+            <option value="engine">Engine Overhaul / Repair</option>
+            <option value="gearbox">Gearbox / Transmission Fix</option>
+            <option value="diagnostic">Computer Diagnostic Scan</option>
+            <option value="oil">Full Oil & Filter Change</option>
+            <option value="ac">A/C Gas Refill & Service</option>
+            <option value="brakes">Brake Pad Replacement</option>
+        </select>
+
+        <div id="costResult" style="display: none; background: rgba(184, 134, 11, 0.05); padding: 25px; border-radius: 12px; border: 1px dashed #B8860B; text-align: center; margin-top: 10px; transition: 0.3s;">
+            <span style="font-size: 12px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">Estimated Starting Price:</span><br>
+            <strong id="priceDisplay" style="font-size: 28px; color: #FFD700; display: block; margin: 5px 0;">---</strong>
+            <p style="font-size: 11px; color: #888; line-height: 1.4;">*Final price depends on car model, year, and spare parts choice (Original/Aftermarket).</p>
+        </div>
+
+        <button onclick="getFinalQuote()" id="quoteBtn" style="display: none; background: #25D366; color: #fff; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 14px; box-shadow: 0px 5px 15px rgba(37, 211, 102, 0.2);">
+            Get Final Quote via WhatsApp 💬
+        </button>
+
+    </div>
+</div>
+
+<script>
+function calculateCost() {
+    const service = document.getElementById('serviceSelect').value;
+    const resultBox = document.getElementById('costResult');
+    const priceText = document.getElementById('priceDisplay');
+    const quoteBtn = document.getElementById('quoteBtn');
+
+    let estimate = "";
+
+    // You can edit these prices based on your actual shop rates
+    if (service === "engine") estimate = "BHD 180.000 - 450.000+";
+    else if (service === "gearbox") estimate = "BHD 90.000 - 300.000+";
+    else if (service === "diagnostic") estimate = "BHD 3.500 Only";
+    else if (service === "oil") estimate = "BHD 12.000 - 28.000+";
+    else if (service === "ac") estimate = "BHD 15.000 - 45.000+";
+    else if (service === "brakes") estimate = "BHD 8.000 - 20.000+";
+
+    priceText.innerText = estimate;
+    resultBox.style.display = "block";
+    quoteBtn.style.display = "block";
+}
+
+function getFinalQuote() {
+    const serviceName = document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].text;
+    const msg = `Hello Black Gold Auto! I am interested in *${serviceName}*. Can you give me a final price for my car model?`;
+    window.open(`https://wa.me/97333598781?text=${encodeURIComponent(msg)}`, '_blank');
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
