@@ -1225,6 +1225,107 @@ function toggleTip(id) {
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 45px 20px; border-radius: 20px; margin: 25px 10px; border: 2px solid #B8860B; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; position: relative; overflow: hidden; box-shadow: 0px 15px 35px rgba(0,0,0,0.6);">
+    
+    <h3 style="color: #FFD700; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 2px; font-size: 22px;">⭐ Customer Testimonials</h3>
+    <p style="font-size: 14px; color: #aaa; margin-bottom: 35px;">The most trusted auto experts in Salmabad, Bahrain</p>
+
+    <div style="max-width: 600px; margin: 0 auto; min-height: 220px; display: flex; align-items: center; justify-content: center;">
+        
+        <div id="review-card" style="background: linear-gradient(145deg, #262626, #1e1e1e); padding: 35px; border-radius: 18px; border: 1px solid #333; box-shadow: 0 10px 25px rgba(0,0,0,0.4); transition: all 0.6s ease-in-out; width: 100%;">
+            <div id="star-rating" style="color: #FFD700; font-size: 24px; margin-bottom: 15px;">⭐⭐⭐⭐⭐</div>
+            
+            <p id="review-text" style="font-style: italic; font-size: 16px; line-height: 1.7; color: #f0f0f0; margin-bottom: 20px;">
+                "Best garage in Salmabad! They fixed my Nissan engine perfectly and the price was very fair."
+            </p>
+            
+            <h4 id="customer-name" style="color: #FFD700; margin-bottom: 5px; font-size: 17px; text-transform: uppercase; font-weight: bold;">
+                - Ahmed Al-Bahraini
+            </h4>
+            
+            <span id="work-type" style="display: inline-block; background: rgba(184, 134, 11, 0.15); color: #FFD700; font-size: 11px; padding: 4px 12px; border-radius: 50px; text-transform: uppercase; font-weight: 600; border: 1px solid rgba(184, 134, 11, 0.3);">
+                Service: Engine Overhaul
+            </span>
+        </div>
+
+    </div>
+
+    <div id="review-counter" style="margin-top: 25px; font-size: 12px; color: #B8860B; letter-spacing: 1px; font-weight: bold;">
+        Review 1 of 15
+    </div>
+
+</div>
+
+<script>
+    const reviews = [
+        { name: "Ahmed Al-Bahraini", stars: "⭐⭐⭐⭐⭐", text: "Best garage in Salmabad! They fixed my Nissan engine perfectly and the price was very fair.", service: "Engine Overhaul" },
+        { name: "Mohammed Khan", stars: "⭐⭐⭐⭐⭐", text: "Fast service and very honest. The computerized diagnostic only cost me 3.5 BHD. Highly recommended!", service: "Computer Diagnostic" },
+        { name: "Sarfraz Hussain", stars: "⭐⭐⭐⭐⭐", text: "Expert gearbox repair. My Toyota Hilux is shifting like new. Very happy with Black Gold Auto.", service: "Gearbox Fix" },
+        { name: "Jasim Uddin", stars: "⭐⭐⭐⭐⭐", text: "Excellent AC repair service. Now my car is freezing cold even in 45-degree heat!", service: "A/C Service" },
+        { name: "Khalid Mansoor", stars: "⭐⭐⭐⭐⭐", text: "Original parts and genuine oil. They are very professional and meticulous with Ford vehicles.", service: "Oil & Filter Change" },
+        { name: "Rajesh Kumar", stars: "⭐⭐⭐⭐⭐", text: "They found a complex sensor issue that 3 other garages couldn't find. Excellent diagnostic skills.", service: "Electrical System" },
+        { name: "Abdullah Ali", stars: "⭐⭐⭐⭐⭐", text: "Honest people. They don't charge extra for things you don't need. My brakes are perfect now.", service: "Brake Maintenance" },
+        { name: "Sumon Ahmed", stars: "⭐⭐⭐⭐⭐", text: "Great place for heavy engine work. I brought my pickup here and it runs like brand new.", service: "Engine Tuning" },
+        { name: "Yousif Al-Majid", stars: "⭐⭐⭐⭐⭐", text: "Professional tools and expert mechanics. My Honda Civic feels amazing after the full service.", service: "Full Maintenance" },
+        { name: "Ibrahim Khalil", stars: "⭐⭐⭐⭐⭐", text: "Highly skilled with transmission work. Shifting is incredibly smooth now. No more jerking.", service: "Gearbox Service" },
+        { name: "Faisal Qasim", stars: "⭐⭐⭐⭐⭐", text: "Top-quality diagnostic and fast repair. They saved me a lot of money on original parts.", service: "Spare Parts" },
+        { name: "Ali Hassan", stars: "⭐⭐⭐⭐⭐", text: "The only garage I trust in Salmabad for my Land Cruiser. Reliable, fast, and very clean.", service: "Suspension Work" },
+        { name: "Noor Islam", stars: "⭐⭐⭐⭐⭐", text: "Very polite staff and the quality of work is superior. They use genuine oil and filters only.", service: "Periodic Service" },
+        { name: "Hussain Jassim", stars: "⭐⭐⭐⭐⭐", text: "Best price for a premium oil change in the area. Quick and clean work every time.", service: "Oil Change" },
+        { name: "Saleh Mubarak", stars: "⭐⭐⭐⭐⭐", text: "Excellent computer scan. They explained the error codes clearly so I understood the problem.", service: "Diagnostic Scan" }
+    ];
+
+    let current = 0;
+
+    function nextReview() {
+        const card = document.getElementById('review-card');
+        const nameDisplay = document.getElementById('customer-name');
+        const starDisplay = document.getElementById('star-rating');
+        const textDisplay = document.getElementById('review-text');
+        const workDisplay = document.getElementById('work-type');
+        const counter = document.getElementById('review-counter');
+
+        // Smooth Fade-out and Slide effect
+        card.style.opacity = 0;
+        card.style.transform = "translateY(15px)";
+
+        setTimeout(() => {
+            current = (current + 1) % reviews.length;
+            
+            nameDisplay.innerText = "- " + reviews[current].name;
+            starDisplay.innerText = reviews[current].stars;
+            textDisplay.innerText = `"${reviews[current].text}"`;
+            workDisplay.innerText = "Service: " + reviews[current].service;
+            counter.innerText = `Review ${current + 1} of ${reviews.length}`;
+
+            // Smooth Fade-in and Slide up
+            card.style.opacity = 1;
+            card.style.transform = "translateY(0)";
+        }, 600);
+    }
+
+    // Automatically slide every 7 seconds
+    setInterval(nextReview, 7000);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
