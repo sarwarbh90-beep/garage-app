@@ -660,6 +660,52 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
+<div id="chat-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; font-family: 'Segoe UI', sans-serif;">
+    
+    <button onclick="toggleChat()" style="background: #25D366; color: white; border: none; padding: 15px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0px 5px 15px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 10px;">
+        <span style="font-size: 20px;">💬</span> Live Chat
+    </button>
+
+    <div id="chat-box" style="display: none; position: absolute; bottom: 70px; right: 0; width: 280px; background: #fff; border-radius: 15px; box-shadow: 0px 10px 30px rgba(0,0,0,0.2); border: 2px solid #B8860B; overflow: hidden;">
+        
+        <div style="background: #1a1a1a; color: #FFD700; padding: 15px; text-align: center;">
+            <h4 style="margin: 0; font-size: 16px;">Black Gold Auto Support</h4>
+            <p style="margin: 5px 0 0; font-size: 11px; color: #ccc;">Salmabad, Bahrain</p>
+        </div>
+
+        <div style="padding: 15px; color: #333; font-size: 14px; text-align: center;">
+            <p style="margin: 0 0 15px 0;">Hello! How can we help you with your car today?</p>
+            <a href="https://wa.me/97333598781?text=Hello!%20I%20need%20help%20with%20my%20car." 
+               target="_blank" 
+               style="background: #25D366; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold; display: block;">
+               Start WhatsApp Chat
+            </a>
+        </div>
+        
+        <div style="background: #f4f4f4; padding: 10px; text-align: center; font-size: 10px; color: #888;">
+            Typically replies in 5 mins
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleChat() {
+    var chatBox = document.getElementById('chat-box');
+    if (chatBox.style.display === "none") {
+        chatBox.style.display = "block";
+    } else {
+        chatBox.style.display = "none";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
 
 
 
