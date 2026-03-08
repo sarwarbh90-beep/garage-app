@@ -19,7 +19,7 @@
 
     <nav class="sticky top-0 z-50 py-3 px-4 text-center bg-black border-b border-[#d4af37]">
         <p class="text-[10px] font-bold gold-text tracking-widest uppercase italic">
-            <i class="fa-solid fa-globe mr-2"></i> www.blackgoldauto.com.bh
+            <i class="fa-solid fa-globe mr-2"></i> WWW.BLACKGOLDAUTO.COM.BH
         </p>
     </nav>
 
@@ -39,37 +39,37 @@
             <div class="space-y-4">
                 <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 cursor-pointer hover:border-[#d4af37]/40">
                     <div class="flex items-center gap-4">
-                        <input type="checkbox" value="9.000" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()" checked>
-                        <span class="text-[13px] font-bold uppercase">Oil 20W-50 + Filter</span>
+                        <input type="checkbox" value="9.000" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()">
+                        <span class="text-[12px] font-bold uppercase">Oil 20W-50 + Filter</span>
                     </div>
-                    <span class="gold-text font-black text-[13px] orbitron italic">9.000</span>
+                    <span class="gold-text font-black text-[12px] orbitron italic">9.000</span>
                 </label>
 
                 <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 cursor-pointer hover:border-[#d4af37]/40">
                     <div class="flex items-center gap-4">
                         <input type="checkbox" value="3.500" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()">
-                        <span class="text-[13px] font-bold uppercase">Computer Diagnostic</span>
+                        <span class="text-[12px] font-bold uppercase">Computer Diagnostic</span>
                     </div>
-                    <span class="gold-text font-black text-[13px] orbitron italic">3.500</span>
+                    <span class="gold-text font-black text-[12px] orbitron italic">3.500</span>
                 </label>
 
                 <label class="flex items-center justify-between p-4 bg-white/5 rounded-3xl border border-white/5 cursor-pointer hover:border-[#d4af37]/40">
                     <div class="flex items-center gap-4">
                         <input type="checkbox" value="4.000" class="w-5 h-5 accent-[#d4af37]" onchange="updateBill()">
-                        <span class="text-[13px] font-bold uppercase">Brake Pad (Front Side)</span>
+                        <span class="text-[12px] font-bold uppercase">Brake Pad (Front Side)</span>
                     </div>
-                    <span class="gold-text font-black text-[13px] orbitron italic">4.000</span>
+                    <span class="gold-text font-black text-[12px] orbitron italic">4.000</span>
                 </label>
             </div>
 
             <div class="mt-8 pt-6 border-t border-[#d4af37]/20 flex justify-between items-end">
                 <div class="text-left">
-                    <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Savings (10%):</p>
-                    <p id="savings" class="text-[12px] text-red-500 font-black italic">BHD 0.900</p>
+                    <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest leading-none mb-1">Savings (10%):</p>
+                    <p id="savings" class="text-[11px] text-red-500 font-black italic">BHD 0.000</p>
                 </div>
                 <div class="text-right">
-                    <p class="text-[10px] text-white font-black uppercase tracking-[0.2em]">Grand Total:</p>
-                    <h2 class="text-4xl font-black gold-text italic tracking-tighter">BHD <span id="bill">8.100</span></h2>
+                    <p class="text-[9px] text-white font-black uppercase tracking-[0.2em] leading-none mb-1">Grand Total:</p>
+                    <h2 class="text-3xl font-black gold-text italic tracking-tighter uppercase">BHD <span id="bill">0.000</span></h2>
                 </div>
             </div>
         </section>
@@ -84,8 +84,8 @@
         </div>
 
         <footer class="text-center pt-6 opacity-60">
-            <p class="text-[10px] gold-text font-black uppercase tracking-widest italic">Shop 1517A, Road 427, Salmabad</p>
-            <p class="orbitron text-[11px] font-black text-white mt-4">WWW.BLACKGOLDAUTO.COM/BH</p>
+            <p class="text-[9px] gold-text font-black uppercase tracking-widest italic">Shop 1517A, Road 427, Salmabad</p>
+            <p class="orbitron text-[10px] font-black text-white mt-4">WWW.BLACKGOLDAUTO.COM.BH</p>
         </footer>
 
     </main>
@@ -96,14 +96,12 @@
             const checks = document.querySelectorAll('input[type="checkbox"]:checked');
             checks.forEach((c) => { sub += parseFloat(c.value); });
             
-            let discount = sub * 0.10; // 10% Discount
+            let discount = sub > 0 ? (sub * 0.10) : 0;
             let final = sub - discount;
             
             document.getElementById('savings').innerText = "BHD " + discount.toFixed(3);
             document.getElementById('bill').innerText = final.toFixed(3);
         }
-        // Initialize on load
-        updateBill();
     </script>
 
 </body>
