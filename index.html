@@ -907,6 +907,69 @@ function toggleChat() {
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif; text-align: center;">
+    <h3 style="color: #FFD700; text-transform: uppercase; margin-bottom: 10px;">✨ Slide to see the Magic</h3>
+    <p style="font-size: 13px; color: #ccc; margin-bottom: 25px;">Engine Restoration at Black Gold Auto</p>
+
+    <div id="comparison-slider" style="position: relative; width: 100%; max-width: 500px; height: 300px; margin: 0 auto; overflow: hidden; border-radius: 12px; border: 2px solid #333; cursor: ew-resize;">
+        
+        <div style="width: 100%; height: 100%; background: url('your-after-image.jpg') center/cover no-repeat; background-color: #222; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #34A853; font-weight: bold; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; position: absolute; bottom: 10px; right: 10px;">AFTER</span>
+            <span style="color: #555; font-size: 12px;">[After Photo Here]</span>
+        </div>
+
+        <div id="before-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: url('your-before-image.jpg') center/cover no-repeat; background-color: #444; border-right: 3px solid #FFD700; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #FF4444; font-weight: bold; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; position: absolute; bottom: 10px; left: 10px;">BEFORE</span>
+            <span style="color: #888; font-size: 12px;">[Before Photo Here]</span>
+        </div>
+
+        <div id="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: #FFD700; border-radius: 50%; border: 3px solid #000; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+            ↔
+        </div>
+    </div>
+
+    <p style="font-size: 12px; color: #888; margin-top: 15px;">Drag the yellow circle to compare the work.</p>
+</div>
+
+<script>
+    const slider = document.getElementById('comparison-slider');
+    const beforeOverlay = document.getElementById('before-overlay');
+    const handle = document.getElementById('slider-handle');
+
+    const moveSlider = (e) => {
+        let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        let rect = slider.getBoundingClientRect();
+        let position = ((x - rect.left) / rect.width) * 100;
+
+        // Keep position within 0% to 100%
+        if (position < 0) position = 0;
+        if (position > 100) position = 100;
+
+        beforeOverlay.style.width = position + "%";
+        handle.style.left = position + "%";
+    };
+
+    // Add Desktop & Mobile listeners
+    slider.addEventListener('mousemove', moveSlider);
+    slider.addEventListener('touchmove', moveSlider);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 1px solid #B8860B; font-family: sans-serif;">
