@@ -580,6 +580,82 @@ function generateCard() {
 
 
 
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    <button id="themeToggle" onclick="toggleTheme()" 
+            style="background: #B8860B; color: #fff; border: none; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0px 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; transition: 0.3s;">
+        <span id="themeIcon">🌙</span> <span id="themeText">Dark Mode</span>
+    </button>
+</div>
+
+<style>
+    /* Default Theme Variables (Light Mode) */
+    :root {
+        --bg-color: #ffffff;
+        --text-color: #1a1a1a;
+        --card-bg: #f4f4f4;
+        --accent-color: #B8860B;
+    }
+
+    /* Dark Mode Variables */
+    [data-theme="dark"] {
+        --bg-color: #000000;
+        --text-color: #ffffff;
+        --card-bg: #1a1a1a;
+        --accent-color: #FFD700;
+    }
+
+    /* Apply transitions to the whole body */
+    body {
+        background-color: var(--bg-color) !important;
+        color: var(--text-color) !important;
+        transition: background-color 0.4s ease, color 0.4s ease;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Add this class to your existing sections to make them react to the theme */
+    .theme-card {
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        border: 1px solid var(--accent-color);
+        transition: 0.4s;
+    }
+</style>
+
+<script>
+function toggleTheme() {
+    const htmlElement = document.documentElement;
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const icon = document.getElementById('themeIcon');
+    const text = document.getElementById('themeText');
+
+    if (currentTheme === 'dark') {
+        htmlElement.setAttribute('data-theme', 'light');
+        icon.innerText = '🌙';
+        text.innerText = 'Dark Mode';
+        localStorage.setItem('garage_theme', 'light');
+    } else {
+        htmlElement.setAttribute('data-theme', 'dark');
+        icon.innerText = '☀️';
+        text.innerText = 'Light Mode';
+        localStorage.setItem('garage_theme', 'dark');
+    }
+}
+
+// Check for saved user preference on page load
+window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('garage_theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.getElementById('themeIcon').innerText = '☀️';
+        document.getElementById('themeText').innerText = 'Light Mode';
+    }
+});
+</script>
+
+
+
+
 
 
 
