@@ -519,6 +519,62 @@ function generateCard() {
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif;">
+    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase;">🛠️ Digital Service Card Generator</h3>
+    
+    <div style="max-width: 400px; margin: 0 auto; display: grid; gap: 10px;">
+        <input type="text" id="custName" placeholder="Customer Name" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="carModel" placeholder="Vehicle Model" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="serviceType" placeholder="Service Done" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        <input type="text" id="nextKm" placeholder="Next Service (KM)" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+        
+        <button onclick="generateCard()" style="background: linear-gradient(45deg, #FFD700, #B8860B); color: #000; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; text-transform: uppercase;">Generate Card</button>
+    </div>
+
+    <div id="cardPreview" style="margin-top: 30px; display: none;">
+        <div id="finalCard" style="background: #000; color: #fff; padding: 25px; border: 2px solid #B8860B; border-radius: 15px; max-width: 350px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.8); text-align: left;">
+            
+            <div style="text-align: center; border-bottom: 1px solid #B8860B; padding-bottom: 10px; margin-bottom: 15px;">
+                <h2 style="color: #FFD700; margin: 0; font-size: 22px; letter-spacing: 1px;">BLACK GOLD AUTO</h2>
+                <p style="font-size: 11px; margin: 5px 0 0; color: #aaa;">Salmabad, Bahrain | +973 33598781</p>
+            </div>
+
+            <p style="font-size: 14px; margin: 8px 0;"><strong>Customer:</strong> <span id="pName" style="color:#FFD700"></span></p>
+            <p style="font-size: 14px; margin: 8px 0;"><strong>Vehicle:</strong> <span id="pCar" style="color:#FFD700"></span></p>
+            <p style="font-size: 14px; margin: 8px 0;"><strong>Service:</strong> <span id="pService" style="color:#FFD700"></span></p>
+            <p style="font-size: 16px; margin: 15px 0 8px; color: #FF4444; font-weight: bold; text-align: center; border: 1px dashed #FF4444; padding: 5px; border-radius: 5px;">
+                Next Service at: <span id="pNextKm"></span>
+            </p>
+
+            <div style="margin-top: 20px; text-align: center; background: #1a1a1a; padding: 15px; border-radius: 10px;">
+                <p style="font-size: 12px; color: #FFD700; margin-bottom: 10px;">Satisfied with our service?</p>
+                <a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" 
+                   style="background: #FFD700; color: #000; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 13px; display: inline-block;">
+                   ⭐ Rate us 5-Stars
+                </a>
+            </div>
+
+            <p style="text-align: center; font-size: 11px; margin-top: 15px; color: #888;">Drive safe with Black Gold Auto!</p>
+        </div>
+        <p style="text-align: center; font-size: 12px; color: #888; margin-top: 15px;">(Take a screenshot and send to the customer via WhatsApp)</p>
+    </div>
+</div>
+
+<script>
+function generateCard() {
+    document.getElementById('pName').innerText = document.getElementById('custName').value;
+    document.getElementById('pCar').innerText = document.getElementById('carModel').value;
+    document.getElementById('pService').innerText = document.getElementById('serviceType').value;
+    document.getElementById('pNextKm').innerText = document.getElementById('nextKm').value + " KM";
+    
+    document.getElementById('cardPreview').style.display = 'block';
+    // Scroll to the card
+    document.getElementById('cardPreview').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+
+
+
 
 
 
