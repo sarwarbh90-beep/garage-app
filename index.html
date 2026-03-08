@@ -327,95 +327,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold | Special Offers</title>
+    <title>Black Gold | Offers & Calculator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-[#080808] text-white font-sans selection:bg-[#d4af37]">
+<body class="bg-[#050505] text-white font-sans selection:bg-[#d4af37]">
 
     <header class="py-10 text-center border-b border-[#d4af37]/10">
-        <img src="https://files.catbox.moe/u8u42s.png" alt="Logo" class="w-48 mx-auto mb-4 rounded-xl shadow-[0_0_30px_rgba(212,175,55,0.4)]">
-        <h1 class="text-2xl font-black text-[#d4af37] tracking-tighter uppercase">Black Gold Services</h1>
-        <p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Salmabad, Bahrain</p>
+        <img src="https://files.catbox.moe/u8u42s.png" alt="Logo" class="w-56 mx-auto mb-4 rounded-xl shadow-[0_0_40px_rgba(212,175,55,0.4)]">
+        <h1 class="text-3xl font-black text-[#d4af37] tracking-tighter uppercase">Black Gold Special</h1>
+        <p class="text-[10px] text-slate-500 uppercase tracking-[0.4em] mt-2">Salmabad, Bahrain</p>
     </header>
 
     <main class="p-6 max-w-lg mx-auto space-y-8">
         
-        <section class="bg-[#111] p-6 rounded-[2rem] border border-[#d4af37]/20 shadow-2xl">
-            <h3 class="text-[#d4af37] text-lg font-bold mb-6 flex items-center gap-2 uppercase tracking-tight">
-                <i class="fa-solid fa-file-invoice-dollar text-red-600"></i> Service Price List
+        <section class="bg-[#111] p-6 rounded-[2.5rem] border border-[#d4af37]/20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase">
+                10% Off Applied
+            </div>
+
+            <h3 class="text-[#d4af37] text-lg font-bold mb-6 flex items-center gap-2 uppercase">
+                <i class="fa-solid fa-calculator text-red-600"></i> Select Your Service
             </h3>
             
-            <div class="space-y-4" id="serviceList">
-                <label class="flex items-center justify-between p-4 bg-black/50 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+            <div class="space-y-4">
+                <label class="flex items-center justify-between p-4 bg-black/60 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
                     <div class="flex items-center gap-3">
-                        <input type="checkbox" value="9" class="w-5 h-5 accent-[#d4af37]" onchange="calculateTotal()">
+                        <input type="checkbox" value="9" class="w-6 h-6 accent-[#d4af37]" onchange="calculateTotal()">
                         <div>
                             <span class="text-sm font-bold block">Engine Oil & Filter (20W-50)</span>
-                            <span class="text-[9px] text-red-500 uppercase font-black">Special Offer</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Regular BHD 9.000</span>
                         </div>
                     </div>
-                    <span class="text-[#d4af37] font-black text-sm whitespace-nowrap">BHD 9.000</span>
                 </label>
 
-                <label class="flex items-center justify-between p-4 bg-black/50 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                <label class="flex items-center justify-between p-4 bg-black/60 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
                     <div class="flex items-center gap-3">
-                        <input type="checkbox" value="4" class="w-5 h-5 accent-[#d4af37]" onchange="calculateTotal()">
-                        <span class="text-sm font-bold">Computer Diagnostic</span>
-                    </div>
-                    <span class="text-[#d4af37] font-black text-sm whitespace-nowrap">BHD 4.000</span>
-                </label>
-
-                <label class="flex items-center justify-between p-4 bg-black/50 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
-                    <div class="flex items-center gap-3">
-                        <input type="checkbox" value="5" class="w-5 h-5 accent-[#d4af37]" onchange="calculateTotal()">
+                        <input type="checkbox" value="4" class="w-6 h-6 accent-[#d4af37]" onchange="calculateTotal()">
                         <div>
-                            <span class="text-sm font-bold block">Brake Pad Replacement</span>
-                            <span class="text-[9px] text-slate-500 font-bold">(Front Side)</span>
+                            <span class="text-sm font-bold block">Computer Diagnostic</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Regular BHD 4.000</span>
                         </div>
                     </div>
-                    <span class="text-[#d4af37] font-black text-sm whitespace-nowrap">BHD 5.000</span>
+                </label>
+
+                <label class="flex items-center justify-between p-4 bg-black/60 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="5" class="w-6 h-6 accent-[#d4af37]" onchange="calculateTotal()">
+                        <div>
+                            <span class="text-sm font-bold block">Brake Pad (Front Side)</span>
+                            <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Regular BHD 5.000</span>
+                        </div>
+                    </div>
                 </label>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-[#d4af37]/20">
-                <div class="flex justify-between items-end">
-                    <div>
-                        <p class="text-[10px] text-slate-500 uppercase font-bold mb-1 tracking-widest">Total Estimated Bill</p>
-                        <h2 class="text-4xl font-black text-[#d4af37]">BHD <span id="totalAmount">0.000</span></h2>
-                    </div>
+            <div class="mt-8 pt-6 border-t border-[#d4af37]/20 space-y-2">
+                <div class="flex justify-between text-xs text-slate-500 uppercase font-bold">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">BHD 0.000</span>
+                </div>
+                <div class="flex justify-between text-xs text-red-500 uppercase font-bold">
+                    <span>10% Discount:</span>
+                    <span id="discountAmount">- BHD 0.000</span>
+                </div>
+                <div class="flex justify-between items-end pt-2">
+                    <p class="text-xs text-white uppercase font-black tracking-widest">Grand Total:</p>
+                    <h2 class="text-4xl font-black text-[#d4af37]">BHD <span id="finalTotal">0.000</span></h2>
                 </div>
             </div>
         </section>
 
         <div class="grid grid-cols-1 gap-4">
             <a href="https://wa.me/97333598781" class="bg-[#25D366] text-white py-5 rounded-2xl font-black text-center shadow-lg active:scale-95 transition-all uppercase text-sm tracking-widest">
-                <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Book Service Now
+                <i class="fa-brands fa-whatsapp text-xl mr-2"></i> Get This Offer
             </a>
-            <a href="http://googleusercontent.com/maps.google.com/8" target="_blank" class="bg-white text-black py-5 rounded-2xl font-black text-center shadow-lg active:scale-95 transition-all uppercase text-sm tracking-widest border-2 border-[#d4af37]">
-                <i class="fa-solid fa-location-arrow text-red-600 mr-2"></i> Direction to Shop
+            <a href="http://googleusercontent.com/maps.google.com/9" target="_blank" class="bg-white text-black py-5 rounded-2xl font-black text-center shadow-lg active:scale-95 transition-all uppercase text-sm tracking-widest border-2 border-[#d4af37]">
+                <i class="fa-solid fa-map-pin text-red-600 mr-2"></i> Visit Salmabad Shop
             </a>
         </div>
-
-        <p class="text-[10px] text-center text-slate-600 italic px-4">
-            *Note: Prices are for service charges only. Spare parts cost may be extra depending on car model.
-        </p>
 
     </main>
 
     <script>
         function calculateTotal() {
-            let total = 0;
+            let subtotal = 0;
             const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
             checkboxes.forEach((checkbox) => {
-                total += parseFloat(checkbox.value);
+                subtotal += parseFloat(checkbox.value);
             });
-            document.getElementById('totalAmount').innerText = total.toFixed(3);
+            
+            let discount = subtotal * 0.10;
+            let final = subtotal - discount;
+
+            document.getElementById('subtotal').innerText = "BHD " + subtotal.toFixed(3);
+            document.getElementById('discountAmount').innerText = "- BHD " + discount.toFixed(3);
+            document.getElementById('finalTotal').innerText = final.toFixed(3);
         }
     </script>
 
-    <footer class="py-10 text-center text-slate-800">
-        <p class="text-[8px] uppercase tracking-widest italic">Black Gold Auto Services W.L.L - Salmabad</p>
+    <footer class="py-12 text-center text-slate-800">
+        <p class="text-[9px] uppercase tracking-widest">Proprietor: Mohammed Sarwar | © 2026</p>
     </footer>
 
 </body>
