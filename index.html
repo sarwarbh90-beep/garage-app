@@ -970,7 +970,7 @@ function toggleChat() {
     </div>
 
     <h3 style="color: #FFD700; text-align: center; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px;">Service Warranty Guaranteed</h3>
-    <p style="text-align: center; font-size: 13px; color: #ccc; margin-bottom: 25px;">আমরা আমাদের কাজের মানের ওপর ১০০% আত্মবিশ্বাসী</p>
+    <p style="text-align: center; font-size: 13px; color: #ccc; margin-bottom: 25px;">Inshallah we are 100% confident in the quality of our work.ী</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px;">
         
@@ -1011,6 +1011,74 @@ function toggleChat() {
 
 
 
+
+
+
+
+
+
+
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 20px; border-radius: 20px; margin: 25px 10px; border: 2px solid #B8860B; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0px 10px 30px rgba(0,0,0,0.5);">
+    
+    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1.5px;">📅 Book Your Service</h3>
+    <p style="text-align: center; font-size: 13px; color: #ccc; margin-bottom: 25px;">Schedule your visit to avoid the wait in Salmabad</p>
+
+    <div id="bookingForm" style="max-width: 500px; margin: 0 auto; display: grid; gap: 15px;">
+        
+        <input type="text" id="custName" placeholder="Full Name" 
+               style="padding: 14px; border-radius: 8px; border: 1px solid #333; background: #262626; color: #fff; outline: none; font-size: 14px;">
+        
+        <input type="text" id="carModel" placeholder="Vehicle Model (e.g. Nissan Patrol / Toyota Land Cruiser)" 
+               style="padding: 14px; border-radius: 8px; border: 1px solid #333; background: #262626; color: #fff; outline: none; font-size: 14px;">
+
+        <select id="workType" style="padding: 14px; border-radius: 8px; border: 1px solid #333; background: #262626; color: #fff; outline: none; font-size: 14px; cursor: pointer;">
+            <option value="" disabled selected>Select Service Type</option>
+            <option value="Engine Overhaul">Engine Overhaul & Repair</option>
+            <option value="Gearbox Service">Gearbox / Transmission Fix</option>
+            <option value="Computer Diagnostic">Computerized Diagnostics</option>
+            <option value="Oil & Filter Change">Full Maintenance (Oil & Filter)</option>
+            <option value="AC & Electrical">A/C & Electrical Repair</option>
+            <option value="Brakes & Suspension">Brakes & Suspension Work</option>
+            <option value="Other">Other Mechanical Work</option>
+        </select>
+
+        <label style="font-size: 12px; color: #B8860B; margin-bottom: -10px; padding-left: 5px;">Preferred Date:</label>
+        <input type="date" id="bookDate" style="padding: 14px; border-radius: 8px; border: 1px solid #333; background: #262626; color: #fff; outline: none; font-size: 14px; cursor: pointer;">
+
+        <button onclick="sendBooking()" 
+                style="background: linear-gradient(45deg, #FFD700, #B8860B); color: #000; padding: 16px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase; font-size: 15px; margin-top: 10px; transition: 0.3s; box-shadow: 0px 5px 15px rgba(184, 134, 11, 0.4);">
+            Confirm via WhatsApp 📲
+        </button>
+
+    </div>
+
+    <p style="text-align: center; font-size: 11px; color: #888; margin-top: 15px;">* We will contact you shortly to confirm your slot. Thank you!</p>
+</div>
+
+<script>
+function sendBooking() {
+    const name = document.getElementById('custName').value.trim();
+    const car = document.getElementById('carModel').value.trim();
+    const service = document.getElementById('workType').value;
+    const date = document.getElementById('bookDate').value;
+
+    // Validation
+    if(name === "" || car === "" || service === "" || date === "") {
+        alert("Please fill in all details before booking.");
+        return;
+    }
+
+    const phoneNumber = "97333598781"; // Your Bahrain WhatsApp Number
+    
+    // Formatting the WhatsApp Message
+    const message = `*NEW APPOINTMENT BOOKING*%0A---------------------------%0A*Name:* ${name}%0A*Car:* ${car}%0A*Service:* ${service}%0A*Date:* ${date}%0A---------------------------%0A_Sent from Black Gold Auto App_`;
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, '_blank');
+}
+</script>
 
 
 
