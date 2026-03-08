@@ -1159,6 +1159,73 @@ function getFinalQuote() {
 
 
 
+<div style="background-color: #1a1a1a; color: #fff; padding: 30px 20px; border-radius: 20px; margin: 25px 10px; border: 2px solid #B8860B; font-family: 'Segoe UI', sans-serif;">
+    
+    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">🛡️ Car Care & Safety Tips</h3>
+    <p style="text-align: center; font-size: 13px; color: #ccc; margin-bottom: 25px;">Expert advice for driving in the Bahrain heat</p>
+
+    <div style="max-width: 600px; margin: 0 auto; display: grid; gap: 10px;">
+        
+        <div style="border: 1px solid #333; border-radius: 10px; overflow: hidden; background: #262626;">
+            <button onclick="toggleTip('tip1')" style="width: 100%; padding: 15px; background: none; border: none; color: #FFD700; text-align: left; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                ☀️ Summer Cooling System <span id="icon-tip1">▼</span>
+            </button>
+            <div id="tip1" style="display: none; padding: 15px; font-size: 13px; color: #ccc; border-top: 1px solid #333; line-height: 1.6;">
+                The Bahrain heat puts extreme stress on your radiator. Always check your coolant levels and look for leaks to prevent your engine from overheating.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #333; border-radius: 10px; overflow: hidden; background: #262626;">
+            <button onclick="toggleTip('tip2')" style="width: 100%; padding: 15px; background: none; border: none; color: #FFD700; text-align: left; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                🔋 Battery Health <span id="icon-tip2">▼</span>
+            </button>
+            <div id="tip2" style="display: none; padding: 15px; font-size: 13px; color: #ccc; border-top: 1px solid #333; line-height: 1.6;">
+                High temperatures cause battery fluid to evaporate faster. If your car takes longer to start, bring it to Black Gold Auto for a free battery health check.
+            </div>
+        </div>
+
+        <div style="border: 1px solid #333; border-radius: 10px; overflow: hidden; background: #262626;">
+            <button onclick="toggleTip('tip3')" style="width: 100%; padding: 15px; background: none; border: none; color: #FFD700; text-align: left; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                🚗 Tire Pressure & Safety <span id="icon-tip3">▼</span>
+            </button>
+            <div id="tip3" style="display: none; padding: 15px; font-size: 13px; color: #ccc; border-top: 1px solid #333; line-height: 1.6;">
+                Hot asphalt can increase tire pressure and cause blowouts. Check your tires every morning and ensure they have enough tread depth for safe braking.
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 25px;">
+        <a href="#bookingForm" style="color: #FFD700; text-decoration: none; font-size: 12px; font-weight: bold; border-bottom: 1px solid #FFD700;">Need a checkup? Book an appointment today →</a>
+    </div>
+</div>
+
+<script>
+function toggleTip(id) {
+    const tip = document.getElementById(id);
+    const icon = document.getElementById('icon-' + id);
+    
+    if (tip.style.display === "none") {
+        tip.style.display = "block";
+        icon.innerText = "▲";
+    } else {
+        tip.style.display = "none";
+        icon.innerText = "▼";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
