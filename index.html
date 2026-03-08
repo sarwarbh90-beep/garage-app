@@ -293,3 +293,133 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Gold Auto Services | Official Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gold-border { border: 2px solid #d4af37; box-shadow: 0 0 25px rgba(212,175,55,0.3); }
+        .glass-card { background: rgba(15, 15, 15, 0.95); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.2); }
+        .gold-gradient { background: linear-gradient(135deg, #d4af37, #f2d06b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-[#050505] text-white font-sans selection:bg-[#d4af37] pb-10">
+
+    <header class="pt-8 flex flex-col items-center text-center px-6">
+        <div class="w-full max-w-sm mb-6">
+            <img src="Gemini_Generated_Image_li9cjgli9cjgli9c.jpg" alt="Black Gold Poster" class="w-full h-auto rounded-[2.5rem] gold-border">
+        </div>
+        <h1 class="text-4xl font-black gold-gradient tracking-tighter uppercase italic leading-none">Black Gold</h1>
+        <p class="text-[10px] text-slate-500 uppercase tracking-[0.5em] mt-2 font-bold">Expert Care • Exceptional Standards</p>
+    </header>
+
+    <main class="p-6 max-w-lg mx-auto space-y-8">
+        
+        <section class="glass-card p-6 rounded-[2.5rem] relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-red-600 text-white text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase animate-pulse">10% OFF APPLIED</div>
+            <h3 class="text-[#d4af37] text-sm font-black mb-6 uppercase tracking-widest italic">Estimate Your Service</h3>
+            
+            <div class="space-y-4">
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="9.000" class="w-6 h-6 accent-[#d4af37]" onchange="updateBill()">
+                        <div><span class="text-xs font-bold block">Engine Oil & Filter</span><span class="text-[9px] text-slate-500 font-bold uppercase">BHD 9.000</span></div>
+                    </div>
+                    <i class="fa-solid fa-oil-can text-[#d4af37]"></i>
+                </label>
+
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="3.500" class="w-6 h-6 accent-[#d4af37]" onchange="updateBill()">
+                        <div><span class="text-xs font-bold block">Computer Diagnostic</span><span class="text-[9px] text-slate-500 font-bold uppercase">BHD 3.500</span></div>
+                    </div>
+                    <i class="fa-solid fa-laptop-code text-[#d4af37]"></i>
+                </label>
+
+                <label class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 cursor-pointer hover:border-[#d4af37]/50 transition-all">
+                    <div class="flex items-center gap-3">
+                        <input type="checkbox" value="4.000" class="w-6 h-6 accent-[#d4af37]" onchange="updateBill()">
+                        <div><span class="text-xs font-bold block">Brake Pad (Front Side)</span><span class="text-[9px] text-slate-500 font-bold uppercase">BHD 4.000</span></div>
+                    </div>
+                    <i class="fa-solid fa-drum-steelpan text-[#d4af37]"></i>
+                </label>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-[#d4af37]/20 flex justify-between items-end">
+                <p class="text-[10px] text-white uppercase font-black tracking-widest">Total Bill:</p>
+                <h2 class="text-4xl font-black text-[#d4af37]">BHD <span id="bill">0.000</span></h2>
+            </div>
+        </section>
+
+        <section class="glass-card p-6 rounded-[2.5rem]">
+            <h3 class="text-[#d4af37] text-sm font-black mb-6 uppercase italic"><i class="fa-solid fa-screwdriver-wrench text-red-600 mr-2"></i> Our Services</h3>
+            <div class="grid grid-cols-1 gap-4 text-xs font-bold">
+                <div class="p-4 bg-white/5 rounded-2xl border-l-4 border-red-600">
+                    <p class="text-[#d4af37] uppercase mb-1">24/7 EMERGENCY</p>
+                    <p class="text-slate-400 font-normal">Emergency service available anytime.</p>
+                </div>
+                <div class="p-4 bg-white/5 rounded-2xl border-l-4 border-[#d4af37]">
+                    <p class="text-[#d4af37] uppercase mb-1">Body Shop & Painting</p>
+                    <p class="text-slate-400 font-normal">Collision repair, dent & scratch removal.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="space-y-3">
+            <a id="wa" href="https://wa.me/97333598781" target="_blank" class="w-full bg-[#25D366] text-white py-5 rounded-[2rem] font-black text-center shadow-lg active:scale-95 transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp Us
+            </a>
+            <a href="http://googleusercontent.com/maps.google.com/3" target="_blank" class="w-full bg-white text-black py-5 rounded-[2rem] font-black text-center active:scale-95 transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3 border-2 border-[#d4af37]">
+                <i class="fa-solid fa-location-dot text-red-600 text-xl"></i> Google Maps Location
+            </a>
+            <a href="tel:+97333598781" class="w-full border-2 border-[#d4af37] text-[#d4af37] py-5 rounded-[2rem] font-black text-center active:scale-95 transition-all uppercase text-xs tracking-widest flex items-center justify-center gap-3">
+                <i class="fa-solid fa-phone-flip text-xl"></i> Call: +973 33598781
+            </a>
+        </div>
+
+        <section class="text-center space-y-4 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-bold text-slate-400 space-y-1">
+                <p class="text-[#d4af37] uppercase font-black tracking-widest">Visit Us At</p>
+                <p>Shop No 1517A, Road 427,</p>
+                <p>Block 704, Salmabad, Bahrain</p>
+            </div>
+            <p class="text-[10px] text-slate-600 italic">Proprietor: Mohammed Sarwar</p>
+        </section>
+
+    </main>
+
+    <footer class="py-10 text-center opacity-40">
+        <p class="text-[9px] uppercase tracking-[0.5em] font-bold text-[#d4af37]">© 2026 Black Gold Auto Services W.L.L</p>
+    </footer>
+
+    <script>
+        function updateBill() {
+            let sub = 0;
+            const checks = document.querySelectorAll('input[type="checkbox"]:checked');
+            checks.forEach((c) => { sub += parseFloat(c.value); });
+            let final = sub - (sub * 0.10);
+            document.getElementById('bill').innerText = final.toFixed(3);
+            let msg = encodeURIComponent("Hello Sarwar Brother! I want to book a service. My bill: BHD " + final.toFixed(3));
+            document.getElementById('wa').href = "https://wa.me/97333598781?text=" + msg;
+        }
+    </script>
+
+</body>
+</html>
