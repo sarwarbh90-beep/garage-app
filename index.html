@@ -1227,54 +1227,69 @@ function toggleTip(id) {
 
 
 
-<div class="parts-container">
-    <h2>🚗 Car Parts A to Z Catalog</h2>
-    <p>We provide original and high-quality spare parts for all major brands.</p>
-
-    <div class="parts-category">
-        <h3><i class="fa fa-cogs"></i> Engine & Internal Parts</h3>
-        <ul class="parts-list">
-            <li>Air Filter (এয়ার ফিল্টার)</li>
-            <li>Cylinder Head Gasket (হেড গ্যাসকেট)</li>
-            <li>Crankshaft & Piston (ক্র্যাঙ্কশ্যাফ্ট এবং পিস্টন)</li>
-            <li>Oil Pump (অয়েল পাম্প)</li>
-            <li>Timing Belt / Chain (টাইমিং বেল্ট)</li>
-            <li>Spark Plugs (স্পার্ক প্লাগ)</li>
-            <li>Water Pump (ওয়াটার পাম্প)</li>
-        </ul>
+<div class="catalog-section">
+    <div class="search-container">
+        <input type="text" id="partsSearch" onkeyup="filterParts()" placeholder="Search for car parts (e.g. Filter, Piston, Brake)...">
     </div>
 
-    <div class="parts-category">
-        <h3><i class="fa fa-shuttle-van"></i> Transmission & Gearbox</h3>
-        <ul class="parts-list">
-            <li>Clutch Plate & Pressure Plate</li>
-            <li>Gearbox Filter / Strainer (গিয়ার ফিল্টার)</li>
-            <li>Transmission Fluid (গিয়ার অয়েল)</li>
-            <li>CV Joint & Axle (সিভি জয়েন্ট)</li>
-            <li>Flywheel (ফ্লাইহুইল)</li>
-        </ul>
-    </div>
+    <div id="partsCatalog">
+        <div class="category-block">
+            <h3><i class="icon">⚙️</i> Engine & Performance</h3>
+            <ul class="parts-grid">
+                <li>Air Filter</li>
+                <li>Alternator</li>
+                <li>Camshaft</li>
+                <li>Cylinder Head Gasket</li>
+                <li>Crankshaft Sensor</li>
+                <li>Engine Mount</li>
+                <li>Fuel Injector</li>
+                <li>Oil Pump</li>
+                <li>Piston Rings</li>
+                <li>Spark Plugs</li>
+                <li>Timing Belt / Chain</li>
+                <li>Water Pump</li>
+            </ul>
+        </div>
 
-    <div class="parts-category">
-        <h3><i class="fa fa-car"></i> Suspension & Brakes</h3>
-        <ul class="parts-list">
-            <li>Brake Pads - Front/Rear (ব্রেক প্যাড)</li>
-            <li>Brake Disc Rotors (ব্রেক ডিস্ক)</li>
-            <li>Shock Absorbers (শক অ্যাবজর্বার)</li>
-            <li>Control Arms & Bushing (কন্ট্রোল আর্ম)</li>
-            <li>ABS Sensors (এবিএস সেন্সর)</li>
-        </ul>
-    </div>
+        <div class="category-block">
+            <h3><i class="icon">🔄</i> Transmission & Drivetrain</h3>
+            <ul class="parts-grid">
+                <li>Clutch Kit</li>
+                <li>CV Joint</li>
+                <li>Drive Shaft</li>
+                <li>Differential Gear</li>
+                <li>Flywheel</li>
+                <li>Gearbox Strainer</li>
+                <li>Transmission Filter</li>
+                <li>Universal Joint</li>
+            </ul>
+        </div>
 
-    <div class="parts-category">
-        <h3><i class="fa fa-bolt"></i> Sensors & Electrical</h3>
-        <ul class="parts-list">
-            <li>Oxygen (O2) Sensor</li>
-            <li>MAF / Mass Air Flow Sensor</li>
-            <li>Crankshaft Position Sensor</li>
-            <li>Car Battery (ব্যাটারি)</li>
-            <li>Alternator & Starter Motor</li>
-        </ul>
+        <div class="category-block">
+            <h3><i class="icon">🛑</i> Braking & Suspension</h3>
+            <ul class="parts-grid">
+                <li>ABS Speed Sensor</li>
+                <li>Brake Disc Rotors</li>
+                <li>Brake Pads (Front/Rear)</li>
+                <li>Control Arm</li>
+                <li>Shock Absorbers</li>
+                <li>Steering Rack</li>
+                <li>Tie Rod Ends</li>
+                <li>Wheel Hub Bearing</li>
+            </ul>
+        </div>
+
+        <div class="category-block">
+            <h3><i class="icon">⚡</i> Electrical & Sensors</li>
+            <ul class="parts-grid">
+                <li>Coolant Temp Sensor</li>
+                <li>Ignition Coil</li>
+                <li>MAF (Mass Air Flow) Sensor</li>
+                <li>Oxygen (O2) Sensor</li>
+                <li>Starter Motor</li>
+                <li>Throttle Body</li>
+            </ul>
+        </div>
     </div>
 </div>
 
@@ -1290,52 +1305,60 @@ function toggleTip(id) {
 
 
 <style>
-    .parts-container {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding: 20px;
-        background-color: #f9f9f9;
-        max-width: 900px;
-        margin: auto;
-    }
-    .parts-container h2 {
-        color: #d4af37; /* Gold color matching Black Gold theme */
-        text-align: center;
-        border-bottom: 2px solid #333;
-        padding-bottom: 10px;
-    }
-    .parts-category {
-        background: #fff;
-        margin-bottom: 15px;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        border-left: 5px solid #d4af37;
-    }
-    .parts-category h3 {
-        margin-top: 0;
+    .catalog-section {
+        max-width: 1000px;
+        margin: 20px auto;
+        font-family: 'Arial', sans-serif;
         color: #333;
+        padding: 10px;
+    }
+    .search-container {
+        margin-bottom: 25px;
+    }
+    #partsSearch {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #d4af37; /* Gold Border */
+        border-radius: 30px;
+        font-size: 16px;
+        outline: none;
+    }
+    .category-block {
+        margin-bottom: 30px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .category-block h3 {
+        background: #222; /* Dark theme */
+        color: #d4af37; /* Gold text */
+        margin: 0;
+        padding: 15px;
         font-size: 1.2rem;
     }
-    .parts-list {
-        list-style: none;
-        padding: 0;
+    .parts-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1px;
+        background: #eee;
+        padding: 0;
+        list-style: none;
+        margin: 0;
     }
-    .parts-list li {
-        padding: 5px 0;
-        border-bottom: 1px inset #eee;
-        font-size: 0.95rem;
-        color: #555;
+    .parts-grid li {
+        background: #fff;
+        padding: 12px 20px;
+        font-size: 14px;
+        transition: 0.3s;
     }
-    .parts-list li::before {
-        content: "✔";
-        color: #28a745;
-        margin-right: 8px;
+    .parts-grid li:hover {
+        background: #fff9e6;
+        color: #d4af37;
+        font-weight: bold;
+        cursor: pointer;
     }
 </style>
-
 
 
 
