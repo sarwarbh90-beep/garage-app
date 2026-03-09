@@ -5,6 +5,7 @@
   "description": "Expert Engine Overhaul & Gearbox Repair in Salmabad, Bahrain.",
   "start_url": "/garage-app/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#1A1A1A",
   "theme_color": "#D4AF37",
   "icons": [
