@@ -1226,70 +1226,69 @@ function toggleTip(id) {
 
 
 
-
-<div class="catalog-section">
-    <div class="search-container">
-        <input type="text" id="partsSearch" onkeyup="filterParts()" placeholder="Search for car parts (e.g. Filter, Piston, Brake)...">
+<div class="technical-catalog-container">
+    <div class="search-wrapper">
+        <input type="text" id="technicalSearch" onkeyup="filterCatalog()" placeholder="Search Technical Parts (e.g., Piston, Sensor, Gasket)...">
     </div>
 
-    <div id="partsCatalog">
-        <div class="category-block">
-            <h3><i class="icon">⚙️</i> Engine & Performance</h3>
-            <ul class="parts-grid">
-                <li>Air Filter</li>
-                <li>Alternator</li>
-                <li>Camshaft</li>
-                <li>Cylinder Head Gasket</li>
-                <li>Crankshaft Sensor</li>
-                <li>Engine Mount</li>
-                <li>Fuel Injector</li>
-                <li>Oil Pump</li>
-                <li>Piston Rings</li>
-                <li>Spark Plugs</li>
-                <li>Timing Belt / Chain</li>
-                <li>Water Pump</li>
-            </ul>
+    <div id="catalogGrid" class="catalog-grid">
+        
+        <div class="part-card" data-name="Air Filter">
+            <div class="part-info">
+                <span class="letter">A</span>
+                <span class="name">Air Filter</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Air+Filter" class="part-link">Check Stock</a>
         </div>
 
-        <div class="category-block">
-            <h3><i class="icon">🔄</i> Transmission & Drivetrain</h3>
-            <ul class="parts-grid">
-                <li>Clutch Kit</li>
-                <li>CV Joint</li>
-                <li>Drive Shaft</li>
-                <li>Differential Gear</li>
-                <li>Flywheel</li>
-                <li>Gearbox Strainer</li>
-                <li>Transmission Filter</li>
-                <li>Universal Joint</li>
-            </ul>
+        <div class="part-card" data-name="Brake Pads">
+            <div class="part-info">
+                <span class="letter">B</span>
+                <span class="name">Brake Pads (Ceramic/Semi-Met)</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Brake+Pads" class="part-link">Check Stock</a>
         </div>
 
-        <div class="category-block">
-            <h3><i class="icon">🛑</i> Braking & Suspension</h3>
-            <ul class="parts-grid">
-                <li>ABS Speed Sensor</li>
-                <li>Brake Disc Rotors</li>
-                <li>Brake Pads (Front/Rear)</li>
-                <li>Control Arm</li>
-                <li>Shock Absorbers</li>
-                <li>Steering Rack</li>
-                <li>Tie Rod Ends</li>
-                <li>Wheel Hub Bearing</li>
-            </ul>
+        <div class="part-card" data-name="Crankshaft Sensor">
+            <div class="part-info">
+                <span class="letter">C</span>
+                <span class="name">Crankshaft Position Sensor</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Crankshaft+Sensor" class="part-link">Check Stock</a>
         </div>
 
-        <div class="category-block">
-            <h3><i class="icon">⚡</i> Electrical & Sensors</li>
-            <ul class="parts-grid">
-                <li>Coolant Temp Sensor</li>
-                <li>Ignition Coil</li>
-                <li>MAF (Mass Air Flow) Sensor</li>
-                <li>Oxygen (O2) Sensor</li>
-                <li>Starter Motor</li>
-                <li>Throttle Body</li>
-            </ul>
+        <div class="part-card" data-name="Fuel Injector">
+            <div class="part-info">
+                <span class="letter">F</span>
+                <span class="name">Fuel Injector Nozzle</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Fuel+Injector" class="part-link">Check Stock</a>
         </div>
+
+        <div class="part-card" data-name="Gearbox Strainer">
+            <div class="part-info">
+                <span class="letter">G</span>
+                <span class="name">Gearbox Strainer (Filter)</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Gearbox+Strainer" class="part-link">Check Stock</a>
+        </div>
+
+        <div class="part-card" data-name="Oxygen Sensor">
+            <div class="part-info">
+                <span class="letter">O</span>
+                <span class="name">Oxygen (O2) Sensor</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+O2+Sensor" class="part-link">Check Stock</a>
+        </div>
+
+        <div class="part-card" data-name="Timing Belt">
+            <div class="part-info">
+                <span class="letter">T</span>
+                <span class="name">Timing Belt / Chain Kit</span>
+            </div>
+            <a href="https://wa.me/97333598781?text=Price+Request:+Timing+Belt" class="part-link">Check Stock</a>
+        </div>
+
     </div>
 </div>
 
@@ -1305,60 +1304,105 @@ function toggleTip(id) {
 
 
 <style>
-    .catalog-section {
-        max-width: 1000px;
+    .technical-catalog-container {
+        max-width: 900px;
         margin: 20px auto;
-        font-family: 'Arial', sans-serif;
-        color: #333;
-        padding: 10px;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
-    .search-container {
+    .search-wrapper {
         margin-bottom: 25px;
     }
-    #partsSearch {
+    #technicalSearch {
         width: 100%;
-        padding: 15px;
-        border: 2px solid #d4af37; /* Gold Border */
-        border-radius: 30px;
+        padding: 15px 25px;
+        border: 2px solid #d4af37; /* Gold */
+        border-radius: 50px;
         font-size: 16px;
+        background: #1a1a1a;
+        color: white;
         outline: none;
     }
-    .category-block {
-        margin-bottom: 30px;
-        background: #fff;
+    .catalog-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .part-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ffffff;
+        padding: 15px 20px;
         border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-left: 5px solid #222;
+        transition: 0.3s ease;
     }
-    .category-block h3 {
-        background: #222; /* Dark theme */
-        color: #d4af37; /* Gold text */
-        margin: 0;
-        padding: 15px;
-        font-size: 1.2rem;
+    .part-card:hover {
+        border-left-color: #d4af37;
+        transform: translateX(5px);
     }
-    .parts-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 1px;
-        background: #eee;
-        padding: 0;
-        list-style: none;
-        margin: 0;
+    .part-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
     }
-    .parts-grid li {
-        background: #fff;
-        padding: 12px 20px;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-    .parts-grid li:hover {
-        background: #fff9e6;
-        color: #d4af37;
+    .letter {
+        background: #d4af37;
+        color: #000;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
         font-weight: bold;
-        cursor: pointer;
+    }
+    .name {
+        font-weight: 600;
+        color: #333;
+    }
+    .part-link {
+        text-decoration: none;
+        background: #25D366; /* WhatsApp Green */
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+    .part-link:hover {
+        opacity: 0.8;
     }
 </style>
+
+
+
+
+
+
+
+
+
+<script>
+function filterCatalog() {
+    let input = document.getElementById('technicalSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('part-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        let partName = cards[i].getAttribute('data-name').toLowerCase();
+        if (partName.includes(input)) {
+            cards[i].style.display = "flex";
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+
+
 
 
 
