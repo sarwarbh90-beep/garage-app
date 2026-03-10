@@ -1601,3 +1601,57 @@ function toggleTip(id) {
 
 
 
+
+
+
+
+
+
+
+
+
+<script>
+        /**
+         * 1. Service Worker Registration
+         * This logic allows your app to be installed on mobile phones (PWA).
+         */
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(registration => {
+                        console.log('Black Gold PWA: Service Worker Registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Black Gold PWA: Service Worker Registration Failed:', error);
+                    });
+            });
+        }
+
+        /**
+         * 2. Console Welcome Message
+         * Helps you verify if the script is running correctly in the browser console.
+         */
+        console.log("Black Gold - Expert Engine Care: System Online.");
+
+        /**
+         * 3. WhatsApp Contact Function
+         * This function triggers a WhatsApp message with pre-filled text.
+         */
+        function contactWhatsApp() {
+            // Replace with your actual business number in Bahrain
+            const phoneNumber = "97333598781"; 
+            const message = "Hello Black Gold! I would like to inquire about a vehicle service.";
+            
+            // Opens WhatsApp in a new tab/app
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
