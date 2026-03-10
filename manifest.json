@@ -13,19 +13,13 @@
   ],
   "icons": [
     {
-      "src": "Gemini_Generated_Image_li9cjgli9cjgli9c.jpg",
-      "sizes": "192x192",
-      "type": "image/jpeg",
-      "purpose": "any"
-    },
-    {
-      "src": "icon-192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -33,32 +27,28 @@
   ],
   "screenshots": [
     {
-      "src": "screenshot1.png",
-      "sizes": "1080x1920",
+      "src": "screenshots/mobile-view.png",
+      "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Garage Dashboard"
     },
     {
-      "src": "screenshot2.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Engine Service Menu"
-    },
-    {
-      "src": "screenshot3.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Gearbox Repair Service"
-    },
-    {
-      "src": "screenshot4.png",
-      "sizes": "1920x1080",
+      "src": "screenshots/desktop-view.png",
+      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Desktop View - Full Report"
+      "label": "Service List"
     }
   ]
 }
+
+
+
+
+
+"categories": [
+  "business",
+  "lifestyle",
+  "utilities"
+],
