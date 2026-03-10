@@ -13,45 +13,32 @@
   ],
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "Gemini_Generated_Image_li9cjgli9cjgli9c.jpg",
-      "sizes": "1024x1024",
-      "type": "image/jpeg",
-      "purpose": "any"
     }
   ],
   "screenshots": [
     {
-      "src": "screenshot1.png",
-      "sizes": "1080x1920",
+      "src": "screenshots/mobile-view.png",
+      "sizes": "750x1334",
       "type": "image/png",
       "form_factor": "narrow",
-      "label": "Garage Management System"
+      "label": "Garage Dashboard"
     },
     {
-      "src": "screenshot2.png",
-      "sizes": "1080x1920",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Engine Repair Details"
-    },
-    {
-      "src": "screenshot4.png",
-      "sizes": "1920x1080",
+      "src": "screenshots/desktop-view.png",
+      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Desktop Dashboard View"
+      "label": "Service List"
     }
   ]
 }
