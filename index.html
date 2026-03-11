@@ -475,75 +475,117 @@
 
 
 
-<div id="machine-work-card-generator" style="background: #000; padding: 25px; border: 2px solid #D4AF37; border-radius: 15px; max-width: 600px; margin: 20px auto; color: #fff; font-family: 'Arial', sans-serif; box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.4);">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="machine-card-pro" style="background: #000; padding: 25px; border: 3px solid #D4AF37; border-radius: 20px; max-width: 650px; margin: 30px auto; color: #fff; font-family: 'Segoe UI', Tahoma, sans-serif; box-shadow: 0px 10px 40px rgba(212, 175, 55, 0.3);">
     
-    <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 20px;">
-        <h1 style="color: #D4AF37; margin: 0; font-size: 24px;">🚘 BLACK GOLD AUTO SERVICES 🚘</h1>
-        <p style="margin: 5px 0; font-size: 14px;">Expert Engine Repair & Vehicle Machine work and Repair | Salmabad, Bahrain</p>
+    <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 25px;">
+        <h1 style="color: #D4AF37; margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 2px;">🚘 BLACK GOLD AUTO SERVICES 🚘</h1>
+        <p style="color: #eee; margin: 5px 0; font-size: 14px;">Expert Machine Work & Parts | Salmabad, Bahrain</p>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
         
-        <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Customer Name</label>
-        <input type="text" id="custName" placeholder="Enter Name" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
-
-        <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Select Country Code & Phone Number</label>
-        <div style="display: flex; gap: 10px;">
-            <select id="countryCode" style="padding: 12px; background: #333; border: 1px solid #444; color: #D4AF37; border-radius: 8px; font-weight: bold;">
-                <option value="973">Bahrain (+973)</option>
-                <option value="880">Bangladesh (+880)</option>
-                <option value="966">Saudi Arabia (+966)</option>
-                <option value="971">UAE (+971)</option>
-                <option value="91">India (+91)</option>
-                <option value="92">Pakistan (+92)</option>
-            </select>
-            <input type="number" id="custPhone" placeholder="Mobile Number" style="flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
             <div>
-                <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Vehicle Model & Year</label>
-                <input type="text" id="carInfo" placeholder="Toyota Avanza 2024" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
+                <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Customer Name</label>
+                <input type="text" id="custName" placeholder="Enter Full Name" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Registration Plate No</label>
-                <input type="text" id="plateNo" placeholder="Plate Number" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
+                <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Country & Phone</label>
+                <div style="display: flex; gap: 5px;">
+                    <select id="countryCode" style="padding: 10px; background: #333; border: 1px solid #444; color: #D4AF37; border-radius: 8px; font-weight: bold;">
+                        <option value="973">BH (+973)</option>
+                        <option value="880">BD (+880)</option>
+                        <option value="966">SA (+966)</option>
+                        <option value="971">UAE (+971)</option>
+                    </select>
+                    <input type="number" id="custPhone" placeholder="Mobile Number" style="flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; width: 60%;">
+                </div>
             </div>
         </div>
 
-        <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Car Machine Work Details</label>
-        <textarea id="machineWork" placeholder="e.g. Engine Overhaul, Crankshaft Grinding..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; min-height: 60px;"></textarea>
-
-        <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Vehicle Parts List</label>
-        <textarea id="partsList" placeholder="Enter all parts used (A to Z)..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; min-height: 80px;"></textarea>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
             <div>
-                <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Select Currency</label>
-                <select id="currency" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #D4AF37; border-radius: 8px;">
-                    <option value="BHD">Bahraini Dinar (BHD)</option>
-                    <option value="BDT">Bangladeshi Taka (BDT)</option>
-                    <option value="SAR">Saudi Riyal (SAR)</option>
-                    <option value="AED">UAE Dirham (AED)</option>
-                    <option value="USD">US Dollar (USD)</option>
-                </select>
+                <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Vehicle Model & Year</label>
+                <input type="text" id="carInfo" placeholder="Toyota Avanza 2022" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">Total Charge (Parts+Work)</label>
-                <input type="number" id="totalCost" placeholder="0.000" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #D4AF37; border-radius: 8px; font-weight: bold; box-sizing: border-box;">
+                <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Plate Number</label>
+                <input type="text" id="plateNo" placeholder="Registration No" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
         </div>
 
-        <label style="color: #ff4d4d; font-size: 13px; font-weight: bold;">Emergency Note</label>
-        <textarea id="note" placeholder="Any urgent issues or special instructions..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;"></textarea>
+        <div style="grid-column: span 2;">
+            <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Car Machine Work Details</label>
+            <textarea id="machineWork" placeholder="e.g. Engine Overhaul, Crankshaft Grinding..." style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; min-height: 50px;"></textarea>
+        </div>
+
+        <div style="grid-column: span 2;">
+            <label style="color: #D4AF37; font-size: 12px; font-weight: bold;">Vehicle Parts List</label>
+            <textarea id="partsList" placeholder="A to Z Parts List (e.g. Piston, Gasket, Ring...)" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; min-height: 70px;"></textarea>
+        </div>
+
+        <div style="background: #111; padding: 15px; border-radius: 12px; border: 1px dashed #D4AF37;">
+            <p style="color: #D4AF37; margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">Billing & Payments Status (All Currency)</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+                <div>
+                    <label style="color: #ccc; font-size: 10px;">Total Bill</label>
+                    <input type="number" id="totalBill" oninput="calcBalance()" placeholder="0.000" style="padding: 10px; background: #000; border: 1px solid #333; color: #f1c40f; border-radius: 8px; width: 100%; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label style="color: #ccc; font-size: 10px;">Paid Amount</label>
+                    <input type="number" id="paidAmount" oninput="calcBalance()" placeholder="0.000" style="padding: 10px; background: #000; border: 1px solid #333; color: #2ecc71; border-radius: 8px; width: 100%; box-sizing: border-box;">
+                </div>
+                <div>
+                    <label style="color: #ccc; font-size: 10px;">Balance</label>
+                    <input type="number" id="balanceAmount" readonly style="padding: 10px; background: #222; border: 1px solid #333; color: #ff4d4d; border-radius: 8px; width: 100%; box-sizing: border-box; font-weight: bold;">
+                </div>
+            </div>
+        </div>
+
+        <textarea id="note" placeholder="Emergency Note/Instructions..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; min-height: 50px;"></textarea>
     </div>
 
-    <button onclick="shareOnWhatsApp()" style="background: linear-gradient(to right, #D4AF37, #f1c40f); color: #000; width: 100%; padding: 16px; border: none; border-radius: 10px; font-weight: bold; font-size: 16px; margin-top: 25px; cursor: pointer; text-transform: uppercase;">
-        Generate & Share on WhatsApp
-    </button>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
+        <button onclick="shareOnWhatsApp()" style="background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; padding: 18px; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; text-transform: uppercase;">Share on WhatsApp</button>
+        <button onclick="saveHistory()" style="background: #333; color: #D4AF37; padding: 18px; border: 1px solid #D4AF37; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer;">Save History</button>
+    </div>
+
+    <div id="historyBox" style="margin-top: 30px; display: none; text-align: left;">
+        <h3 style="color: #D4AF37; border-bottom: 1px solid #333; padding-bottom: 5px;">Service History Ledger</h3>
+        <div id="historyData" style="max-height: 250px; overflow-y: auto;"></div>
+        <button onclick="clearAllHistory()" style="color: #ff4d4d; background: none; border: none; font-size: 12px; cursor: pointer; margin-top: 10px;">Clear All Records</button>
+    </div>
 </div>
 
 <script>
+function calcBalance() {
+    const total = parseFloat(document.getElementById('totalBill').value) || 0;
+    const paid = parseFloat(document.getElementById('paidAmount').value) || 0;
+    document.getElementById('balanceAmount').value = (total - paid).toFixed(3);
+}
+
 function shareOnWhatsApp() {
     const name = document.getElementById('custName').value;
     const code = document.getElementById('countryCode').value;
@@ -552,34 +594,77 @@ function shareOnWhatsApp() {
     const plate = document.getElementById('plateNo').value;
     const work = document.getElementById('machineWork').value;
     const parts = document.getElementById('partsList').value;
-    const curr = document.getElementById('currency').value;
-    const cost = document.getElementById('totalCost').value;
+    const total = document.getElementById('totalBill').value;
+    const paid = document.getElementById('paidAmount').value;
+    const bal = document.getElementById('balanceAmount').value;
     const note = document.getElementById('note').value;
 
-    if(!name || !phone) {
-        alert("Please enter Customer Name and Phone Number");
-        return;
-    }
+    if(!name || !phone) { alert("Please enter Customer Name and Phone Number"); return; }
 
     const message = `🚘 *BLACK GOLD AUTO SERVICES* 🚘%0A` +
-                    `*Machine Work Service Card*%0A` +
+                    `*Machine Work Card*%0A` +
                     `--------------------------------%0A` +
                     `👤 *Customer:* ${name}%0A` +
                     `🚗 *Vehicle:* ${car}%0A` +
-                    `🔢 *Plate No:* ${plate}%0A` +
+                    `🔢 *Reg No:* ${plate}%0A` +
                     `--------------------------------%0A` +
                     `⚙️ *Machine Work:* ${work}%0A` +
-                    `📦 *Parts List:* ${parts}%0A` +
+                    `📦 *Parts Used:* ${parts}%0A` +
                     `--------------------------------%0A` +
-                    `💰 *Total Cost:* ${cost} ${curr}%0A` +
-                    `🚨 *Emergency Note:* ${note}%0A` +
+                    `💰 *Total Bill:* ${total}%0A` +
+                    `💵 *Paid:* ${paid}%0A` +
+                    `🚩 *Balance:* ${bal}%0A` +
+                    `💳 *Status:* ${bal <= 0 ? "FULLY PAID ✅" : "DUE/BALANCE ❌"}%0A` +
                     `--------------------------------%0A` +
-                    `📍 *Salmabad, Bahrain*%0A` +
-                    `🇧🇭 *Proprietor: Mohammed Sarwar*`;
+                    `⚠️ *Emergency Note:* ${note}%0A` +
+                    `--------------------------------%0A` +
+                    `📍 *Salmabad, Bahrain* %0A` +
+                    `📞 *Proprietor: Mohammed Sarwar*`;
 
-    const whatsappUrl = `https://wa.me/${code}${phone}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(`https://wa.me/${code}${phone}?text=${message}`, '_blank');
 }
+
+function saveHistory() {
+    const name = document.getElementById('custName').value;
+    if(!name) return alert("Enter Customer Name to save!");
+    
+    const record = {
+        name: name,
+        car: document.getElementById('carInfo').value,
+        total: document.getElementById('totalBill').value,
+        bal: document.getElementById('balanceAmount').value,
+        date: new Date().toLocaleString()
+    };
+
+    let history = JSON.parse(localStorage.getItem('bgHistory') || '[]');
+    history.unshift(record);
+    localStorage.setItem('bgHistory', JSON.stringify(history));
+    loadHistory();
+    alert("Record Saved Successfully!");
+}
+
+function loadHistory() {
+    const history = JSON.parse(localStorage.getItem('bgHistory') || '[]');
+    const box = document.getElementById('historyBox');
+    const dataDiv = document.getElementById('historyData');
+    
+    if(history.length > 0) {
+        box.style.display = 'block';
+        dataDiv.innerHTML = history.map(item => `
+            <div style="background: #111; padding: 10px; margin-bottom: 8px; border-left: 3px solid #D4AF37; font-size: 13px;">
+                <b>${item.name}</b> | ${item.car}<br>
+                <small style="color: #888;">${item.date}</small><br>
+                <span style="color: #f1c40f;">Total: ${item.total}</span> | 
+                <span style="color: ${item.bal > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.bal}</span>
+            </div>
+        `).join('');
+    }
+}
+
+function clearAllHistory() { if(confirm("Clear all garage records?")) { localStorage.removeItem('bgHistory'); location.reload(); } }
+
+// Load history on page open
+loadHistory();
 </script>
 
 
