@@ -495,123 +495,99 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto - Search Ledger & Work Portal</title>
+    <title>Black Gold Auto Machanic - Master Ledger & Summary</title>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
         .container { background: #111; border: 2px solid #D4AF37; border-radius: 15px; max-width: 650px; margin: 20px auto; padding: 25px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
         .header { text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px; }
         .header h1 { color: #D4AF37; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
         
+        /* Summary Dashboard */
+        .summary-dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+        .summary-card { background: #000; border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center; border-bottom: 3px solid #D4AF37; }
+        .summary-card h3 { margin: 0; font-size: 12px; color: #888; text-transform: uppercase; }
+        .summary-card p { margin: 5px 0 0; font-size: 20px; font-weight: bold; }
+
         label { color: #D4AF37; font-size: 11px; font-weight: bold; display: block; margin-top: 15px; text-transform: uppercase; }
-        input, textarea, select { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; font-size: 14px; }
-        input:focus { border-color: #D4AF37; outline: none; }
-
+        input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; font-size: 14px; }
+        
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        
-        /* Image Upload Area */
-        .upload-area { border: 2px dashed #D4AF37; background: #080808; padding: 20px; text-align: center; border-radius: 10px; margin-top: 15px; cursor: pointer; }
-        #preview-img { width: 100%; max-height: 250px; object-fit: contain; border-radius: 8px; margin-top: 10px; display: none; border: 1px solid #D4AF37; }
-
-        /* Ledger & Search Styling */
-        .ledger-section { margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; }
-        .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; font-size: 16px; font-weight: bold; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
-        .history-card { background: #1a1a1a; border-left: 5px solid #D4AF37; padding: 15px; margin-bottom: 12px; border-radius: 5px; animation: fadeIn 0.3s ease; }
-        
         .btn-save { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 25px; text-transform: uppercase; font-size: 16px; }
-        .btn-whatsapp { background: #25D366; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; margin-top: 10px; font-weight: bold; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .ledger-section { margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; }
+        .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; font-size: 16px; font-weight: bold; padding: 15px; margin-bottom: 20px; border-radius: 8px; width: 100%; box-sizing: border-box; }
+        .history-card { background: #1a1a1a; border-left: 5px solid #D4AF37; padding: 15px; margin-bottom: 12px; border-radius: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>🚘 BLACK GOLD AUTO SERVICES 🚘</h1>
-        <p style="color: #f1c40f; margin: 5px 0; font-size: 14px;">Salmabad, Bahrain | Master Ledger</p>
+        <h1>🚘 BLACK GOLD AUTO SERVICES </h1>
+        <p style="color: #f1c40f; margin: 5px 0;">Salmabad, Bahrain</p>
+    </div>
+
+    <div class="summary-dashboard">
+        <div class="summary-card">
+            <h3>Grand Total Sales</h3>
+            <p id="grandTotal" style="color: #D4AF37;">0.000 BHD</p>
+        </div>
+        <div class="summary-card">
+            <h3>Total Balance Due</h3>
+            <p id="totalDue" style="color: #ff4d4d;">0.000 BHD</p>
+        </div>
     </div>
 
     <div class="row">
         <div>
             <label>Customer Name</label>
-            <input type="text" id="custName" placeholder="Full Name">
+            <input type="text" id="custName" placeholder="Name">
         </div>
         <div>
-            <label>Phone (+973)</label>
-            <input type="number" id="custPhone" placeholder="33XXXXXX">
+            <label>Plate Number</label>
+            <input type="text" id="plateNo" placeholder="Plate No">
         </div>
     </div>
 
     <div class="row">
         <div>
-            <label>Plate Number</label>
-            <input type="text" id="plateNo" placeholder="Registration No">
+            <label>Bill Amount (BHD)</label>
+            <input type="number" id="billAmount" placeholder="0.000">
         </div>
         <div>
             <label>Balance Due (BHD)</label>
-            <input type="number" id="balance" placeholder="0.000" style="color: #ff4d4d; font-weight: bold;">
+            <input type="number" id="balanceDue" placeholder="0.000" style="color: #ff4d4d;">
         </div>
     </div>
 
-    <label>Work Photo (Capture/Upload)</label>
-    <div class="upload-area" onclick="document.getElementById('imgFile').click()">
-        <span id="upload-label" style="color: #D4AF37;">📸 Tap to Upload Engine/Part Photo</span>
-        <input type="file" id="imgFile" accept="image/*" style="display: none;" onchange="handleImage(event)">
-        <img id="preview-img" src="" alt="Work Preview">
-    </div>
-
-    <label>Machine Work Details</label>
-    <textarea id="workDetails" rows="3" placeholder="List parts used and work performed..."></textarea>
-
-    <button class="btn-save" onclick="saveToLedger()">Save to Ledger & Generate</button>
+    <button class="btn-save" onclick="saveToLedger()">Save & Update Ledger</button>
 
     <div class="ledger-section">
-        <h2 style="color: #D4AF37; font-size: 18px; margin-bottom: 15px;">🔍 SEARCH LEDGER HISTORY</h2>
-        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="Search by Name, Plate, or Phone...">
-        
-        <div id="ledgerList">
-            </div>
-        
-        <button onclick="clearLedger()" style="background:none; border:none; color:red; cursor:pointer; font-size:11px; margin-top: 20px;">Clear All Database Records</button>
+        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search History...">
+        <div id="ledgerList"></div>
+        <button onclick="clearAll()" style="color:red; background:none; border:none; cursor:pointer; font-size:11px; margin-top:20px;">Reset All Records</button>
     </div>
 </div>
 
 <script>
-    // Preview Image Logic
-    function handleImage(event) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const img = document.getElementById('preview-img');
-            const label = document.getElementById('upload-label');
-            img.src = reader.result;
-            img.style.display = 'block';
-            label.style.display = 'none';
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
-    // Save Logic
     function saveToLedger() {
         const name = document.getElementById('custName').value;
-        const phone = document.getElementById('custPhone').value;
         const plate = document.getElementById('plateNo').value;
-        const bal = document.getElementById('balance').value;
-        const work = document.getElementById('workDetails').value;
+        const bill = parseFloat(document.getElementById('billAmount').value) || 0;
+        const due = parseFloat(document.getElementById('balanceDue').value) || 0;
 
-        if(!name || !phone) return alert("Customer Name and Phone are required!");
+        if(!name) return alert("Please enter Customer Name");
 
         const entry = {
             name: name,
-            phone: phone,
             plate: plate,
-            balance: bal || "0.000",
-            work: work,
+            bill: bill,
+            due: due,
             date: new Date().toLocaleDateString()
         };
 
@@ -619,54 +595,56 @@
         ledger.unshift(entry);
         localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
         
-        // WhatsApp Notification
-        const msg = `🚘 *BLACK GOLD AUTO SERVICES*%0A*Work Card:* ${plate}%0A*Work:* ${work}%0A*Balance Due:* ${bal} BHD%0AThank you!`;
-        window.open(`https://wa.me/973${phone}?text=${msg}`, '_blank');
-
-        location.reload(); // Refresh to update list
+        location.reload(); 
     }
 
-    // Display Logic
+    function calculateSummary(ledger) {
+        let totalSales = 0;
+        let totalUnpaid = 0;
+
+        ledger.forEach(item => {
+            totalSales += parseFloat(item.bill || 0);
+            totalUnpaid += parseFloat(item.due || 0);
+        });
+
+        document.getElementById('grandTotal').innerText = totalSales.toFixed(3) + " BHD";
+        document.getElementById('totalDue').innerText = totalUnpaid.toFixed(3) + " BHD";
+    }
+
     function displayLedger(data = null) {
-        const ledger = data || JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
+        const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
+        calculateSummary(ledger);
+        
+        const displayData = data || ledger;
         const list = document.getElementById('ledgerList');
         
-        list.innerHTML = ledger.map(item => `
+        list.innerHTML = displayData.map(item => `
             <div class="history-card">
-                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #333; padding-bottom:5px;">
-                    <b style="color:#D4AF37;">${item.name}</b>
-                    <small>${item.date}</small>
+                <div style="display:flex; justify-content:space-between; font-weight:bold;">
+                    <span style="color:#D4AF37;">${item.name}</span>
+                    <span style="font-size:12px; color:#666;">${item.date}</span>
                 </div>
-                <div style="margin-top:8px; font-size:13px;">
-                    Vehicle: ${item.plate} | Phone: ${item.phone}<br>
-                    Work: ${item.work}<br>
-                    <b style="color:${parseFloat(item.balance) > 0 ? '#ff4d4d' : '#2ecc71'}">Balance: ${item.balance} BHD</b>
+                <div style="font-size:13px; margin-top:5px;">
+                    Plate: ${item.plate} | Bill: ${item.bill.toFixed(3)} BHD<br>
+                    <b style="color:${item.due > 0 ? '#ff4d4d' : '#2ecc71'}">Balance Due: ${item.due.toFixed(3)} BHD</b>
                 </div>
-                <button class="btn-whatsapp" onclick="window.open('https://wa.me/973${item.phone}?text=Reminder from Black Gold Auto: Balance ${item.balance} BHD', '_blank')">Send Reminder</button>
             </div>
         `).join('');
     }
 
-    // Live Search Filter
     function filterLedger() {
         const query = document.getElementById('ledgerSearch').value.toLowerCase();
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         const filtered = ledger.filter(item => 
             item.name.toLowerCase().includes(query) || 
-            item.plate.toLowerCase().includes(query) || 
-            item.phone.includes(query)
+            item.plate.toLowerCase().includes(query)
         );
         displayLedger(filtered);
     }
 
-    function clearLedger() {
-        if(confirm("Delete all history?")) {
-            localStorage.removeItem('bgMasterLedger');
-            displayLedger();
-        }
-    }
+    function clearAll() { if(confirm("Delete all data?")) { localStorage.removeItem('bgMasterLedger'); location.reload(); } }
 
-    window.onload = displayLedger;
+    window.onload = () => displayLedger();
 </script>
 </body>
 </html>
