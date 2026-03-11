@@ -518,60 +518,83 @@ function generateCard() {
 
 
 
-<div id="service-card-generator" style="background: #111; padding: 20px; border: 2px solid #D4AF37; border-radius: 15px; max-width: 500px; margin: 20px auto; color: #fff; font-family: sans-serif;">
-    <h2 style="color: #D4AF37; text-align: center;">Digital Service Card</h2>
-    <p style="text-align: center; font-size: 12px;">Black Gold Auto Services - Bahrain</p>
 
-    <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
-        <label>Customer Name:</label>
-        <input type="text" id="custName" placeholder="Enter Name" style="padding: 8px; border-radius: 5px;">
 
-        <label>Bahrain Phone (+973):</label>
-        <input type="number" id="custPhone" placeholder="33XXXXXX" style="padding: 8px; border-radius: 5px;">
 
-        <label>Vehicle Make (e.g. Toyota):</label>
-        <input type="text" id="carMake" style="padding: 8px; border-radius: 5px;">
 
-        <label>Vehicle Model (e.g. Avanza):</label>
-        <input type="text" id="carModel" style="padding: 8px; border-radius: 5px;">
 
-        <label>Registration Number (Plate):</label>
-        <input type="text" id="plateNo" style="padding: 8px; border-radius: 5px;">
 
-        <label>Work Type:</label>
-        <select id="workType" style="padding: 8px; border-radius: 5px;">
-            <option value="Engine Overhaul">Engine Overhaul</option>
-            <option value="Gearbox Repair">Gearbox Repair</option>
-            <option value="General Service">General Service</option>
-            <option value="Oil Change">Oil Change</option>
-        </select>
 
-        <label>Engine Oil Type (e.g. 20W-50):</label>
-        <input type="text" id="oilType" style="padding: 8px; border-radius: 5px;">
 
-        <label>Oil Filter Number:</label>
-        <input type="text" id="filterNo" style="padding: 8px; border-radius: 5px;">
 
-        <label>Current Mileage (KM):</label>
-        <input type="number" id="currentKm" style="padding: 8px; border-radius: 5px;">
+<div id="service-card-generator" style="background: #0d0d0d; padding: 25px; border: 2px solid #D4AF37; border-radius: 15px; max-width: 500px; margin: 20px auto; color: #ffffff; font-family: sans-serif; box-shadow: 0px 4px 15px rgba(212, 175, 55, 0.3);">
+    
+    <h2 style="color: #D4AF37; text-align: center; margin-bottom: 5px;">BLACK GOLD</h2>
+    <p style="text-align: center; color: #aaa; font-size: 12px; margin-bottom: 20px;">Salmabad, Bahrain | Expert Engine & Gearbox</p>
 
-        <label>Next Service (KM/Date):</label>
-        <input type="text" id="nextService" style="padding: 8px; border-radius: 5px;">
+    <div style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
+        
+        <label style="color: #D4AF37; font-size: 13px;">Customer Name</label>
+        <input type="text" id="custName" placeholder="Enter Name" style="padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px;">
 
-        <label>Emergency Note:</label>
-        <textarea id="note" style="padding: 8px; border-radius: 5px;"></textarea>
+        <label style="color: #D4AF37; font-size: 13px;">Bahrain Mobile Number</label>
+        <div style="display: flex; gap: 5px;">
+            <span style="background: #333; padding: 10px; border-radius: 5px; color: #D4AF37; font-weight: bold;">+973</span>
+            <input type="number" id="custPhone" placeholder="33XXXXXX" style="flex: 1; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px;">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Vehicle Make</label>
+                <input type="text" id="carMake" placeholder="Toyota/Nissan" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Model</label>
+                <input type="text" id="carModel" placeholder="Avanza/D22" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <label style="color: #D4AF37; font-size: 13px;">Registration Number</label>
+        <input type="text" id="plateNo" placeholder="Plate Number" style="padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px;">
+
+        <label style="color: #D4AF37; font-size: 13px;">Work Performed</label>
+        <input type="text" id="workType" placeholder="Engine Overhaul / Gearbox" style="padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px;">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Oil Type</label>
+                <input type="text" id="oilType" placeholder="20W-50" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Filter No.</label>
+                <input type="text" id="filterNo" placeholder="FT-172" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Current KM</label>
+                <input type="number" id="currentKm" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 13px;">Next Service</label>
+                <input type="text" id="nextService" placeholder="+5000 KM" style="width:100%; padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <label style="color: #D4AF37; font-size: 13px;">Emergency Note</label>
+        <textarea id="note" placeholder="Any issues found..." style="padding: 10px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 5px;"></textarea>
     </div>
 
-    <button onclick="shareOnWhatsApp()" style="background: #D4AF37; color: black; width: 100%; padding: 15px; border: none; border-radius: 10px; font-weight: bold; margin-top: 20px; cursor: pointer;">
-        Generate & Share via WhatsApp
+    <button onclick="shareOnWhatsApp()" style="background: #D4AF37; color: black; width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: bold; margin-top: 20px; cursor: pointer; font-size: 16px;">
+        SEND SERVICE CARD (+973)
     </button>
 </div>
 
 <script>
 function shareOnWhatsApp() {
-    // 1. Get Values
     const name = document.getElementById('custName').value;
-    const phone = document.getElementById('custPhone').value;
+    const phone = document.getElementById('custPhone').value; // User only types 8 digits
     const make = document.getElementById('carMake').value;
     const model = document.getElementById('carModel').value;
     const plate = document.getElementById('plateNo').value;
@@ -582,17 +605,16 @@ function shareOnWhatsApp() {
     const next = document.getElementById('nextService').value;
     const note = document.getElementById('note').value;
 
-    if(!phone || !name) {
-        alert("Please enter at least Customer Name and Phone Number.");
+    if(!phone || phone.length < 8) {
+        alert("Please enter a valid 8-digit Bahrain mobile number.");
         return;
     }
 
-    // 2. Format Message
     const message = `🛠️ *BLACK GOLD SERVICE CARD* 🛠️%0A` +
                     `----------------------------%0A` +
                     `👤 *Customer:* ${name}%0A` +
                     `🚗 *Vehicle:* ${make} ${model}%0A` +
-                    `🔢 *Reg No:* ${plate}%0A` +
+                    `🔢 *Plate No:* ${plate}%0A` +
                     `🔧 *Work:* ${work}%0A` +
                     `🛢️ *Oil Type:* ${oil}%0A` +
                     `🏷️ *Filter:* ${filter}%0A` +
@@ -602,7 +624,7 @@ function shareOnWhatsApp() {
                     `----------------------------%0A` +
                     `📍 *Salmabad, Bahrain*`;
 
-    // 3. Open WhatsApp (Bahrain Code +973)
+    // The logic below adds the +973 code automatically
     const whatsappUrl = `https://wa.me/973${phone}?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
