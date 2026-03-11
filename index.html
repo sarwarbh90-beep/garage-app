@@ -599,120 +599,165 @@ function shareOnWhatsApp() {
 
 
 
-<div id="oil-billing-card-final" style="background: #000; padding: 25px; border: 3px solid #D4AF37; border-radius: 20px; max-width: 600px; margin: 20px auto; color: #fff; font-family: 'Arial', sans-serif; box-shadow: 0px 5px 25px rgba(212, 175, 55, 0.4);">
+
+
+
+
+
+
+
+
+<div id="oil-service-pro" style="background: #000; padding: 25px; border: 3px solid #D4AF37; border-radius: 20px; max-width: 650px; margin: 20px auto; color: #fff; font-family: 'Segoe UI', sans-serif; box-shadow: 0px 10px 30px rgba(212, 175, 55, 0.3);">
     
-    <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; margin-bottom: 20px;">
-        <h1 style="color: #D4AF37; margin: 0; font-size: 22px;">⚙️🛠️ BLACK GOLD AUTO SERVICES 🛠️⚙️</h1>
-        <p style="margin: 5px 0; font-size: 16px; color: #f1c40f;">🛢️ DIGITAL SERVICE & BILLING CARD 🛢️</p>
+    <div style="text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px;">
+        <h1 style="color: #D4AF37; margin: 0; font-size: 24px;">⚙️🛠️ BLACK GOLD AUTO SERVICES 🛠️⚙️</h1>
+        <p style="color: #f1c40f; margin: 5px 0; font-size: 16px;">🛢️ Oil & Filter Digital Card with Ledger 🛢️</p>
     </div>
 
     <div style="display: flex; flex-direction: column; gap: 12px; text-align: left;">
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 10px;">
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">Customer Name</label>
-                <input type="text" id="custName" placeholder="Name" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
+                <label style="color: #D4AF37; font-size: 12px;">(১) Customer Name</label>
+                <input type="text" id="custName" placeholder="Full Name" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">Country & Phone</label>
+                <label style="color: #D4AF37; font-size: 12px;">(২-৩) Phone No.</label>
                 <div style="display: flex; gap: 5px;">
-                    <select id="countryCode" style="padding: 10px; background: #333; border: 1px solid #444; color: #D4AF37; border-radius: 8px;">
-                        <option value="973">+973 (BH)</option>
-                        <option value="880">+880 (BD)</option>
-                    </select>
-                    <input type="number" id="custPhone" placeholder="33XXXXXX" style="flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; width: 60%;">
+                    <input type="text" id="countryCode" value="973" style="width: 50px; padding: 12px; background: #333; border: 1px solid #444; color: #D4AF37; border-radius: 8px; font-weight: bold; text-align: center;">
+                    <input type="number" id="custPhone" placeholder="Mobile" style="flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; width: 60%;">
                 </div>
             </div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <input type="text" id="carInfo" placeholder="Car Model & Year" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
-            <input type="text" id="plateNo" placeholder="Plate No" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="carModel" placeholder="(৪) Model & Year" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="plateNo" placeholder="(৫) Plate Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <input type="text" id="oilType" placeholder="(৬) Oil Type (20W-50)" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="filterNo" placeholder="(৭) Filter Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">Current KM</label>
-                <input type="number" id="currentKm" oninput="autoCalcKm()" placeholder="Enter KM" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
+                <label style="color: #D4AF37; font-size: 12px;">(৮) Current KM</label>
+                <input type="number" id="currentKm" oninput="calcNext()" placeholder="125000" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #f1c40f; font-size: 12px;">Next Service (Auto)</label>
+                <label style="color: #f1c40f; font-size: 12px;">(৯) Next Service</label>
                 <input type="number" id="nextService" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #D4AF37; color: #f1c40f; border-radius: 8px; font-weight: bold; box-sizing: border-box;">
             </div>
         </div>
 
-        <div style="background: #111; padding: 15px; border-radius: 10px; border: 1px dashed #D4AF37;">
-            <p style="color: #D4AF37; margin: 0 0 10px 0; font-size: 14px; font-weight: bold;">Billing & Payment Status</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px;">
-                <input type="number" id="oilPrice" placeholder="Oil Cost" oninput="totalBill()" style="padding: 10px; background: #000; border: 1px solid #333; color: #fff; border-radius: 5px; width: 100%; box-sizing: border-box;">
-                <input type="number" id="filterPrice" placeholder="Filter Cost" oninput="totalBill()" style="padding: 10px; background: #000; border: 1px solid #333; color: #fff; border-radius: 5px; width: 100%; box-sizing: border-box;">
-                <input type="number" id="laborPrice" placeholder="Labor" oninput="totalBill()" style="padding: 10px; background: #000; border: 1px solid #333; color: #fff; border-radius: 5px; width: 100%; box-sizing: border-box;">
-            </div>
-            
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <select id="payStatus" style="padding: 10px; background: #D4AF37; color: #000; border-radius: 5px; font-weight: bold; border: none;">
-                    <option value="PAID ✅">PAID ✅</option>
-                    <option value="UNPAID/DUE ❌">UNPAID ❌</option>
-                </select>
-                <p style="color: #f1c40f; margin: 0; font-weight: bold; font-size: 18px;">Total: <span id="grandTotal">0.000</span> BHD</p>
+        <div style="background: #111; padding: 15px; border-radius: 12px; border: 1px dashed #D4AF37;">
+            <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">(১০-১১) Billing & Ledger (BHD)</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px;">
+                <input type="number" id="totalBill" oninput="calcBalance()" placeholder="Total Bill" style="padding: 12px; background: #000; border: 1px solid #333; color: #f1c40f; border-radius: 8px; width: 100%; box-sizing: border-box;">
+                <input type="number" id="paidAmount" oninput="calcBalance()" placeholder="Paid" style="padding: 12px; background: #000; border: 1px solid #333; color: #2ecc71; border-radius: 8px; width: 100%; box-sizing: border-box;">
+                <input type="number" id="balanceAmount" readonly placeholder="Balance" style="padding: 12px; background: #222; border: 1px solid #333; color: #e74c3c; border-radius: 8px; width: 100%; box-sizing: border-box; font-weight: bold;">
             </div>
         </div>
 
-        <textarea id="note" placeholder="Emergency Note/Issues..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; min-height: 50px;"></textarea>
+        <textarea id="note" placeholder="(১৩) Emergency Note..." style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; min-height: 50px;"></textarea>
     </div>
 
-    <button onclick="shareFinalCard()" style="background: linear-gradient(to right, #D4AF37, #B8860B); color: #000; width: 100%; padding: 16px; border: none; border-radius: 10px; font-weight: bold; font-size: 16px; margin-top: 20px; cursor: pointer; text-transform: uppercase;">
-        Generate & Share Final Card
-    </button>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px;">
+        <button onclick="shareOnWhatsApp()" style="background: linear-gradient(to right, #D4AF37, #B8860B); color: #000; padding: 15px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; text-transform: uppercase;">WhatsApp Share</button>
+        <button onclick="saveToHistory()" style="background: #333; color: #D4AF37; padding: 15px; border: 1px solid #D4AF37; border-radius: 10px; font-weight: bold; cursor: pointer;">Save History</button>
+    </div>
+
+    <div id="historyTable" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; display: none;">
+        <h3 style="color: #D4AF37; font-size: 16px;">Service History Ledger</h3>
+        <div id="historyList" style="max-height: 200px; overflow-y: auto; font-size: 12px;"></div>
+        <button onclick="clearHistory()" style="background: transparent; color: #ff4d4d; border: none; cursor: pointer; font-size: 11px; margin-top: 10px;">Clear All History</button>
+    </div>
 </div>
 
 <script>
-function autoCalcKm() {
-    const cur = document.getElementById('currentKm').value;
-    document.getElementById('nextService').value = cur ? parseInt(cur) + 5000 : "";
+function calcNext() {
+    const km = document.getElementById('currentKm').value;
+    document.getElementById('nextService').value = km ? parseInt(km) + 5000 : "";
 }
 
-function totalBill() {
-    const oil = parseFloat(document.getElementById('oilPrice').value) || 0;
-    const filter = parseFloat(document.getElementById('filterPrice').value) || 0;
-    const labor = parseFloat(document.getElementById('laborPrice').value) || 0;
-    document.getElementById('grandTotal').innerText = (oil + filter + labor).toFixed(3);
+function calcBalance() {
+    const total = parseFloat(document.getElementById('totalBill').value) || 0;
+    const paid = parseFloat(document.getElementById('paidAmount').value) || 0;
+    document.getElementById('balanceAmount').value = (total - paid).toFixed(3);
 }
 
-function shareFinalCard() {
+function shareOnWhatsApp() {
     const name = document.getElementById('custName').value;
     const code = document.getElementById('countryCode').value;
     const phone = document.getElementById('custPhone').value;
-    const car = document.getElementById('carInfo').value;
-    const plate = document.getElementById('plateNo').value;
-    const km = document.getElementById('currentKm').value;
+    const model = document.getElementById('carModel').value;
     const next = document.getElementById('nextService').value;
-    const total = document.getElementById('grandTotal').innerText;
-    const status = document.getElementById('payStatus').value;
-    const note = document.getElementById('note').value;
+    const total = document.getElementById('totalBill').value;
+    const paid = document.getElementById('paidAmount').value;
+    const balance = document.getElementById('balanceAmount').value;
+    const status = balance <= 0 ? "FULLY PAID ✅" : "DUE/BALANCE ❌";
 
-    if(!name || !phone) { alert("Please enter Customer Name and Phone!"); return; }
+    if(!name || !phone) { alert("Please enter Name and Phone!"); return; }
 
     const message = `⚙️🛠️ *BLACK GOLD AUTO SERVICES* 🛠️⚙️%0A` +
-                    `*Digital Service & Payment Card*%0A` +
+                    `*Oil & Filter Service Receipt*%0A` +
                     `--------------------------------%0A` +
                     `👤 *Customer:* ${name}%0A` +
-                    `🚗 *Vehicle:* ${car}%0A` +
-                    `🔢 *Plate No:* ${plate}%0A` +
+                    `🚗 *Vehicle:* ${model}%0A` +
                     `--------------------------------%0A` +
-                    `📉 *Current KM:* ${km}%0A` +
+                    `📉 *Current KM:* ${document.getElementById('currentKm').value}%0A` +
                     `🔔 *Next Service:* ${next} KM%0A` +
                     `--------------------------------%0A` +
                     `💰 *Total Bill:* ${total} BHD%0A` +
+                    `💵 *Paid:* ${paid} BHD%0A` +
+                    `🚩 *Balance:* ${balance} BHD%0A` +
                     `💳 *Status:* ${status}%0A` +
                     `--------------------------------%0A` +
-                    `⚠️ *Note:* ${note}%0A` +
+                    `⚠️ *Note:* ${document.getElementById('note').value}%0A` +
                     `--------------------------------%0A` +
                     `📍 *Salmabad, Bahrain* %0A` +
-                    `📞 *Proprietor: Mohammed Sarwar*`;
+                    `*Proprietor: Mohammed Sarwar*`;
 
     window.open(`https://wa.me/${code}${phone}?text=${message}`, '_blank');
 }
+
+// History Functions
+function saveToHistory() {
+    const entry = {
+        name: document.getElementById('custName').value,
+        car: document.getElementById('carModel').value,
+        total: document.getElementById('totalBill').value,
+        balance: document.getElementById('balanceAmount').value,
+        date: new Date().toLocaleDateString()
+    };
+    if(!entry.name) return;
+    let history = JSON.parse(localStorage.getItem('garageHistory') || '[]');
+    history.unshift(entry);
+    localStorage.setItem('garageHistory', JSON.stringify(history));
+    displayHistory();
+    alert("Data Saved to History!");
+}
+
+function displayHistory() {
+    let history = JSON.parse(localStorage.getItem('garageHistory') || '[]');
+    const container = document.getElementById('historyList');
+    const tableDiv = document.getElementById('historyTable');
+    if(history.length > 0) {
+        tableDiv.style.display = 'block';
+        container.innerHTML = history.map(item => `
+            <div style="border-bottom: 1px solid #222; padding: 8px 0; display: flex; justify-content: space-between;">
+                <span><b>${item.name}</b> (${item.car})</span>
+                <span style="color: ${item.balance > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.balance} BHD</span>
+            </div>
+        `).join('');
+    }
+}
+
+function clearHistory() { if(confirm("Delete all records?")) { localStorage.removeItem('garageHistory'); displayHistory(); } }
+
+// Load history on start
+displayHistory();
 </script>
 
 
