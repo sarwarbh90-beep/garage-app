@@ -1282,42 +1282,37 @@ function toggleChat() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto - Quality Transformations</title>
+    <title>Black Gold Auto - Professional Gallery</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
         .container { background: #111; border: 2px solid #D4AF37; border-radius: 15px; max-width: 650px; margin: 20px auto; padding: 25px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
-        .header { text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px; }
-        .header h1 { color: #D4AF37; margin: 0; font-size: 22px; text-transform: uppercase; }
         
-        .summary-dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
-        .summary-card { background: #000; border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center; border-bottom: 3px solid #D4AF37; }
+        /* Navigation Tabs */
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .tab-btn { flex: 1; padding: 10px; border: none; background: #222; color: #888; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .tab-btn.active { background: #D4AF37; color: #000; }
+
+        .header { text-align: center; margin-bottom: 20px; }
+        .header h1 { color: #D4AF37; margin: 0; font-size: 20px; text-transform: uppercase; }
         
-        label { color: #D4AF37; font-size: 11px; font-weight: bold; display: block; margin-top: 15px; text-transform: uppercase; }
+        label { color: #D4AF37; font-size: 11px; font-weight: bold; display: block; margin-top: 15px; }
         input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; }
         
-        .photo-upload-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-        .photo-input { font-size: 10px; padding: 5px; background: #222; border: 1px dashed #D4AF37; }
-
-        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .photo-upload { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
         .btn-save { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 25px; text-transform: uppercase; }
         
-        .action-btns { display: flex; gap: 5px; margin-top: 10px; flex-wrap: wrap; }
-        .btn-small { border: none; padding: 8px 10px; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: bold; color: white; }
-        .pdf-btn { background: #e67e22; }
-        .wa-btn { background: #25D366; }
-        .edit-btn { background: #3498db; }
-        .del-btn { background: #e74c3c; }
+        /* Gallery Grid Layout */
+        .gallery-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .gallery-card { background: #1a1a1a; border-radius: 10px; overflow: hidden; border: 1px solid #333; }
+        .gallery-images { display: flex; height: 200px; }
+        .gallery-images img { width: 50%; object-fit: cover; border: 1px solid #000; }
+        .gallery-info { padding: 15px; border-top: 2px solid #D4AF37; }
+        .gallery-info h4 { margin: 0; color: #D4AF37; }
+        .gallery-info p { margin: 5px 0 0; font-size: 13px; color: #ccc; }
 
         .history-card { background: #1a1a1a; border-left: 5px solid #D4AF37; padding: 15px; margin-bottom: 12px; border-radius: 5px; }
-        
-        /* Gallery Style */
-        .gallery-preview { display: flex; gap: 10px; margin-top: 10px; }
-        .gallery-img { width: 48%; height: 120px; object-fit: cover; border-radius: 5px; border: 1px solid #444; cursor: pointer; }
-        .img-label { font-size: 10px; text-align: center; color: #888; margin-bottom: 5px; }
-
-        .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; padding: 15px; margin-bottom: 20px; border-radius: 8px; width: 100%; box-sizing: border-box; }
-        #pdf-template { display: none; padding: 40px; color: #000; background: #fff; font-family: Arial, sans-serif; }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
@@ -1325,172 +1320,135 @@ function toggleChat() {
 <div class="container">
     <div class="header">
         <h1>BLACK GOLD AUTO SERVICES</h1>
-        <p style="color: #f1c40f; margin: 5px 0; font-size: 12px;">Salmabad, Bahrain | Mob: 33722424</p>
+        <p style="color: #888; font-size: 12px;">SALMABAD, BAHRAIN</p>
     </div>
 
-    <div class="summary-dashboard">
-        <div class="summary-card"><h3>Total Sales</h3><p id="grandTotal" style="color: #D4AF37;">0.000 BHD</p></div>
-        <div class="summary-card"><h3>Total Due</h3><p id="totalDue" style="color: #ff4d4d;">0.000 BHD</p></div>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('ledger')">📊 LEDGER</button>
+        <button class="tab-btn" onclick="showTab('gallery')">🖼️ GALLERY</button>
     </div>
 
-    <input type="hidden" id="editId">
-    
-    <div class="row">
-        <div><label>Customer Name</label><input type="text" id="custName" placeholder="Name"></div>
-        <div><label>Plate No</label><input type="text" id="plateNo" placeholder="Plate No"></div>
-    </div>
-
-    <label>Work Transformation Photos</label>
-    <div class="photo-upload-row">
-        <div>
-            <div class="img-label">BEFORE WORK</div>
-            <input type="file" id="imgBefore" class="photo-input" accept="image/*">
+    <div id="ledgerTab">
+        <div class="row" style="display:flex; gap:10px;">
+            <div style="flex:1;"><label>Customer Name</label><input type="text" id="custName"></div>
+            <div style="flex:1;"><label>Plate No</label><input type="text" id="plateNo"></div>
         </div>
-        <div>
-            <div class="img-label">AFTER WORK</div>
-            <input type="file" id="imgAfter" class="photo-input" accept="image/*">
+
+        <label>Work Photos (Before & After)</label>
+        <div class="photo-upload">
+            <input type="file" id="imgBefore" accept="image/*" style="font-size:10px;">
+            <input type="file" id="imgAfter" accept="image/*" style="font-size:10px;">
         </div>
-    </div>
 
-    <label>Work Details</label>
-    <textarea id="workDetails" rows="2" placeholder="Explain the service..."></textarea>
+        <label>Description of Work</label>
+        <textarea id="workDetails" rows="2"></textarea>
 
-    <div class="row">
-        <div><label>Bill Amount</label><input type="number" id="billAmount" step="0.001"></div>
-        <div><label>Balance Due</label><input type="number" id="balanceDue" step="0.001"></div>
-    </div>
+        <div style="display:flex; gap:10px;">
+            <div style="flex:1;"><label>Total Bill</label><input type="number" id="billAmount" step="0.001"></div>
+            <div style="flex:1;"><label>Due Amount</label><input type="number" id="balanceDue" step="0.001"></div>
+        </div>
 
-    <button class="btn-save" id="saveBtn" onclick="saveWithPhotos()">✅ Save & Update Gallery</button>
+        <button class="btn-save" onclick="saveData()">✅ Save Entry</button>
 
-    <div class="ledger-section">
-        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search Customer or Plate No...">
+        <h3 style="color:#D4AF37; margin-top:30px; border-bottom:1px solid #333;">Recent History</h3>
         <div id="ledgerList"></div>
+    </div>
+
+    <div id="galleryTab" class="hidden">
+        <h3 style="color:#D4AF37; text-align:center;">Quality Transformations</h3>
+        <div id="galleryList" class="gallery-grid"></div>
     </div>
 </div>
 
-<div id="pdf-template"></div>
-
 <script>
-    // Function to convert Image to Base64
+    function showTab(tab) {
+        document.getElementById('ledgerTab').classList.toggle('hidden', tab !== 'ledger');
+        document.getElementById('galleryTab').classList.toggle('hidden', tab !== 'gallery');
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        if(tab === 'gallery') loadGallery();
+    }
+
     async function toBase64(file) {
         if (!file) return null;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = () => resolve(reader.result);
-            reader.onerror = error => reject(error);
         });
     }
 
-    async function saveWithPhotos() {
-        const id = document.getElementById('editId').value;
-        const fileBefore = document.getElementById('imgBefore').files[0];
-        const fileAfter = document.getElementById('imgAfter').files[0];
-
-        const beforeData = fileBefore ? await toBase64(fileBefore) : null;
-        const afterData = fileAfter ? await toBase64(fileAfter) : null;
-
+    async function saveData() {
+        const fileB = document.getElementById('imgBefore').files[0];
+        const fileA = document.getElementById('imgAfter').files[0];
+        
         const entry = {
-            id: id ? parseInt(id) : Date.now(),
-            Date: new Date().toLocaleDateString('en-GB'),
-            Customer: document.getElementById('custName').value,
-            Plate: document.getElementById('plateNo').value,
-            Work: document.getElementById('workDetails').value,
-            Bill: parseFloat(document.getElementById('billAmount').value) || 0,
-            Due: parseFloat(document.getElementById('balanceDue').value) || 0,
-            PhotoBefore: beforeData,
-            PhotoAfter: afterData
+            id: Date.now(),
+            name: document.getElementById('custName').value,
+            plate: document.getElementById('plateNo').value,
+            work: document.getElementById('workDetails').value,
+            bill: document.getElementById('billAmount').value,
+            due: document.getElementById('balanceDue').value,
+            imgB: await toBase64(fileB),
+            imgA: await toBase64(fileA),
+            date: new Date().toLocaleDateString()
         };
 
-        if(!entry.Customer || !entry.Plate) return alert("Please fill Name and Plate No");
+        if(!entry.name) return alert("Enter Name");
 
-        let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-        
-        if(id) {
-            const index = ledger.findIndex(x => x.id === parseInt(id));
-            // Keep old photos if new ones aren't uploaded
-            entry.PhotoBefore = beforeData || ledger[index].PhotoBefore;
-            entry.PhotoAfter = afterData || ledger[index].PhotoAfter;
-            ledger[index] = entry;
-            document.getElementById('editId').value = "";
-            document.getElementById('saveBtn').innerText = "✅ Save & Update Gallery";
-        } else {
-            ledger.unshift(entry);
-        }
-
-        try {
-            localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
-            location.reload();
-        } catch (e) {
-            alert("Storage full! Try deleting old records or use smaller photos.");
-        }
+        let data = JSON.parse(localStorage.getItem('bgData') || '[]');
+        data.unshift(entry);
+        localStorage.setItem('bgData', JSON.stringify(data));
+        alert("Data Saved Successfully!");
+        location.reload();
     }
 
-    function displayLedger(data = null) {
-        const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-        let tS = 0, tD = 0;
-        const displayData = data || ledger;
-        
-        document.getElementById('ledgerList').innerHTML = displayData.map(item => {
-            tS += item.Bill; tD += item.Due;
-            return `
+    function loadLedger() {
+        const data = JSON.parse(localStorage.getItem('bgData') || '[]');
+        document.getElementById('ledgerList').innerHTML = data.map(item => `
             <div class="history-card">
-                <div style="display:flex; justify-content:space-between; font-weight:bold; border-bottom:1px solid #333;">
-                    <span style="color:#D4AF37;">${item.Customer} [${item.Plate}]</span>
-                    <span style="font-size:11px; color:#666;">${item.Date}</span>
+                <div style="display:flex; justify-content:space-between; font-weight:bold;">
+                    <span>${item.name} [${item.plate}]</span>
+                    <span style="color:#666; font-size:11px;">${item.date}</span>
                 </div>
-                
-                <div class="gallery-preview">
-                    ${item.PhotoBefore ? `<img src="${item.PhotoBefore}" class="gallery-img" onclick="window.open(this.src)">` : '<div class="gallery-img" style="display:flex;align-items:center;justify-content:center;background:#222;font-size:10px;">No Before Pic</div>'}
-                    ${item.PhotoAfter ? `<img src="${item.PhotoAfter}" class="gallery-img" onclick="window.open(this.src)">` : '<div class="gallery-img" style="display:flex;align-items:center;justify-content:center;background:#222;font-size:10px;">No After Pic</div>'}
-                </div>
-                <div style="font-size:10px; display:flex; justify-content:space-around; color:#888; margin-top:2px;">
-                    <span>BEFORE</span><span>AFTER</span>
-                </div>
-
-                <div style="font-size:13px; margin:10px 0;"><b>Bill: ${item.Bill.toFixed(3)}</b> | <b style="color:red">Due: ${item.Due.toFixed(3)}</b></div>
-                <p style="font-size:12px; color:#aaa; margin:5px 0;">${item.Work}</p>
-
-                <div class="action-btns">
-                    <button class="btn-small pdf-btn" onclick="downloadPDF(${item.id})">📄 PDF</button>
-                    <button class="btn-small edit-btn" onclick="editEntry(${item.id})">✏️ Edit</button>
-                    <button class="btn-small del-btn" onclick="deleteEntry(${item.id})">🗑️ Delete</button>
-                </div>
-            </div>`;
-        }).join('');
-        document.getElementById('grandTotal').innerText = tS.toFixed(3) + " BHD";
-        document.getElementById('totalDue').innerText = tD.toFixed(3) + " BHD";
+                <div style="margin-top:5px; font-size:13px;">Bill: ${item.bill} | Due: <span style="color:red">${item.due}</span></div>
+                <button onclick="deleteItem(${item.id})" style="margin-top:10px; background:none; border:none; color:red; cursor:pointer; font-size:11px;">🗑️ Delete</button>
+            </div>
+        `).join('');
     }
 
-    function deleteEntry(id) {
-        if(confirm("Delete this transformation record?")) {
-            let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-            ledger = ledger.filter(x => x.id !== id);
-            localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
-            displayLedger();
+    function loadGallery() {
+        const data = JSON.parse(localStorage.getItem('bgData') || '[]');
+        const galleryItems = data.filter(item => item.imgB || item.imgA);
+        
+        document.getElementById('galleryList').innerHTML = galleryItems.map(item => `
+            <div class="gallery-card">
+                <div class="gallery-images">
+                    <img src="${item.imgB || 'https://via.placeholder.com/150?text=No+Before'}" alt="Before">
+                    <img src="${item.imgA || 'https://via.placeholder.com/150?text=No+After'}" alt="After">
+                </div>
+                <div class="gallery-info">
+                    <h4>${item.plate} - ${item.name}</h4>
+                    <p>${item.work}</p>
+                    <div style="display:flex; justify-content:space-between; font-size:10px; color:#888; margin-top:10px;">
+                        <span>BEFORE</span>
+                        <span>AFTER</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function deleteItem(id) {
+        if(confirm("Delete this record?")) {
+            let data = JSON.parse(localStorage.getItem('bgData') || '[]');
+            data = data.filter(x => x.id !== id);
+            localStorage.setItem('bgData', JSON.stringify(data));
+            loadLedger();
         }
     }
 
-    function editEntry(id) {
-        let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-        const item = ledger.find(x => x.id === id);
-        document.getElementById('editId').value = item.id;
-        document.getElementById('custName').value = item.Customer;
-        document.getElementById('plateNo').value = item.Plate;
-        document.getElementById('workDetails').value = item.Work;
-        document.getElementById('billAmount').value = item.Bill;
-        document.getElementById('balanceDue').value = item.Due;
-        document.getElementById('saveBtn').innerText = "🔄 Update Record";
-        window.scrollTo(0,0);
-    }
-
-    function filterLedger() {
-        const q = document.getElementById('ledgerSearch').value.toLowerCase();
-        const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-        displayLedger(ledger.filter(i => i.Customer.toLowerCase().includes(q) || i.Plate.toLowerCase().includes(q)));
-    }
-
-    window.onload = () => displayLedger();
+    window.onload = loadLedger;
 </script>
 </body>
 </html>
