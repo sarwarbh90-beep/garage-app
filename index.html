@@ -618,11 +618,11 @@ function shareOnWhatsApp() {
         
         <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 10px;">
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">(১) Customer Name</label>
+                <label style="color: #D4AF37; font-size: 12px;"> Customer Name</label>
                 <input type="text" id="custName" placeholder="Full Name" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">(২-৩) Phone No.</label>
+                <label style="color: #D4AF37; font-size: 12px;"> Phone No.</label>
                 <div style="display: flex; gap: 5px;">
                     <input type="text" id="countryCode" value="973" style="width: 50px; padding: 12px; background: #333; border: 1px solid #444; color: #D4AF37; border-radius: 8px; font-weight: bold; text-align: center;">
                     <input type="number" id="custPhone" placeholder="Mobile" style="flex: 1; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; width: 60%;">
@@ -631,28 +631,28 @@ function shareOnWhatsApp() {
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <input type="text" id="carModel" placeholder="(৪) Model & Year" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
-            <input type="text" id="plateNo" placeholder="(৫) Plate Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="carModel" placeholder=" Model & Year" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="plateNo" placeholder=" Plate Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <input type="text" id="oilType" placeholder="(৬) Oil Type (20W-50)" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
-            <input type="text" id="filterNo" placeholder="(৭) Filter Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="oilType" placeholder=" Oil Type (20W-50)" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
+            <input type="text" id="filterNo" placeholder=" Filter Number" style="padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px;">
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
-                <label style="color: #D4AF37; font-size: 12px;">(৮) Current KM</label>
+                <label style="color: #D4AF37; font-size: 12px;"> Current KM</label>
                 <input type="number" id="currentKm" oninput="calcNext()" placeholder="125000" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box;">
             </div>
             <div>
-                <label style="color: #f1c40f; font-size: 12px;">(৯) Next Service</label>
+                <label style="color: #f1c40f; font-size: 12px;"> Next Service</label>
                 <input type="number" id="nextService" style="width:100%; padding: 12px; background: #1a1a1a; border: 1px solid #D4AF37; color: #f1c40f; border-radius: 8px; font-weight: bold; box-sizing: border-box;">
             </div>
         </div>
 
         <div style="background: #111; padding: 15px; border-radius: 12px; border: 1px dashed #D4AF37;">
-            <label style="color: #D4AF37; font-size: 13px; font-weight: bold;">(১০-১১) Billing & Ledger (BHD)</label>
+            <label style="color: #D4AF37; font-size: 13px; font-weight: bold;"> Billing & Ledger (BHD)</label>
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 10px;">
                 <input type="number" id="totalBill" oninput="calcBalance()" placeholder="Total Bill" style="padding: 12px; background: #000; border: 1px solid #333; color: #f1c40f; border-radius: 8px; width: 100%; box-sizing: border-box;">
                 <input type="number" id="paidAmount" oninput="calcBalance()" placeholder="Paid" style="padding: 12px; background: #000; border: 1px solid #333; color: #2ecc71; border-radius: 8px; width: 100%; box-sizing: border-box;">
