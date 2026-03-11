@@ -466,50 +466,129 @@
 
 
 
-<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif;">
-    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase;">🛠️ Service Card Generator</h3>
-    <p style="text-align: center; font-size: 13px; color: #ccc;">Enter details to create a digital service history card.</p>
 
-    <div style="max-width: 400px; margin: 0 auto; display: grid; gap: 10px;">
-        <input type="text" id="custName" placeholder="Customer Name" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="carModel" placeholder="Vehicle Model (e.g. Toyota Hilux)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="serviceType" placeholder="Service Done (e.g. Engine Overhaul)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="currKm" placeholder="Current Mileage (KM)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="nextKm" placeholder="Next Service (KM)" style="padding: 10px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+
+
+
+
+
+
+
+
+
+
+<div id="machine-work-card" style="background: #050505; padding: 25px; border: 2px solid #D4AF37; border-radius: 20px; max-width: 600px; margin: 30px auto; color: #ffffff; font-family: 'Segoe UI', Tahoma, sans-serif; box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.4);">
+    
+    <div style="text-align: center; margin-bottom: 25px;">
+        <h1 style="color: #D4AF37; margin: 0; letter-spacing: 3px; font-size: 28px;">BLACK GOLD</h1>
+        <p style="color: #ffffff; font-size: 14px; margin: 5px 0;">Expert Engine & Gearbox Repair | Salmabad, Bahrain</p>
+        <div style="height: 2px; background: linear-gradient(to right, transparent, #D4AF37, transparent); margin-top: 10px;"></div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
         
-        <button onclick="generateCard()" style="background: #FFD700; color: #000; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px;">Generate Digital Card</button>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+                <label style="color: #D4AF37; font-size: 12px;">Customer Name</label>
+                <input type="text" id="custName" placeholder="Full Name" style="width:100%; padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 12px;">Country Code & Phone</label>
+                <div style="display: flex; gap: 5px;">
+                    <input type="text" id="countryCode" placeholder="+973" style="width: 60px; padding: 10px; background: #222; border: 1px solid #444; color: #D4AF37; border-radius: 5px; font-weight: bold; text-align: center;">
+                    <input type="number" id="custPhone" placeholder="33XXXXXX" style="flex: 1; padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px;">
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;">
+            <div style="grid-column: span 2;">
+                <label style="color: #D4AF37; font-size: 12px;">Vehicle Model & Make Year</label>
+                <input type="text" id="carDetails" placeholder="Toyota Avanza 2024" style="width:100%; padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 12px;">Plate No.</label>
+                <input type="text" id="plateNo" placeholder="Reg. No" style="width:100%; padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <label style="color: #D4AF37; font-size: 12px;">Machine Work Category</label>
+        <select id="workCategory" style="padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px;">
+            <option value="Engine Overhaul">Engine Overhaul (Full/Half)</option>
+            <option value="Gearbox Repair">Gearbox Repair / Automatic</option>
+            <option value="Cylinder Head Resurfacing">Cylinder Head Resurfacing</option>
+            <option value="Crankshaft Grinding">Crankshaft Grinding</option>
+            <option value="Block Boring">Block Boring & Honing</option>
+            <option value="Valve Seat Cutting">Valve Seat Cutting</option>
+        </select>
+
+        <label style="color: #D4AF37; font-size: 12px;">Parts List (A to Z)</label>
+        <textarea id="partsList" placeholder="e.g. Piston, Rings, Timing Belt, Gasket Set, etc." style="padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px; min-height: 80px;"></textarea>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px;">
+            <div>
+                <label style="color: #D4AF37; font-size: 12px;">Currency</label>
+                <select id="currency" style="width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: #D4AF37; border-radius: 5px; font-weight: bold;">
+                    <option value="BHD">BHD (Bahrain)</option>
+                    <option value="BDT">BDT (Bangladesh)</option>
+                    <option value="SAR">SAR (Saudi)</option>
+                    <option value="AED">AED (UAE)</option>
+                    <option value="USD">USD ($)</option>
+                </select>
+            </div>
+            <div>
+                <label style="color: #D4AF37; font-size: 12px;">Machine Work Charge</label>
+                <input type="number" id="charge" placeholder="Enter Total Amount" style="width:100%; padding: 10px; background: #111; border: 1px solid #333; color: #D4AF37; border-radius: 5px; font-weight: bold; font-size: 16px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <label style="color: #D4AF37; font-size: 12px;">Emergency / Special Notes</label>
+        <textarea id="emergencyNote" placeholder="Urgent repairs needed or customer requests..." style="padding: 10px; background: #111; border: 1px solid #333; color: white; border-radius: 5px;"></textarea>
     </div>
 
-    <div id="cardPreview" style="margin-top: 30px; display: none;">
-        <div id="finalCard" style="background: #000; color: #fff; padding: 20px; border: 2px solid #B8860B; border-radius: 15px; max-width: 350px; margin: 0 auto; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">
-            <div style="text-align: center; border-bottom: 1px solid #B8860B; padding-bottom: 10px; margin-bottom: 15px;">
-                <h2 style="color: #FFD700; margin: 0; font-size: 20px;">BLACK GOLD AUTO</h2>
-                <p style="font-size: 10px; margin: 0; color: #888;">Salmabad, Bahrain | +973 33598781</p>
-            </div>
-            <p style="font-size: 14px; margin: 5px 0;"><strong>Name:</strong> <span id="pName" style="color:#FFD700"></span></p>
-            <p style="font-size: 14px; margin: 5px 0;"><strong>Car:</strong> <span id="pCar" style="color:#FFD700"></span></p>
-            <p style="font-size: 14px; margin: 5px 0;"><strong>Service:</strong> <span id="pService" style="color:#FFD700"></span></p>
-            <hr style="border: 0.5px solid #333;">
-            <p style="font-size: 14px; margin: 5px 0;"><strong>KM Now:</strong> <span id="pCurrKm"></span></p>
-            <p style="font-size: 16px; margin: 5px 0; color: #FF4444;"><strong>Next Service:</strong> <span id="pNextKm"></span></p>
-            <p style="text-align: center; font-size: 11px; margin-top: 15px; color: #FFD700;">Thank you for your trust! ⭐⭐⭐⭐⭐</p>
-        </div>
-        <p style="text-align: center; font-size: 12px; color: #888; margin-top: 10px;">(Take a screenshot to share with customer)</p>
-    </div>
+    <button onclick="shareWorkCard()" style="background: linear-gradient(to right, #D4AF37, #f1c40f); color: black; width: 100%; padding: 15px; border: none; border-radius: 10px; font-weight: bold; margin-top: 25px; cursor: pointer; font-size: 16px; text-transform: uppercase; box-shadow: 0px 4px 10px rgba(212, 175, 55, 0.3);">
+        Generate & Share on WhatsApp
+    </button>
 </div>
 
 <script>
-function generateCard() {
-    document.getElementById('pName').innerText = document.getElementById('custName').value;
-    document.getElementById('pCar').innerText = document.getElementById('carModel').value;
-    document.getElementById('pService').innerText = document.getElementById('serviceType').value;
-    document.getElementById('pCurrKm').innerText = document.getElementById('currKm').value + " KM";
-    document.getElementById('pNextKm').innerText = document.getElementById('nextKm').value + " KM";
-    
-    document.getElementById('cardPreview').style.display = 'block';
+function shareWorkCard() {
+    // Collect Input Values
+    const name = document.getElementById('custName').value;
+    const code = document.getElementById('countryCode').value.replace('+', '');
+    const phone = document.getElementById('custPhone').value;
+    const car = document.getElementById('carDetails').value;
+    const plate = document.getElementById('plateNo').value;
+    const work = document.getElementById('workCategory').value;
+    const parts = document.getElementById('partsList').value;
+    const cur = document.getElementById('currency').value;
+    const price = document.getElementById('charge').value;
+    const note = document.getElementById('emergencyNote').value;
+
+    if(!phone || !name) {
+        alert("Please enter Customer Name and Phone Number");
+        return;
+    }
+
+    // Format WhatsApp Message
+    const message = `🛠️ *BLACK GOLD MACHINE WORK CARD* 🛠️%0A` +
+                    `--------------------------------%0A` +
+                    `👤 *Customer:* ${name}%0A` +
+                    `🚗 *Vehicle:* ${car}%0A` +
+                    `🔢 *Plate No:* ${plate}%0A%0A` +
+                    `🔧 *Work Type:* ${work}%0A` +
+                    `📦 *Parts Used:* ${parts}%0A%0A` +
+                    `💰 *Service Charge:* ${price} ${cur}%0A` +
+                    `⚠️ *Emergency Note:* ${note}%0A` +
+                    `--------------------------------%0A` +
+                    `📍 *Salmabad, Bahrain* %0A` +
+                    `📞 *Black Gold Auto Services*`;
+
+    // WhatsApp URL with full country code
+    const whatsappUrl = `https://wa.me/${code}${phone}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
 }
 </script>
-
 
 
 
