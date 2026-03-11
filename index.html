@@ -519,59 +519,206 @@ function generateCard() {
 
 
 
-<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif;">
-    <h3 style="color: #FFD700; text-align: center; text-transform: uppercase;">🛠️ Digital Service Card Generator</h3>
-    
-    <div style="max-width: 400px; margin: 0 auto; display: grid; gap: 10px;">
-        <input type="text" id="custName" placeholder="Customer Name" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="carModel" placeholder="Vehicle Model" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="serviceType" placeholder="Service Done" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
-        <input type="text" id="nextKm" placeholder="Next Service (KM)" style="padding: 12px; border-radius: 5px; border: 1px solid #333; background: #262626; color: #fff;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEEP GARAGE | Digital Service Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .glass-card { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10">
         
-        <button onclick="generateCard()" style="background: linear-gradient(45deg, #FFD700, #B8860B); color: #000; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; margin-top: 10px; text-transform: uppercase;">Generate Card</button>
-    </div>
-
-    <div id="cardPreview" style="margin-top: 30px; display: none;">
-        <div id="finalCard" style="background: #000; color: #fff; padding: 25px; border: 2px solid #B8860B; border-radius: 15px; max-width: 350px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.8); text-align: left;">
+        <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-200">
+            <div class="flex items-center gap-3 mb-8">
+                <div class="bg-blue-600 text-white p-3 rounded-2xl shadow-lg">
+                    <i class="fas fa-tools text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-800 text-slate-800 tracking-tight">Service Entry Form</h2>
+            </div>
             
-            <div style="text-align: center; border-bottom: 1px solid #B8860B; padding-bottom: 10px; margin-bottom: 15px;">
-                <h2 style="color: #FFD700; margin: 0; font-size: 22px; letter-spacing: 1px;">BLACK GOLD AUTO</h2>
-                <p style="font-size: 11px; margin: 5px 0 0; color: #aaa;">Salmabad, Bahrain | +973 33598781</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
+                <div class="md:col-span-2">
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Customer Name</label>
+                    <input type="text" id="custName" oninput="updateCard()" placeholder="John Doe" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 focus:border-blue-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">WhatsApp Number</label>
+                    <input type="tel" id="custPhone" oninput="updateCard()" placeholder="017XXXXXXXX" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Registration No.</label>
+                    <input type="text" id="regNo" oninput="updateCard()" placeholder="DHAKA METRO-G-11-XXXX" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none uppercase">
+                </div>
+
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Car Brand</label>
+                    <input type="text" id="carName" oninput="updateCard()" placeholder="Toyota / BMW" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Model & Year</label>
+                    <input type="text" id="carModel" oninput="updateCard()" placeholder="Corolla 2022" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Engine Oil Type</label>
+                    <input type="text" id="oilType" oninput="updateCard()" placeholder="0W-20 Fully Synth" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Oil Filter No.</label>
+                    <input type="text" id="filterNo" oninput="updateCard()" placeholder="VIC C-113" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Current Odometer (KM)</label>
+                    <input type="number" id="currentKm" oninput="updateCard()" placeholder="45000" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+                <div>
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Next Service Date</label>
+                    <input type="date" id="nextService" oninput="updateCard()" class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 outline-none">
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="font-bold text-slate-600 uppercase text-[10px] tracking-widest">Work Description</label>
+                    <textarea id="workType" oninput="updateCard()" placeholder="Engine tuning, AC filter clean, Suspension check..." class="w-full border-2 border-slate-100 p-3 rounded-xl mt-1 h-24 outline-none resize-none"></textarea>
+                </div>
+
+                <div class="md:col-span-2">
+                    <label class="font-bold text-red-500 uppercase text-[10px] tracking-widest">Emergency Note</label>
+                    <input type="text" id="emergencyNote" oninput="updateCard()" placeholder="Brake pads need replacement soon" class="w-full border-2 border-red-50 p-3 rounded-xl mt-1 outline-none bg-red-50 text-red-700">
+                </div>
             </div>
 
-            <p style="font-size: 14px; margin: 8px 0;"><strong>Customer:</strong> <span id="pName" style="color:#FFD700"></span></p>
-            <p style="font-size: 14px; margin: 8px 0;"><strong>Vehicle:</strong> <span id="pCar" style="color:#FFD700"></span></p>
-            <p style="font-size: 14px; margin: 8px 0;"><strong>Service:</strong> <span id="pService" style="color:#FFD700"></span></p>
-            <p style="font-size: 16px; margin: 15px 0 8px; color: #FF4444; font-weight: bold; text-align: center; border: 1px dashed #FF4444; padding: 5px; border-radius: 5px;">
-                Next Service at: <span id="pNextKm"></span>
-            </p>
-
-            <div style="margin-top: 20px; text-align: center; background: #1a1a1a; padding: 15px; border-radius: 10px;">
-                <p style="font-size: 12px; color: #FFD700; margin-bottom: 10px;">Satisfied with our service?</p>
-                <a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" 
-                   style="background: #FFD700; color: #000; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 13px; display: inline-block;">
-                   ⭐ Rate us 5-Stars
-                </a>
-            </div>
-
-            <p style="text-align: center; font-size: 11px; margin-top: 15px; color: #888;">Drive safe with Black Gold Auto!</p>
+            <button onclick="shareWhatsApp()" class="w-full mt-8 bg-green-600 text-white font-bold py-4 rounded-2xl hover:bg-green-700 transition-all shadow-xl flex justify-center items-center gap-3 text-lg">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                Share via WhatsApp
+            </button>
         </div>
-        <p style="text-align: center; font-size: 12px; color: #888; margin-top: 15px;">(Take a screenshot and send to the customer via WhatsApp)</p>
-    </div>
-</div>
 
-<script>
-function generateCard() {
-    document.getElementById('pName').innerText = document.getElementById('custName').value;
-    document.getElementById('pCar').innerText = document.getElementById('carModel').value;
-    document.getElementById('pService').innerText = document.getElementById('serviceType').value;
-    document.getElementById('pNextKm').innerText = document.getElementById('nextKm').value + " KM";
-    
-    document.getElementById('cardPreview').style.display = 'block';
-    // Scroll to the card
-    document.getElementById('cardPreview').scrollIntoView({ behavior: 'smooth' });
-}
-</script>
+        <div id="captureArea" class="glass-card rounded-[3rem] overflow-hidden shadow-2xl text-white sticky top-10 border-[12px] border-slate-800">
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-800 p-10 text-center relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <i class="fas fa-car-side text-9xl"></i>
+                </div>
+                <h1 class="text-4xl font-900 italic tracking-tighter mb-1">BEEP GARAGE</h1>
+                <p class="text-xs text-blue-200 uppercase tracking-[0.3em] font-medium">Digital Service Log</p>
+            </div>
+
+            <div class="p-10 space-y-6">
+                <div class="flex justify-between items-end border-b border-slate-700 pb-6">
+                    <div>
+                        <h3 id="vName" class="text-3xl font-bold text-white">Customer Name</h3>
+                        <p id="vPhone" class="text-blue-400 font-medium mt-1">+880 17XX-XXXXXX</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Reg No.</p>
+                        <p id="vReg" class="text-lg font-bold text-blue-300">-- N/A --</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Vehicle Details</p>
+                        <p class="text-md font-bold text-white"><span id="vCar">Brand</span> <span id="vModel" class="text-blue-400">Model</span></p>
+                    </div>
+                    <div class="bg-slate-800/40 p-4 rounded-2xl border border-slate-700">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold mb-1">Current Odo</p>
+                        <p class="text-xl font-black text-white"><span id="vKm">0</span> <span class="text-xs text-slate-500">KM</span></p>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-900/20 p-5 rounded-2xl border border-indigo-500/30 flex justify-between">
+                    <div>
+                        <p class="text-[10px] text-indigo-400 uppercase font-bold">Engine Oil</p>
+                        <p id="vOil" class="font-bold text-white">---</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] text-indigo-400 uppercase font-bold">Filter No.</p>
+                        <p id="vFilter" class="font-bold text-white">---</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-[10px] text-blue-500 uppercase font-bold tracking-widest mb-2">Service Summary</p>
+                    <p id="vWork" class="text-sm text-slate-300 leading-relaxed min-h-[50px]">No work details entered yet...</p>
+                </div>
+
+                <div class="bg-red-600/10 border-2 border-dashed border-red-600/30 p-5 rounded-3xl flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-red-500 uppercase font-bold">Next Recommended Service</p>
+                        <p id="vNext" class="text-2xl font-black text-white tracking-tight">--/--/--</p>
+                    </div>
+                    <div class="text-red-500 text-3xl opacity-30">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start bg-slate-800/60 p-4 rounded-2xl">
+                    <span class="text-red-500 mt-1"><i class="fas fa-exclamation-triangle"></i></span>
+                    <div>
+                        <p class="text-[10px] text-slate-500 uppercase font-bold">Emergency Note</p>
+                        <p id="vNote" class="text-xs text-slate-200 mt-1 italic">No urgent issues recorded.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-8 pt-0 flex justify-between items-center opacity-40 italic">
+                <p class="text-[9px] uppercase tracking-widest text-slate-400">Thank you for choosing Beep Garage</p>
+                <div class="text-xl font-bold">BEEP</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateCard() {
+            // Mapping inputs to preview elements
+            document.getElementById('vName').innerText = document.getElementById('custName').value || "Customer Name";
+            document.getElementById('vPhone').innerText = document.getElementById('custPhone').value || "017XXXXXXXX";
+            document.getElementById('vReg').innerText = document.getElementById('regNo').value || "-- N/A --";
+            document.getElementById('vCar').innerText = document.getElementById('carName').value || "Brand";
+            document.getElementById('vModel').innerText = document.getElementById('carModel').value || "Model";
+            document.getElementById('vOil').innerText = document.getElementById('oilType').value || "---";
+            document.getElementById('vFilter').innerText = document.getElementById('filterNo').value || "---";
+            document.getElementById('vKm').innerText = document.getElementById('currentKm').value || "0";
+            document.getElementById('vNext').innerText = document.getElementById('nextService').value || "--/--/--";
+            document.getElementById('vWork').innerText = document.getElementById('workType').value || "No work details entered yet...";
+            document.getElementById('vNote').innerText = document.getElementById('emergencyNote').value || "No urgent issues recorded.";
+        }
+
+        function shareWhatsApp() {
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const car = document.getElementById('carName').value;
+            const reg = document.getElementById('regNo').value;
+            const next = document.getElementById('nextService').value;
+            const note = document.getElementById('emergencyNote').value;
+            const work = document.getElementById('workType').value;
+            const oil = document.getElementById('oilType').value;
+
+            // Formatted WhatsApp Message
+            const message = `*BEEP GARAGE - SERVICE LOG*%0A------------------------------------%0A👤 *Customer:* ${name}%0A🚗 *Vehicle:* ${car} [${reg}]%0A🛠️ *Work:* ${work}%0A🛢️ *Oil Type:* ${oil}%0A📅 *Next Service:* ${next}%0A⚠️ *Emergency Note:* ${note}%0A------------------------------------%0ADrive Safe! Thank you for trusting Beep Garage.`;
+
+            // Formatting Phone Number (Adding Country Code if missing)
+            let cleanPhone = phone.replace(/\D/g, ''); 
+            if(cleanPhone.startsWith('0')) {
+                cleanPhone = '88' + cleanPhone;
+            }
+
+            const whatsappUrl = `https://wa.me/${cleanPhone}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
+
 
 
 
@@ -1447,7 +1594,7 @@ function toggleTip(id) {
 
 <div class="follow-work-container">
     <h2>FOLLOW OUR WORK ONLINE</h2>
-    <p>Watch our latest Engine & Gearbox restorations</p>
+    <p>Watch our latest Engine & Mchanic Work</p>
     
     <div class="social-links-wrapper">
         <a href="https://www.facebook.com/blackgoldauto.bh" target="_blank" class="social-btn facebook">
