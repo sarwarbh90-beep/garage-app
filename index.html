@@ -1493,52 +1493,184 @@ function toggleChat() {
 
 
 
-<div style="background-color: #1a1a1a; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif; text-align: center;">
-    <h3 style="color: #FFD700; text-transform: uppercase; margin-bottom: 10px;">✨ Slide to see the Magic</h3>
-    <p style="font-size: 13px; color: #ccc; margin-bottom: 25px;">Engine Restoration at Black Gold Auto</p>
 
-    <div id="comparison-slider" style="position: relative; width: 100%; max-width: 500px; height: 300px; margin: 0 auto; overflow: hidden; border-radius: 12px; border: 2px solid #333; cursor: ew-resize;">
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Gold Auto - Gallery Only</title>
+    <style>
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
+        .container { background: #111; border: 2px solid #D4AF37; border-radius: 15px; max-width: 500px; margin: 10px auto; padding: 20px; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
         
-        <div style="width: 100%; height: 100%; background: url('your-after-image.jpg') center/cover no-repeat; background-color: #222; display: flex; align-items: center; justify-content: center;">
-            <span style="color: #34A853; font-weight: bold; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; position: absolute; bottom: 10px; right: 10px;">AFTER</span>
-            <span style="color: #555; font-size: 12px;">[After Photo Here]</span>
-        </div>
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; }
+        .header h1 { color: #D4AF37; margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 2px; }
 
-        <div id="before-overlay" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: url('your-before-image.jpg') center/cover no-repeat; background-color: #444; border-right: 3px solid #FFD700; display: flex; align-items: center; justify-content: center;">
-            <span style="color: #FF4444; font-weight: bold; background: rgba(0,0,0,0.6); padding: 5px 10px; border-radius: 5px; position: absolute; bottom: 10px; left: 10px;">BEFORE</span>
-            <span style="color: #888; font-size: 12px;">[Before Photo Here]</span>
-        </div>
+        label { color: #D4AF37; font-size: 12px; font-weight: bold; display: block; margin-top: 15px; text-transform: uppercase; }
+        input[type="text"] { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; }
+        
+        .photo-upload-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .file-input-box { background: #222; border: 1px dashed #D4AF37; padding: 10px; border-radius: 8px; text-align: center; }
+        .file-input-box input { width: 100%; font-size: 10px; color: #888; margin-top: 5px; }
 
-        <div id="slider-handle" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: #FFD700; border-radius: 50%; border: 3px solid #000; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
-            ↔
+        .btn-add { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; border: none; padding: 15px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
+
+        /* Gallery Cards */
+        .gallery-section { margin-top: 30px; }
+        .gallery-card { background: #1a1a1a; border-radius: 12px; overflow: hidden; border: 1px solid #333; margin-bottom: 20px; }
+        .comparison-label { display: flex; justify-content: space-around; background: #D4AF37; color: #000; font-size: 10px; font-weight: bold; padding: 4px 0; }
+        .img-box { display: flex; height: 180px; }
+        .img-box img { width: 50%; object-fit: cover; border-right: 1px solid #000; cursor: pointer; }
+        
+        .card-info { padding: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .card-info h4 { margin: 0; color: #D4AF37; font-size: 15px; }
+        .del-btn { background: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>BLACK GOLD GALLERY</h1>
+        <p style="font-size: 11px; color: #888;">Transformation Showcase</p>
+    </div>
+
+    <label>Vehicle Plate No / Name</label>
+    <input type="text" id="carTitle" placeholder="e.g. TOYOTA 123456">
+
+    <div class="photo-upload-row">
+        <div class="file-input-box">
+            <span style="font-size: 11px; font-weight: bold; color: #D4AF37;">BEFORE PHOTO</span>
+            <input type="file" id="beforeImg" accept="image/*">
+        </div>
+        <div class="file-input-box">
+            <span style="font-size: 11px; font-weight: bold; color: #2ecc71;">AFTER PHOTO</span>
+            <input type="file" id="afterImg" accept="image/*">
         </div>
     </div>
 
-    <p style="font-size: 12px; color: #888; margin-top: 15px;">Drag the yellow circle to compare the work.</p>
+    <button class="btn-add" onclick="addToGallery()">➕ Add to Gallery</button>
+
+    <div class="gallery-section">
+        <h3 style="color: #D4AF37; border-bottom: 1px solid #333; padding-bottom: 5px; font-size: 16px;">ALL TRANSFORMATIONS</h3>
+        <div id="galleryContainer"></div>
+    </div>
 </div>
 
 <script>
-    const slider = document.getElementById('comparison-slider');
-    const beforeOverlay = document.getElementById('before-overlay');
-    const handle = document.getElementById('slider-handle');
+    // Convert selected image to text (Base64) to save in memory
+    async function getBase64(file) {
+        if (!file) return null;
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+        });
+    }
 
-    const moveSlider = (e) => {
-        let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-        let rect = slider.getBoundingClientRect();
-        let position = ((x - rect.left) / rect.width) * 100;
+    async function addToGallery() {
+        const title = document.getElementById('carTitle').value;
+        const bFile = document.getElementById('beforeImg').files[0];
+        const aFile = document.getElementById('afterImg').files[0];
 
-        // Keep position within 0% to 100%
-        if (position < 0) position = 0;
-        if (position > 100) position = 100;
+        if (!title) return alert("Please enter Plate No or Vehicle Name");
+        if (!bFile || !aFile) return alert("Please select both Before and After photos");
 
-        beforeOverlay.style.width = position + "%";
-        handle.style.left = position + "%";
-    };
+        const newWork = {
+            id: Date.now(),
+            title: title,
+            before: await getBase64(bFile),
+            after: await getBase64(aFile)
+        };
 
-    // Add Desktop & Mobile listeners
-    slider.addEventListener('mousemove', moveSlider);
-    slider.addEventListener('touchmove', moveSlider);
+        let galleryData = JSON.parse(localStorage.getItem('bgGalleryStore') || '[]');
+        galleryData.unshift(newWork);
+        
+        try {
+            localStorage.setItem('bgGalleryStore', JSON.stringify(galleryData));
+            // Clear inputs
+            document.getElementById('carTitle').value = '';
+            document.getElementById('beforeImg').value = '';
+            document.getElementById('afterImg').value = '';
+            renderGallery();
+        } catch(e) {
+            alert("Memory Full! Delete some old photos to add new ones.");
+        }
+    }
+
+    function renderGallery() {
+        const data = JSON.parse(localStorage.getItem('bgGalleryStore') || '[]');
+        const container = document.getElementById('galleryContainer');
+        
+        if (data.length === 0) {
+            container.innerHTML = '<p style="text-align:center; color:#555; font-size:13px; margin-top:20px;">No photos in gallery.</p>';
+            return;
+        }
+
+        container.innerHTML = data.map(item => `
+            <div class="gallery-card">
+                <div class="comparison-label">
+                    <span>BEFORE</span>
+                    <span>AFTER</span>
+                </div>
+                <div class="img-box">
+                    <img src="${item.before}" onclick="window.open(this.src)">
+                    <img src="${item.after}" onclick="window.open(this.src)">
+                </div>
+                <div class="card-info">
+                    <h4>${item.title}</h4>
+                    <button class="del-btn" onclick="deleteWork(${item.id})">Delete</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function deleteWork(id) {
+        if (confirm("Remove this transformation from gallery?")) {
+            let data = JSON.parse(localStorage.getItem('bgGalleryStore') || '[]');
+            data = data.filter(x => x.id !== id);
+            localStorage.setItem('bgGalleryStore', JSON.stringify(data));
+            renderGallery();
+        }
+    }
+
+    // Load gallery on start
+    window.onload = renderGallery;
 </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
