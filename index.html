@@ -499,14 +499,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto Services - Work & Parts Ledger</title>
+    <title>Black Gold Auto - Excel Integrated Ledger</title>
+    <script src="https://cdnjs.cloudflare.com/0/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
         .container { background: #111; border: 2px solid #D4AF37; border-radius: 15px; max-width: 650px; margin: 20px auto; padding: 25px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
         .header { text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 15px; margin-bottom: 20px; }
         .header h1 { color: #D4AF37; margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Summary Dashboard */
         .summary-dashboard { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
         .summary-card { background: #000; border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center; border-bottom: 3px solid #D4AF37; }
         .summary-card h3 { margin: 0; font-size: 11px; color: #888; text-transform: uppercase; }
@@ -514,22 +514,22 @@
 
         label { color: #D4AF37; font-size: 11px; font-weight: bold; display: block; margin-top: 15px; text-transform: uppercase; }
         input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; font-size: 14px; }
-        textarea { resize: vertical; }
         
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .btn-save { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 25px; text-transform: uppercase; font-size: 16px; }
         
+        .excel-btn { background: #1D6F42; color: #fff; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        
         .ledger-section { margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; }
         .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; font-size: 16px; font-weight: bold; padding: 15px; margin-bottom: 20px; border-radius: 8px; width: 100%; box-sizing: border-box; }
         .history-card { background: #1a1a1a; border-left: 5px solid #D4AF37; padding: 15px; margin-bottom: 12px; border-radius: 5px; line-height: 1.6; }
-        .parts-tag { background: #333; color: #D4AF37; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <h1>🚘🛠️⚙️🚘 BLACK GOLD AUTO SERVICES 🚘🛠️⚙️🚘</h1>
+        <h1>🚘🛠️ BLACK GOLD AUTO SERVICES 🛠️🚘</h1>
         <p style="color: #f1c40f; margin: 5px 0;">Salmabad, Bahrain</p>
     </div>
 
@@ -555,11 +555,22 @@
         </div>
     </div>
 
-    <label>Work Description</label>
-    <textarea id="workDetails" rows="2" placeholder="e.g. Engine Timing Belt Replacement, Oil Change..."></textarea>
+    <div class="row">
+        <div>
+            <label>Vehicle Name</label>
+            <input type="text" id="vName" placeholder="e.g. Nissan D22">
+        </div>
+        <div>
+            <label>Model & Year</label>
+            <input type="text" id="vModel" placeholder="e.g. 2024">
+        </div>
+    </div>
 
-    <label>Parts Used (Parts Name)</label>
-    <textarea id="partsName" rows="2" placeholder="e.g. Timing Belt, Oil Filter (Toyota), Lubrex 20W50..."></textarea>
+    <label>Work Description</label>
+    <textarea id="workDetails" rows="2" placeholder="Describe the service..."></textarea>
+
+    <label>Parts Name</label>
+    <textarea id="partsName" rows="2" placeholder="List parts used..."></textarea>
 
     <div class="row">
         <div>
@@ -572,58 +583,56 @@
         </div>
     </div>
 
-    <button class="btn-save" onclick="saveToLedger()">Save & Update Ledger</button>
+    <button class="btn-save" onclick="saveToLedger()">Save Entry</button>
+    <button class="excel-btn" onclick="exportToExcel()">📊 Download Excel Report</button>
 
     <div class="ledger-section">
-        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search Name, Plate, or Parts...">
+        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search Ledger...">
         <div id="ledgerList"></div>
-        <button onclick="clearAll()" style="color:red; background:none; border:none; cursor:pointer; font-size:11px; margin-top:20px;">Reset All Records</button>
+        <button onclick="clearAll()" style="color:red; background:none; border:none; cursor:pointer; font-size:11px; margin-top:20px;">Reset All Data</button>
     </div>
 </div>
 
 <script>
     function saveToLedger() {
-        const name = document.getElementById('custName').value;
-        const plate = document.getElementById('plateNo').value;
-        const work = document.getElementById('workDetails').value;
-        const parts = document.getElementById('partsName').value;
-        const bill = parseFloat(document.getElementById('billAmount').value) || 0;
-        const due = parseFloat(document.getElementById('balanceDue').value) || 0;
-
-        if(!name) return alert("Please enter Customer Name");
-
         const entry = {
-            name: name,
-            plate: plate,
-            work: work,
-            parts: parts,
-            bill: bill,
-            due: due,
-            date: new Date().toLocaleDateString()
+            Date: new Date().toLocaleDateString(),
+            Customer: document.getElementById('custName').value,
+            Plate: document.getElementById('plateNo').value,
+            Vehicle: document.getElementById('vName').value,
+            Model: document.getElementById('vModel').value,
+            Work: document.getElementById('workDetails').value,
+            Parts: document.getElementById('partsName').value,
+            Bill: parseFloat(document.getElementById('billAmount').value) || 0,
+            Due: parseFloat(document.getElementById('balanceDue').value) || 0
         };
+
+        if(!entry.Customer) return alert("Please enter Customer Name");
 
         let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         ledger.unshift(entry);
         localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
         
-        // Reset inputs
-        document.getElementById('custName').value = '';
-        document.getElementById('plateNo').value = '';
-        document.getElementById('workDetails').value = '';
-        document.getElementById('partsName').value = '';
-        document.getElementById('billAmount').value = '';
-        document.getElementById('balanceDue').value = '';
+        location.reload(); 
+    }
 
-        displayLedger();
-        alert("Entry Saved Successfully!");
+    function exportToExcel() {
+        const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
+        if(ledger.length === 0) return alert("No data to export!");
+
+        const worksheet = XLSX.utils.json_to_sheet(ledger);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Ledger");
+        
+        // Save the file
+        XLSX.writeFile(workbook, "Black_Gold_Auto_Ledger.xlsx");
     }
 
     function calculateSummary(ledger) {
-        let totalSales = 0;
-        let totalUnpaid = 0;
+        let totalSales = 0, totalUnpaid = 0;
         ledger.forEach(item => {
-            totalSales += parseFloat(item.bill || 0);
-            totalUnpaid += parseFloat(item.due || 0);
+            totalSales += item.Bill;
+            totalUnpaid += item.Due;
         });
         document.getElementById('grandTotal').innerText = totalSales.toFixed(3) + " BHD";
         document.getElementById('totalDue').innerText = totalUnpaid.toFixed(3) + " BHD";
@@ -632,22 +641,22 @@
     function displayLedger(data = null) {
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         calculateSummary(ledger);
-        
         const displayData = data || ledger;
         const list = document.getElementById('ledgerList');
         
         list.innerHTML = displayData.map(item => `
             <div class="history-card">
                 <div style="display:flex; justify-content:space-between; font-weight:bold; border-bottom: 1px solid #333; padding-bottom:5px;">
-                    <span style="color:#D4AF37;">${item.name} [${item.plate}]</span>
-                    <span style="font-size:11px; color:#666;">${item.date}</span>
+                    <span style="color:#D4AF37;">${item.Customer} [${item.Plate}]</span>
+                    <span style="font-size:11px; color:#666;">${item.Date}</span>
                 </div>
                 <div style="font-size:13px; margin-top:8px;">
-                    <strong>Work:</strong> ${item.work || 'N/A'}<br>
-                    <strong>Parts:</strong> <span style="color:#aaa;">${item.parts || 'N/A'}</span><br>
+                    <strong>Vehicle:</strong> ${item.Vehicle} ${item.Model}<br>
+                    <strong>Work:</strong> ${item.Work}<br>
+                    <strong>Parts:</strong> <span style="color:#aaa;">${item.Parts}</span><br>
                     <div style="margin-top:5px; border-top: 1px dashed #333; padding-top:5px;">
-                        <span>Bill: ${item.bill.toFixed(3)} BHD</span> | 
-                        <b style="color:${item.due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.due.toFixed(3)} BHD</b>
+                        <span>Bill: ${item.Bill.toFixed(3)} BHD</span> | 
+                        <b style="color:${item.Due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.Due.toFixed(3)} BHD</b>
                     </div>
                 </div>
             </div>
@@ -657,8 +666,20 @@
     function filterLedger() {
         const query = document.getElementById('ledgerSearch').value.toLowerCase();
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
-        const filtered =
+        const filtered = ledger.filter(item => 
+            item.Customer.toLowerCase().includes(query) || 
+            item.Plate.toLowerCase().includes(query) ||
+            item.Vehicle.toLowerCase().includes(query)
+        );
+        displayLedger(filtered);
+    }
 
+    function clearAll() { if(confirm("Clear all data?")) { localStorage.removeItem('bgMasterLedger'); location.reload(); } }
+
+    window.onload = () => displayLedger();
+</script>
+</body>
+</html>
 
 
 
