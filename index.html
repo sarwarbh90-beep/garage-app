@@ -499,8 +499,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto - Excel Integrated Ledger</title>
-    <script src="https://cdnjs.cloudflare.com/0/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <title>Black Gold Auto - Excel & WhatsApp Ledger</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
         .container { background: #111; border: 2px solid #D4AF37; border-radius: 15px; max-width: 650px; margin: 20px auto; padding: 25px; box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); }
@@ -513,12 +513,12 @@
         .summary-card p { margin: 5px 0 0; font-size: 18px; font-weight: bold; }
 
         label { color: #D4AF37; font-size: 11px; font-weight: bold; display: block; margin-top: 15px; text-transform: uppercase; }
-        input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; font-size: 14px; }
+        input, textarea, select { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: #fff; border-radius: 8px; box-sizing: border-box; margin-top: 5px; font-size: 14px; }
         
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .btn-save { background: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%); color: #000; border: none; padding: 18px; width: 100%; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 25px; text-transform: uppercase; font-size: 16px; }
-        
         .excel-btn { background: #1D6F42; color: #fff; border: none; padding: 12px; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .wa-btn { background: #25D366; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; font-size: 12px; font-weight: bold; margin-top: 10px; display: inline-flex; align-items: center; gap: 5px; }
         
         .ledger-section { margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; }
         .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; font-size: 16px; font-weight: bold; padding: 15px; margin-bottom: 20px; border-radius: 8px; width: 100%; box-sizing: border-box; }
@@ -547,7 +547,7 @@
     <div class="row">
         <div>
             <label>Customer Name</label>
-            <input type="text" id="custName" placeholder="Name">
+            <input type="text" id="custName" placeholder="Full Name">
         </div>
         <div>
             <label>Plate Number</label>
@@ -557,8 +557,19 @@
 
     <div class="row">
         <div>
+            <label>Country Code</label>
+            <input type="text" id="countryCode" placeholder="e.g. 973" value="973">
+        </div>
+        <div>
+            <label>WhatsApp Number</label>
+            <input type="number" id="custPhone" placeholder="Mobile Number">
+        </div>
+    </div>
+
+    <div class="row">
+        <div>
             <label>Vehicle Name</label>
-            <input type="text" id="vName" placeholder="e.g. Nissan D22">
+            <input type="text" id="vName" placeholder="e.g. Toyota Avanza">
         </div>
         <div>
             <label>Model & Year</label>
@@ -587,7 +598,7 @@
     <button class="excel-btn" onclick="exportToExcel()">📊 Download Excel Report</button>
 
     <div class="ledger-section">
-        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search Ledger...">
+        <input type="text" id="ledgerSearch" class="search-bar" onkeyup="filterLedger()" placeholder="🔍 Search Ledger History...">
         <div id="ledgerList"></div>
         <button onclick="clearAll()" style="color:red; background:none; border:none; cursor:pointer; font-size:11px; margin-top:20px;">Reset All Data</button>
     </div>
@@ -598,6 +609,8 @@
         const entry = {
             Date: new Date().toLocaleDateString(),
             Customer: document.getElementById('custName').value,
+            Phone: document.getElementById('custPhone').value,
+            Code: document.getElementById('countryCode').value,
             Plate: document.getElementById('plateNo').value,
             Vehicle: document.getElementById('vName').value,
             Model: document.getElementById('vModel').value,
@@ -607,7 +620,7 @@
             Due: parseFloat(document.getElementById('balanceDue').value) || 0
         };
 
-        if(!entry.Customer) return alert("Please enter Customer Name");
+        if(!entry.Customer || !entry.Phone) return alert("Customer Name and Phone are required!");
 
         let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         ledger.unshift(entry);
@@ -616,15 +629,30 @@
         location.reload(); 
     }
 
+    function shareWhatsApp(index) {
+        const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
+        const item = ledger[index];
+        const fullNumber = item.Code + item.Phone;
+        
+        const message = `*BLACK GOLD AUTO SERVICES*%0A` +
+                        `------------------------------%0A` +
+                        `*Customer:* ${item.Customer}%0A` +
+                        `*Vehicle:* ${item.Vehicle} (${item.Plate})%0A` +
+                        `*Work:* ${item.Work}%0A` +
+                        `*Total Bill:* ${item.Bill.toFixed(3)} BHD%0A` +
+                        `*Balance Due:* ${item.Due.toFixed(3)} BHD%0A` +
+                        `------------------------------%0A` +
+                        `Thank you for choosing us!`;
+
+        window.open(`https://wa.me/${fullNumber}?text=${message}`, '_blank');
+    }
+
     function exportToExcel() {
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         if(ledger.length === 0) return alert("No data to export!");
-
         const worksheet = XLSX.utils.json_to_sheet(ledger);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Ledger");
-        
-        // Save the file
         XLSX.writeFile(workbook, "Black_Gold_Auto_Ledger.xlsx");
     }
 
@@ -644,7 +672,7 @@
         const displayData = data || ledger;
         const list = document.getElementById('ledgerList');
         
-        list.innerHTML = displayData.map(item => `
+        list.innerHTML = displayData.map((item, index) => `
             <div class="history-card">
                 <div style="display:flex; justify-content:space-between; font-weight:bold; border-bottom: 1px solid #333; padding-bottom:5px;">
                     <span style="color:#D4AF37;">${item.Customer} [${item.Plate}]</span>
@@ -653,12 +681,9 @@
                 <div style="font-size:13px; margin-top:8px;">
                     <strong>Vehicle:</strong> ${item.Vehicle} ${item.Model}<br>
                     <strong>Work:</strong> ${item.Work}<br>
-                    <strong>Parts:</strong> <span style="color:#aaa;">${item.Parts}</span><br>
-                    <div style="margin-top:5px; border-top: 1px dashed #333; padding-top:5px;">
-                        <span>Bill: ${item.Bill.toFixed(3)} BHD</span> | 
-                        <b style="color:${item.Due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.Due.toFixed(3)} BHD</b>
-                    </div>
+                    <strong>Bill:</strong> ${item.Bill.toFixed(3)} BHD | <b style="color:${item.Due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.Due.toFixed(3)} BHD</b>
                 </div>
+                <button class="wa-btn" onclick="shareWhatsApp(${index})">📲 Share on WhatsApp</button>
             </div>
         `).join('');
     }
@@ -669,18 +694,16 @@
         const filtered = ledger.filter(item => 
             item.Customer.toLowerCase().includes(query) || 
             item.Plate.toLowerCase().includes(query) ||
-            item.Vehicle.toLowerCase().includes(query)
+            item.Phone.includes(query)
         );
         displayLedger(filtered);
     }
 
     function clearAll() { if(confirm("Clear all data?")) { localStorage.removeItem('bgMasterLedger'); location.reload(); } }
-
     window.onload = () => displayLedger();
 </script>
 </body>
 </html>
-
 
 
 
