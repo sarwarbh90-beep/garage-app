@@ -407,6 +407,33 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div style="background-color: #121212; color: #fff; padding: 30px 15px; border-radius: 15px; margin: 20px 10px; border: 2px solid #B8860B; font-family: sans-serif;">
     <h3 style="color: #FFD700; text-align: center; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px;">⚙️ Car Sensor & Diagnostic Guide</h3>
     
@@ -499,7 +526,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Gold Auto - Excel & WhatsApp Ledger</title>
+    <title>Black Gold Auto - Excel, WhatsApp & Photo Ledger</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         body { background-color: #000; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 10px; }
@@ -523,6 +550,7 @@
         .ledger-section { margin-top: 40px; border-top: 2px solid #333; padding-top: 20px; }
         .search-bar { border: 2px solid #D4AF37; background: #000; color: #D4AF37; font-size: 16px; font-weight: bold; padding: 15px; margin-bottom: 20px; border-radius: 8px; width: 100%; box-sizing: border-box; }
         .history-card { background: #1a1a1a; border-left: 5px solid #D4AF37; padding: 15px; margin-bottom: 12px; border-radius: 5px; line-height: 1.6; }
+        .img-preview { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; margin-top: 10px; border: 1px solid #D4AF37; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -594,6 +622,9 @@
         </div>
     </div>
 
+    <label>Add Photo (Car/Parts)</label>
+    <input type="file" id="jobPhoto" accept="image/*" style="padding: 5px;">
+
     <button class="btn-save" onclick="saveToLedger()">Save Entry</button>
     <button class="excel-btn" onclick="exportToExcel()">📊 Download Excel Report</button>
 
@@ -605,6 +636,16 @@
 </div>
 
 <script>
+    let photoBase64 = "";
+
+    // Convert Image to Base64 to save in LocalStorage
+    document.getElementById('jobPhoto').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onloadend = () => { photoBase64 = reader.result; };
+        if (file) reader.readAsDataURL(file);
+    });
+
     function saveToLedger() {
         const entry = {
             Date: new Date().toLocaleDateString(),
@@ -617,16 +658,21 @@
             Work: document.getElementById('workDetails').value,
             Parts: document.getElementById('partsName').value,
             Bill: parseFloat(document.getElementById('billAmount').value) || 0,
-            Due: parseFloat(document.getElementById('balanceDue').value) || 0
+            Due: parseFloat(document.getElementById('balanceDue').value) || 0,
+            Photo: photoBase64
         };
 
         if(!entry.Customer || !entry.Phone) return alert("Customer Name and Phone are required!");
 
         let ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         ledger.unshift(entry);
-        localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
         
-        location.reload(); 
+        try {
+            localStorage.setItem('bgMasterLedger', JSON.stringify(ledger));
+            location.reload(); 
+        } catch (e) {
+            alert("Storage full! Please delete some old records or avoid large photos.");
+        }
     }
 
     function shareWhatsApp(index) {
@@ -642,7 +688,7 @@
                         `*Total Bill:* ${item.Bill.toFixed(3)} BHD%0A` +
                         `*Balance Due:* ${item.Due.toFixed(3)} BHD%0A` +
                         `------------------------------%0A` +
-                        `Thank you for choosing us!`;
+                        `Thank you!`;
 
         window.open(`https://wa.me/${fullNumber}?text=${message}`, '_blank');
     }
@@ -650,7 +696,9 @@
     function exportToExcel() {
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         if(ledger.length === 0) return alert("No data to export!");
-        const worksheet = XLSX.utils.json_to_sheet(ledger);
+        // We remove photo data from excel to keep it clean
+        const excelData = ledger.map(({Photo, ...rest}) => rest);
+        const worksheet = XLSX.utils.json_to_sheet(excelData);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Ledger");
         XLSX.writeFile(workbook, "Black_Gold_Auto_Ledger.xlsx");
@@ -678,10 +726,13 @@
                     <span style="color:#D4AF37;">${item.Customer} [${item.Plate}]</span>
                     <span style="font-size:11px; color:#666;">${item.Date}</span>
                 </div>
-                <div style="font-size:13px; margin-top:8px;">
-                    <strong>Vehicle:</strong> ${item.Vehicle} ${item.Model}<br>
-                    <strong>Work:</strong> ${item.Work}<br>
-                    <strong>Bill:</strong> ${item.Bill.toFixed(3)} BHD | <b style="color:${item.Due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.Due.toFixed(3)} BHD</b>
+                <div style="display: flex; gap: 15px; margin-top: 8px;">
+                    <div style="flex: 1; font-size: 13px;">
+                        <strong>Vehicle:</strong> ${item.Vehicle} ${item.Model}<br>
+                        <strong>Work:</strong> ${item.Work}<br>
+                        <strong>Bill:</strong> ${item.Bill.toFixed(3)} BHD | <b style="color:${item.Due > 0 ? '#ff4d4d' : '#2ecc71'}">Due: ${item.Due.toFixed(3)} BHD</b>
+                    </div>
+                    ${item.Photo ? `<img src="${item.Photo}" class="img-preview" onclick="window.open('${item.Photo}')">` : ''}
                 </div>
                 <button class="wa-btn" onclick="shareWhatsApp(${index})">📲 Share on WhatsApp</button>
             </div>
@@ -693,8 +744,7 @@
         const ledger = JSON.parse(localStorage.getItem('bgMasterLedger') || '[]');
         const filtered = ledger.filter(item => 
             item.Customer.toLowerCase().includes(query) || 
-            item.Plate.toLowerCase().includes(query) ||
-            item.Phone.includes(query)
+            item.Plate.toLowerCase().includes(query)
         );
         displayLedger(filtered);
     }
