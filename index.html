@@ -34,8 +34,9 @@ body::before{content:'';position:fixed;inset:0;opacity:.35;pointer-events:none;z
   border-bottom:1px solid var(--border);
 }
 .lang-bar-brand{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;
-  background:linear-gradient(135deg,var(--gold-light),var(--amber));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  background:linear-gradient(135deg,#5fffb0,#00e676,#00c853);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 6px rgba(0,230,118,.4));}
 .lang-btns{display:flex;background:var(--surface);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
 .lb{padding:6px 13px;font-size:11px;font-weight:700;letter-spacing:1px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .2s;font-family:'Barlow Condensed',sans-serif;}
 .lb.active{background:linear-gradient(135deg,var(--gold),var(--amber));color:#050200;}
@@ -312,11 +313,12 @@ body.bn .sum-label,body.ar .sum-label{letter-spacing:0;text-transform:none;font-
 ══════════════════════════════════════ */
 .map-btn{
   display:flex;align-items:center;justify-content:center;gap:12px;
-  padding:18px;background:linear-gradient(45deg,#4285F4,#34A853);color:#fff;
+  padding:18px;background:linear-gradient(45deg,#4CAF50,#81C784);color:#fff;
   text-decoration:none;border-radius:30px;font-weight:700;font-size:14px;
-  box-shadow:0 5px 20px rgba(66,133,244,.4);transition:transform .2s;
+  box-shadow:0 5px 20px rgba(76,175,80,.45);transition:transform .2s;
+  border:2px solid rgba(129,199,132,.5);
 }
-.map-btn:hover{transform:translateY(-2px);}
+.map-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(76,175,80,.6);}
 
 /* ══════════════════════════════════════
    SOCIAL
@@ -437,8 +439,8 @@ body.bn .footer-addr,body.ar .footer-addr{letter-spacing:0;}
   <div style="display:flex;align-items:center;gap:8px;">
     <span class="lang-bar-brand">BLACK GOLD</span>
     <a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:2px;animation:pulseGold 2s infinite;border-radius:10px;padding:4px 8px;background:linear-gradient(135deg,rgba(52,168,83,.15),rgba(66,133,244,.15));border:1px solid rgba(66,133,244,.45);">
-      <i class="fa-solid fa-map-location-dot" style="font-size:26px;background:linear-gradient(135deg,#34A853,#4285F4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(66,133,244,.6));"></i>
-      <span style="font-size:8px;font-weight:700;letter-spacing:1px;background:linear-gradient(90deg,#34A853,#4285F4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Barlow Condensed',sans-serif;">FIND US</span>
+      <i class="fa-solid fa-map-location-dot" style="font-size:26px;background:linear-gradient(135deg,#00e676,#69f0ae);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 8px rgba(0,230,118,.7));"></i>
+      <span style="font-size:8px;font-weight:700;letter-spacing:1px;background:linear-gradient(90deg,#00e676,#69f0ae);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Barlow Condensed',sans-serif;">FIND US</span>
     </a>
   </div>
   <div class="lang-btns">
