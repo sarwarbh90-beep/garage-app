@@ -119,6 +119,7 @@ body.ar .hero-tag{letter-spacing:0;}
 }
 .ar .pulse-dot{margin-right:0;margin-left:6px;}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(76,175,80,.5);}70%{box-shadow:0 0 0 7px rgba(76,175,80,0);}100%{box-shadow:0 0 0 0 rgba(76,175,80,0);}}
+@keyframes pulseGold{0%{box-shadow:0 0 0 0 rgba(212,175,55,.6);}70%{box-shadow:0 0 0 8px rgba(212,175,55,0);}100%{box-shadow:0 0 0 0 rgba(212,175,55,0);}}
 
 /* ══════════════════════════════════════
    CARDS
@@ -433,7 +434,12 @@ body.bn .footer-addr,body.ar .footer-addr{letter-spacing:0;}
 
 <!-- ═══ LANG BAR ═══════════════════════ -->
 <div class="lang-bar">
-  <span class="lang-bar-brand">BLACK GOLD</span>
+  <a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" style="text-decoration:none;display:flex;align-items:center;gap:6px;">
+    <span class="lang-bar-brand">BLACK GOLD</span>
+    <span style="display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:linear-gradient(135deg,var(--gold),var(--amber));border-radius:50%;animation:pulseGold 2s infinite;flex-shrink:0;">
+      <i class="fa-solid fa-location-dot" style="color:#050200;font-size:13px;"></i>
+    </span>
+  </a>
   <div class="lang-btns">
     <button class="lb active" id="lb-en" onclick="setLang('en')">EN</button>
     <button class="lb" id="lb-bn" onclick="setLang('bn')">বাংলা</button>
@@ -1250,3 +1256,4 @@ function toggleChat(){const b=document.getElementById('chatBox');b.style.display
 </script>
 </body>
 </html>
+
