@@ -1,33 +1,76 @@
 <style>
-@keyframes ring {
-  0%,100% { box-shadow: 0 0 0 4px rgba(255,68,68,.25), 0 4px 18px rgba(255,68,68,.4); }
-  50%      { box-shadow: 0 0 0 10px rgba(255,68,68,0), 0 4px 24px rgba(255,68,68,.6); }
+@keyframes mapPulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.012); }
 }
-.call-highlight {
+.map-highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 14px;
+  box-shadow: 0 0 0 4px rgba(26,115,232,.2), 0 6px 20px rgba(26,115,232,.45);
+  animation: mapPulse 2s infinite;
+  margin-bottom: 10px;
+}
+.map-highlight-card .icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 26px;
+}
+.map-highlight-card .card-title {
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .5px;
+}
+.map-highlight-card .card-addr {
+  font-size: 12px;
+  opacity: .85;
+  margin-top: 3px;
+}
+.nav-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #ff4444, #cc0000);
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #34a853, #1e7e34);
   color: #fff;
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 30px;
   font-weight: 700;
-  font-size: 17px;
-  letter-spacing: 1px;
-  animation: ring 1.8s infinite;
+  font-size: 15px;
+  box-shadow: 0 0 0 4px rgba(52,168,83,.2), 0 6px 20px rgba(52,168,83,.45);
+  animation: mapPulse 2s infinite;
   margin-bottom: 10px;
   width: 100%;
   justify-content: center;
 }
 </style>
 
-<a href="tel:+97333598781" class="call-highlight">
-  📞 CALL NOW: +973 33598781
+<!-- Blue card with full address -->
+<a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" class="map-highlight-card">
+  <div class="icon-circle">📍</div>
+  <div style="flex: 1;">
+    <div class="card-title">FIND US ON GOOGLE MAPS</div>
+    <div class="card-addr">Shop 1517A, Road 427, Block 704, Salmabad, Bahrain</div>
+  </div>
+  <div style="font-size: 20px; opacity: .8;">›</div>
 </a>
 
-
+<!-- Green navigation button -->
+<a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" class="nav-btn">
+  🚗 START NAVIGATION
+</a>
 
 
 
@@ -1372,6 +1415,7 @@ function toggleChat(){const b=document.getElementById('chatBox');b.style.display
 </script>
 </body>
 </html>
+
 
 
 
