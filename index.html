@@ -53,20 +53,39 @@
   animation: mapPulse 2s infinite;
   margin-bottom: 10px;
   width: 100%;
-  justify-content: center;
 }
 </style>
 
-<!-- Blue card with full address -->
+<!-- Blue card with full address — English + Arabic -->
 <a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" class="map-highlight-card">
   <div class="icon-circle">📍</div>
   <div style="flex: 1;">
-    <div class="card-title">FIND US ON GOOGLE MAPS</div>
-    <div class="card-addr">Shop 1517A, Road 427, Block 704, Salmabad, Bahrain</div>
+    <div class="card-title t"
+         data-en="FIND US ON GOOGLE MAPS"
+         data-bn="Google Maps-এ আমাদের খুঁজুন"
+         data-ar="ابحث عنا على خرائط جوجل">
+      FIND US ON GOOGLE MAPS
+    </div>
+    <div class="card-addr t"
+         data-en="Shop 1517A, Road 427, Block 704, Salmabad, Bahrain"
+         data-bn="শপ ১৫১৭এ, রোড ৪২৭, ব্লক ৭০৪, সালমাবাদ, বাহরাইন"
+         data-ar="محل ١٥١٧أ، طريق ٤٢٧، مجمع ٧٠٤، السلماباد، البحرين">
+      Shop 1517A, Road 427, Block 704, Salmabad, Bahrain
+    </div>
   </div>
   <div style="font-size: 20px; opacity: .8;">›</div>
 </a>
 
+<!-- Green navigation button — English + Arabic -->
+<a href="https://maps.app.goo.gl/ykywYAARoWrmPU8s5" target="_blank" class="nav-btn">
+  <span style="font-size: 22px;">🚗</span>
+  <span class="t"
+        data-en="START NAVIGATION"
+        data-bn="নেভিগেশন শুরু করুন"
+        data-ar="ابدأ الملاحة">
+    START NAVIGATION
+  </span>
+</a>
 
 
 
@@ -1378,6 +1397,7 @@ function toggleChat(){const b=document.getElementById('chatBox');b.style.display
 </script>
 </body>
 </html>
+
 
 
 
